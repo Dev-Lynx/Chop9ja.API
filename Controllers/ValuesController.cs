@@ -29,7 +29,10 @@ namespace Chop9ja.API.Controllers
             
         }
 
-        // GET api/values
+        /// <summary>
+        /// Retrieve the employee by their ID.
+        /// </summary>
+        /// <returns>A string status</returns>
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {

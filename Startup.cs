@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Chop9ja.API.Controllers;
 using Chop9ja.API.Extensions;
@@ -36,6 +38,14 @@ namespace Chop9ja.API
             services.AddMvc().SetCompatibilityVersion(
                 CompatibilityVersion.Version_2_1)
                 .AddControllersAsServices();
+
+            services.AddOpenApiDocument(doc =>
+            {
+                doc.Title = Core.PRODUCT_NAME;
+                doc.DocumentName = Core.FULL_PRODUCT_NAME;
+                doc.Description = $"API Documentation for {Core.PRODUCT_NAME} Betting Insurance Platform";
+                doc.Version = "v1";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -43,14 +53,31 @@ namespace Chop9ja.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
             else
             {
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseOpenApi(config =>
+            {
+                config.Path = Core.DOCS_ROUTE + "/swagger/{documentName}/swagger.json";
+            });
+
+            app.UseSwaggerUi3(config =>
+            {
+                config.Path = $"{Core.DOCS_ROUTE}/swagger";
+                config.DocumentPath = Core.DOCS_ROUTE + "/swagger/{documentName}/swagger.json";
+            });
+
+            app.UseReDoc(config =>
+            {
+                config.Path = $"{Core.DOCS_ROUTE}/redoc";
+                config.DocumentPath = Core.DOCS_ROUTE + $"/swagger/{Core.FULL_PRODUCT_NAME}/swagger.json";
+            });
         }
 
         public void ConfigureContainer(IUnityContainer container)

@@ -21,9 +21,11 @@ namespace Chop9ja.API
         #region Solids
 
         #region Names
-        static string PRODUCT_NAME = "Chop9ja API";
-        static string AUTHOR = "Prince Owen";
-        static string COMPANY = "Dev-Lynx Technologies";
+        public static string PRODUCT_NAME = "Chop9ja API";
+        public static string PRODUCT_VERSION = "v1.0";
+        public static string FULL_PRODUCT_NAME => $"{Core.PRODUCT_NAME} {Core.PRODUCT_VERSION}";
+        public static string AUTHOR = "Prince Owen";
+        public static string COMPANY = "Dev-Lynx Technologies";
         public const string CONSOLE_LOG_NAME = "console-debugger";
         public const string LOG_LAYOUT = "${longdate}|${uppercase:${level}}| ${message} ${exception:format=tostring";
         public const string FULL_LOG_LAYOUT = "${longdate} | ${logger}\n${message} ${exception:format=tostring}\n";
@@ -42,6 +44,10 @@ namespace Chop9ja.API
         #region Paths
         public static string RUNTIME_LOG_PATH => Path.Combine(LOG_DIR, RUNTIME_LOG_NAME + ".log");
         public static string ERROR_LOG_PATH => Path.Combine(LOG_DIR, ERROR_LOG_NAME + ".log");
+        #endregion
+
+        #region Routes
+        public const string DOCS_ROUTE = "/api/docs";
         #endregion
 
         #endregion
