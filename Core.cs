@@ -1,4 +1,8 @@
-﻿using FluentScheduler;
+﻿using Chop9ja.API.Data;
+using Chop9ja.API.Models.Entities;
+using FluentScheduler;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using NLog;
 using NLog.Conditions;
 using NLog.Config;
@@ -10,6 +14,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity;
 
 namespace Chop9ja.API
 {
@@ -18,6 +23,8 @@ namespace Chop9ja.API
         #region Properties
         public static Logger Log { get; } = LogManager.GetCurrentClassLogger();
         public static string[] StartupArguments { get; set; } = new string[0];
+        public static IUnityContainer Container { get; private set; }
+
         #region Solids
 
         #region Names
@@ -31,6 +38,7 @@ namespace Chop9ja.API
         public const string FULL_LOG_LAYOUT = "${longdate} | ${logger}\n${message} ${exception:format=tostring}\n";
         public static readonly string ERROR_LOG_NAME = $"Errors_{DateTime.Now.ToString("MM-yyyy")}";
         public static readonly string RUNTIME_LOG_NAME = $"Runtime_{DateTime.Now.ToString("MM-yyyy")}";
+        public const string REGION = "NG";
         #endregion
 
         #region Directories
@@ -48,6 +56,17 @@ namespace Chop9ja.API
 
         #region Routes
         public const string DOCS_ROUTE = "/api/docs";
+        #endregion
+
+        #region JWT Claim Identifiers
+        public const string JWT_CLAIM_ID = "id";
+        public const string JWT_CLAIM_ROL = "rol";
+        public const string JWT_CLAIM_VERIFIED = "ver";
+        #endregion
+
+        #region JWT Claims
+        public const string JWT_CLAIM_API_USER = "api_user";
+        public const string JWT_CLAIM_API_ACCESS = "api_access";
         #endregion
 
         #endregion
@@ -163,6 +182,45 @@ namespace Chop9ja.API
                 Core.Log.Debug("*** Monthly Session Ended ***");
                 ConfigureLogger();
             }, s => s.ToRunOnceAt(nextMonth));
+        }
+
+        public static void ConfigureCoreServices(IUnityContainer container)
+        {
+            Container = container;
+        }
+
+        public static Task Initialize()
+        {
+            InitializeData().Wait();
+
+            if (StartupArguments.Length > 0)
+                if (StartupArguments[0] == "--seed")
+                    SeedUsers().Wait();
+
+            Core.Log.Debug($"{PRODUCT_NAME} has successfully been initialized.");
+            return Task.CompletedTask;
+        }
+
+        static async Task InitializeData()
+        {
+            var roleManager = Container.Resolve<RoleManager<IdentityRole>>();
+            var userManager = Container.Resolve<UserManager<User>>();
+            var dataContext = Container.Resolve<UserDataContext>();
+
+            string[] roles = Enum.GetValues(typeof(UserRole)).
+                OfType<UserRole>().Select(u => u.ToString()).ToArray();
+
+            foreach (var role in roles)
+            {
+                if (await roleManager.RoleExistsAsync(role)) continue;
+                await roleManager.CreateAsync(new IdentityRole(role));
+                await dataContext.SaveChangesAsync();
+            }
+        }
+
+        public static Task SeedUsers()
+        {
+            return Task.CompletedTask;
         }
 
         #endregion
