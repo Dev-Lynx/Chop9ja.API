@@ -79,17 +79,16 @@ namespace Chop9ja.API
                 doc.Description = $"API Documentation for {Core.PRODUCT_NAME} Betting Insurance Platform";
                 doc.Version = "v1";
 
+                doc.AddSecurity("JWT", Enumerable.Empty<string>(), new SwaggerSecurityScheme
+                {
+                    Type = SwaggerSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = SwaggerSecurityApiKeyLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}."
+                });
 
-                doc.OperationProcessors.Add(new OperationSecurityScopeProcessor("JWT"));
-                doc.AddSecurity("JWT", new List<string>() { "/api/Auth" },
-                    new SwaggerSecurityScheme()
-                    {
-                        Type = SwaggerSecuritySchemeType.ApiKey,
-                        Name = "Authorization",
-                        In = SwaggerSecurityApiKeyLocation.Header,
-                        Description = "Copy this into the value field: \nBearer {my long token}",
-                    }
-                );
+                doc.OperationProcessors.Add(
+                    new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
         }
 
