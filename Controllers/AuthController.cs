@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCore.Identity.MongoDbCore.Infrastructure;
+using AutoMapper;
 using Chop9ja.API.Data;
 using Chop9ja.API.Extensions;
 using Chop9ja.API.Extensions.RedocExtensions;
@@ -40,7 +41,10 @@ namespace Chop9ja.API.Controllers
         IAuthService Auth { get; }
 
         [DeepDependency]
-        UserDataContext DataContext { get; }
+        MongoDataContext DataContext { get; }
+
+        [DeepDependency]
+        IMongoRepository DataStore { get; }
 
         [DeepDependency]
         UserManager<User> UserManager { get; }
@@ -86,12 +90,11 @@ namespace Chop9ja.API.Controllers
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
-            result = await UserManager.AddToRoleAsync(user, UserRole.RegularUser.ToString());
+            result = await UserManager.AddToRoleAsync(user, UserRoles.RegularUser.ToString());
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
             result = await UserManager.AddPasswordAsync(user, model.Password);
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
-
 
             return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
         }
@@ -140,7 +143,7 @@ namespace Chop9ja.API.Controllers
         {
             string id = User.FindFirst("id").Value;
             User user = await UserManager.FindByIdAsync(id);
-
+            
             if (user == null) return Unauthorized();
 
             OneTimePassword password = await Auth.GenerateOneTimePassword(user, OnePasswordType.Email);
@@ -158,7 +161,7 @@ namespace Chop9ja.API.Controllers
                 Logger.LogError(ex, "An error occured while formatting input body.\n{0}", body);
                 return BadRequest("The format of the email body is invalid.");
             }
-
+            
             await EmailService.SendEmailAsync(user.Email.ToLower(), model.Subject, body);
 
             return Ok(pvm);

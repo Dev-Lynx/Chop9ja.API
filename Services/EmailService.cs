@@ -56,9 +56,10 @@ namespace Chop9ja.API.Services
                 message.From.Add(from);
                 message.To.Add(to);
                 message.Body = new TextPart(TextFormat.Html) { Text = msg };
+                message.ReplyTo.Add(from);
 
                 var cred = await GetCredentials();
-
+                
                 using (SmtpClient client = new SmtpClient())
                 {
                     await client.ConnectAsync(Settings.Domain, Settings.Port, 
@@ -107,6 +108,16 @@ namespace Chop9ja.API.Services
                 Logger.LogError(ex, "An error occured while aquiring google credentials.");
                 return null;
             }
+        }
+
+        static string Encode(string text)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
+
+            return System.Convert.ToBase64String(bytes)
+                .Replace('+', '-')
+                .Replace('/', '_')
+                .Replace("=", "");
         }
 
         #endregion

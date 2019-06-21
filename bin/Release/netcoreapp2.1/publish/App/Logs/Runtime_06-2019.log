@@ -1,0 +1,199 @@
+2019-06-10 19:23:08.4044|INFO| 
+
+ 
+2019-06-10 19:23:09.3335|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-10 19:26:37.1471|INFO| 
+
+ 
+2019-06-10 19:26:37.2307|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-10 19:26:48.1425|DEBUG| Hosting starting 
+2019-06-10 19:26:48.6405|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-06-10 19:26:48.6645|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-06-10 19:26:48.7548|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-06-10 19:26:48.8799|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-06-10 19:26:48.8799|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-06-10 19:26:48.8996|DEBUG| Considering key {18916efd-b695-4d36-b241-b546bb59b759} with expiration date 2019-07-05 14:21:07Z as default key. 
+2019-06-10 19:26:48.9207|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-10 19:26:48.9237|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-06-10 19:26:48.9237|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-10 19:26:48.9237|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-06-10 19:26:48.9402|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-06-10 19:26:49.0081|DEBUG| Using key {18916efd-b695-4d36-b241-b546bb59b759} as the default key. 
+2019-06-10 19:26:49.0081|DEBUG| Key ring with default key {18916efd-b695-4d36-b241-b546bb59b759} was loaded during application startup. 
+2019-06-10 19:26:49.1974|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.2472|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.2525|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.2525|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.2525|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_1 
+2019-06-10 19:26:49.2525|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.3235|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.3235|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.5196|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_1 
+2019-06-10 19:26:49.5807|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-06-10 19:26:50.4785|INFO| 19:26:50.4784 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.4785|INFO| 19:26:50.4807 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.4785|INFO| 19:26:50.4827 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.5347|INFO| 19:26:50.5346 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.5347|INFO| 19:26:50.5371 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.5347|INFO| 19:26:50.5402 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.5347|INFO| 19:26:50.5423 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.5347|INFO| 19:26:50.5442 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.6526|INFO| 19:26:50.6526 [COMMAND] query documents in 'roles' => (NormalizedName = "REGULARUSER") 
+2019-06-10 19:26:50.6526|INFO| 19:26:50.6526 [COMMAND] query documents in 'roles' => (NormalizedName = "REGULARUSER") 
+2019-06-10 19:26:50.6596|INFO| 19:26:50.6596 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.6596|INFO| 19:26:50.6596 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.6596|INFO| 19:26:50.6637 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.6745|INFO| 19:26:50.6637 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.6930|INFO| 19:26:50.6930 [COMMAND] query documents in 'roles' => (NormalizedName = "REGULARUSER") 
+2019-06-10 19:26:50.6930|INFO| 19:26:50.6930 [COMMAND] query documents in 'roles' => (NormalizedName = "REGULARUSER") 
+2019-06-10 19:26:50.6930|INFO| 19:26:50.6985 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.7074|INFO| 19:26:50.6985 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:50.7462|INFO| 19:26:50.7462 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.7631|INFO| 19:26:50.7462 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:50.8311|INFO| 19:26:50.8311 [LOCK] entered in write lock mode in thread #1 
+2019-06-10 19:26:50.8311|INFO| 19:26:50.8311 [LOCK] entered in write lock mode in thread #1 
+2019-06-10 19:26:50.8311|INFO| 19:26:50.8415 [COMMAND] create new collection 'roles' 
+2019-06-10 19:26:50.8506|INFO| 19:26:50.8415 [COMMAND] create new collection 'roles' 
+2019-06-10 19:26:50.8608|INFO| 19:26:50.8608 [COMMAND] creating new collection 'roles' 
+2019-06-10 19:26:50.8608|INFO| 19:26:50.8608 [COMMAND] creating new collection 'roles' 
+2019-06-10 19:26:50.9187|INFO| 19:26:50.9187 [COMMAND] insert document on 'roles' :: _id = 5cfea0ea525da103e8013c1d 
+2019-06-10 19:26:50.9187|INFO| 19:26:50.9187 [COMMAND] insert document on 'roles' :: _id = 5cfea0ea525da103e8013c1d 
+2019-06-10 19:26:50.9514|INFO| 19:26:50.9513 [DISK] begin disk operations - changeID: 1 
+2019-06-10 19:26:50.9553|INFO| 19:26:50.9513 [DISK] begin disk operations - changeID: 1 
+2019-06-10 19:26:50.9553|INFO| 19:26:50.9633 [JOURNAL] extend datafile to journal - 1 pages 
+2019-06-10 19:26:50.9728|INFO| 19:26:50.9633 [JOURNAL] extend datafile to journal - 1 pages 
+2019-06-10 19:26:50.9728|INFO| 19:26:50.9763 [JOURNAL] write page #0000 :: Header 
+2019-06-10 19:26:50.9728|INFO| 19:26:50.9763 [JOURNAL] write page #0000 :: Header 
+2019-06-10 19:26:50.9728|INFO| 19:26:50.9815 [JOURNAL] flush journal to disk 
+2019-06-10 19:26:50.9845|INFO| 19:26:50.9815 [JOURNAL] flush journal to disk 
+2019-06-10 19:26:50.9845|INFO| 19:26:50.9865 [DISK] flush data from memory to disk 
+2019-06-10 19:26:50.9845|INFO| 19:26:50.9865 [DISK] flush data from memory to disk 
+2019-06-10 19:26:50.9845|INFO| 19:26:50.9911 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:50.9845|INFO| 19:26:50.9911 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.0011|INFO| 19:26:51.0011 [DISK] write page #0002 :: Collection 
+2019-06-10 19:26:51.0011|INFO| 19:26:51.0011 [DISK] write page #0002 :: Collection 
+2019-06-10 19:26:51.0011|INFO| 19:26:51.0130 [DISK] write page #0003 :: Index 
+2019-06-10 19:26:51.0011|INFO| 19:26:51.0130 [DISK] write page #0003 :: Index 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0192 [DISK] write page #0004 :: Data 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0192 [DISK] write page #0004 :: Data 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0222 [DISK] re-write header page now with recovery = false 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0222 [DISK] re-write header page now with recovery = false 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0250 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0250 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.0192|INFO| 19:26:51.0287 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.0301|INFO| 19:26:51.0287 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.0301|INFO| 19:26:51.0365 [JOURNAL] shrink datafile to remove journal area 
+2019-06-10 19:26:51.0301|INFO| 19:26:51.0365 [JOURNAL] shrink datafile to remove journal area 
+2019-06-10 19:26:51.0301|INFO| 19:26:51.0420 [LOCK] exited write lock mode in thread #1 
+2019-06-10 19:26:51.0301|INFO| 19:26:51.0420 [LOCK] exited write lock mode in thread #1 
+2019-06-10 19:26:51.0528|INFO| 19:26:51.0527 [COMMAND] query documents in 'roles' => (NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.0528|INFO| 19:26:51.0527 [COMMAND] query documents in 'roles' => (NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.0528|INFO| 19:26:51.0569 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:51.0528|INFO| 19:26:51.0569 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:51.0912|INFO| 19:26:51.0911 [QUERY] roles :: Filter($.NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.0934|INFO| 19:26:51.0911 [QUERY] roles :: Filter($.NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.1095|INFO| 19:26:51.1095 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:51.1095|INFO| 19:26:51.1095 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:51.1095|INFO| 19:26:51.1192 [COMMAND] query documents in 'roles' => (NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.1095|INFO| 19:26:51.1192 [COMMAND] query documents in 'roles' => (NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.1095|INFO| 19:26:51.1231 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1231 [LOCK] entered in read lock mode in thread #0 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1268 [QUERY] roles :: Filter($.NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1268 [QUERY] roles :: Filter($.NormalizedName = "ADMINISTRATOR") 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1299 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1299 [LOCK] exited read lock mode in thread #0 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1381 [LOCK] entered in write lock mode in thread #2 
+2019-06-10 19:26:51.1247|INFO| 19:26:51.1381 [LOCK] entered in write lock mode in thread #2 
+2019-06-10 19:26:51.1429|INFO| 19:26:51.1428 [COMMAND] insert document on 'roles' :: _id = 5cfea0eb525da103e8013c1e 
+2019-06-10 19:26:51.1429|INFO| 19:26:51.1428 [COMMAND] insert document on 'roles' :: _id = 5cfea0eb525da103e8013c1e 
+2019-06-10 19:26:51.1429|INFO| 19:26:51.1477 [DISK] begin disk operations - changeID: 2 
+2019-06-10 19:26:51.1429|INFO| 19:26:51.1477 [DISK] begin disk operations - changeID: 2 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1568 [JOURNAL] extend datafile to journal - 4 pages 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1568 [JOURNAL] extend datafile to journal - 4 pages 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1612 [JOURNAL] write page #0004 :: Data 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1612 [JOURNAL] write page #0004 :: Data 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1661 [JOURNAL] write page #0003 :: Index 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1661 [JOURNAL] write page #0003 :: Index 
+2019-06-10 19:26:51.1568|INFO| 19:26:51.1700 [JOURNAL] write page #0002 :: Collection 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1700 [JOURNAL] write page #0002 :: Collection 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1731 [JOURNAL] write page #0000 :: Header 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1731 [JOURNAL] write page #0000 :: Header 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1763 [JOURNAL] flush journal to disk 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1763 [JOURNAL] flush journal to disk 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1812 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1812 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.1714|INFO| 19:26:51.1856 [DISK] write page #0002 :: Collection 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1856 [DISK] write page #0002 :: Collection 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1917 [DISK] write page #0004 :: Data 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1917 [DISK] write page #0004 :: Data 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1949 [DISK] write page #0003 :: Index 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1949 [DISK] write page #0003 :: Index 
+2019-06-10 19:26:51.1895|INFO| 19:26:51.1985 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.1985 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2064 [DISK] re-write header page now with recovery = false 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2064 [DISK] re-write header page now with recovery = false 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2092 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2092 [DISK] write page #0000 :: Header 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2121 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2121 [DISK] flush data from memory to disk 
+2019-06-10 19:26:51.2045|INFO| 19:26:51.2160 [JOURNAL] shrink datafile to remove journal area 
+2019-06-10 19:26:51.2197|INFO| 19:26:51.2160 [JOURNAL] shrink datafile to remove journal area 
+2019-06-10 19:26:51.2197|INFO| 19:26:51.2222 [LOCK] exited write lock mode in thread #2 
+2019-06-10 19:26:51.2197|INFO| 19:26:51.2222 [LOCK] exited write lock mode in thread #2 
+2019-06-10 19:26:51.2197|DEBUG| Chop9ja API has successfully been initialized. 
+2019-06-10 19:26:51.3268|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-06-10 19:26:52.0541|DEBUG| Using development certificate: CN=localhost (Thumbprint: 4B845F03251A4DEAA09BCDC8D71B07E89C2A21D6) 
+2019-06-10 19:26:52.0697|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-06-10 19:26:52.0697|DEBUG| Hosting started 
+2019-06-10 19:26:52.0784|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-06-10 19:27:36.4654|DEBUG| Connection id "0HLNDQ57SEF4H" started. 
+2019-06-10 19:27:36.8104|DEBUG| Connection id "0HLNDQ57SEF4I" started. 
+2019-06-10 19:27:38.8560|INFO| Request starting HTTP/1.1 GET http://localhost:5000/api/docs/redoc   
+2019-06-10 19:27:38.8623|DEBUG| Wildcard detected, all requests with hosts will be allowed. 
+2019-06-10 19:27:38.8623|TRACE| All hosts are allowed. 
+2019-06-10 19:27:39.5424|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-06-10 19:27:39.9881|DEBUG| Request did not match any routes. 
+2019-06-10 19:27:40.0583|DEBUG| The request path  does not match the path filter 
+2019-06-10 19:27:40.1071|DEBUG| Connection id "0HLNDQ57SEF4I" completed keep alive response. 
+2019-06-10 19:27:40.1174|INFO| Request finished in 1261.6817ms 302  
+2019-06-10 19:27:40.1780|INFO| Request starting HTTP/1.1 GET http://localhost:5000/api/docs/redoc/index.html?url=/api/docs/swagger/Chop9ja%20API%20v0-1/swagger.json   
+2019-06-10 19:27:40.1780|TRACE| All hosts are allowed. 
+2019-06-10 19:27:40.1780|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-06-10 19:27:40.1780|DEBUG| Request did not match any routes. 
+2019-06-10 19:27:40.1877|DEBUG| The request path  does not match the path filter 
+2019-06-10 19:27:40.2322|DEBUG| Connection id "0HLNDQ57SEF4I" completed keep alive response. 
+2019-06-10 19:27:40.2369|INFO| Request finished in 58.9133ms 200 text/html; charset=utf-8 
+2019-06-10 19:27:41.9276|DEBUG| Connection id "0HLNDQ57SEF4H" received FIN. 
+2019-06-10 19:27:41.9276|DEBUG| Connection id "0HLNDQ57SEF4I" received FIN. 
+2019-06-10 19:27:41.9375|DEBUG| Connection id "0HLNDQ57SEF4H" disconnecting. 
+2019-06-10 19:27:41.9375|DEBUG| Connection id "0HLNDQ57SEF4I" disconnecting. 
+2019-06-10 19:27:41.9375|DEBUG| Connection id "0HLNDQ57SEF4I" sending FIN. 
+2019-06-10 19:27:41.9375|DEBUG| Connection id "0HLNDQ57SEF4H" sending FIN. 
+2019-06-10 19:27:41.9631|DEBUG| Connection id "0HLNDQ57SEF4H" stopped. 
+2019-06-10 19:27:41.9631|DEBUG| Connection id "0HLNDQ57SEF4I" stopped. 
+2019-06-10 19:27:42.7904|DEBUG| Connection id "0HLNDQ57SEF4J" started. 
+2019-06-10 19:27:42.8204|INFO| Request starting HTTP/1.1 GET http://localhost:5000/api/docs/swagger/Chop9ja API v0-1/swagger.json   
+2019-06-10 19:27:42.8204|TRACE| All hosts are allowed. 
+2019-06-10 19:27:42.8204|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-06-10 19:27:42.8466|DEBUG| Request did not match any routes. 
+2019-06-10 19:27:48.5104|DEBUG| Connection id "0HLNDQ57SEF4J" completed keep alive response. 
+2019-06-10 19:27:48.5187|INFO| Request finished in 5698.2928ms 200 application/json; charset=utf-8 
+2019-06-10 19:27:51.9286|DEBUG| Connection id "0HLNDQ57SEF4J" received FIN. 
+2019-06-10 19:27:51.9286|DEBUG| Connection id "0HLNDQ57SEF4J" disconnecting. 
+2019-06-10 19:27:51.9286|DEBUG| Connection id "0HLNDQ57SEF4J" sending FIN. 
+2019-06-10 19:27:51.9286|DEBUG| Connection id "0HLNDQ57SEF4J" stopped. 
+2019-06-10 19:28:05.2268|DEBUG| Hosting shutdown 

@@ -9,8 +9,6 @@ namespace Chop9ja.API.Models.ViewModels
     public class UserViewModel
     {
         [Required]
-        public string Id { get; set; }
-        [Required]
         public string Username { get; set; }
         [Required]
         public string FirstName { get; set; }

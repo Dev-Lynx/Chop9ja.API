@@ -85,7 +85,5 @@ namespace Chop9ja.API.Extensions.UnityExtensions
 
         public static void RegisterScoped<T>(this IUnityContainer container)
             => container.RegisterType<T>(new HierarchicalLifetimeManager());
-
-
     }
 }

@@ -1,4 +1,6 @@
-﻿using Chop9ja.API.Data;
+﻿using AspNetCore.Identity.MongoDbCore.Infrastructure;
+using AspNetCore.Identity.MongoDbCore.Models;
+using Chop9ja.API.Data;
 using Chop9ja.API.Models.Entities;
 using FluentScheduler;
 using Microsoft.AspNetCore.Identity;
@@ -24,12 +26,15 @@ namespace Chop9ja.API
         public static Logger Log { get; } = LogManager.GetCurrentClassLogger();
         public static string[] StartupArguments { get; set; } = new string[0];
         public static IUnityContainer Container { get; private set; }
+        public static IServiceProvider ServiceProvider { get; private set; }
+        public static MongoDataContext DataContext => MongoDataContext.Current;
+        public static IMongoRepository DataStore => MongoDataContext.Current.Store;
 
         #region Solids
 
         #region Names
         public static string PRODUCT_NAME = "Chop9ja API";
-        public static string PRODUCT_VERSION = "v1.0";
+        public static string PRODUCT_VERSION = "v0-1";
         public static string FULL_PRODUCT_NAME => $"{Core.PRODUCT_NAME} {Core.PRODUCT_VERSION}";
         public static string AUTHOR = "Prince Owen";
         public static string COMPANY = "Dev-Lynx Technologies";
@@ -39,11 +44,12 @@ namespace Chop9ja.API
         public static readonly string ERROR_LOG_NAME = $"Errors_{DateTime.Now.ToString("MM-yyyy")}";
         public static readonly string RUNTIME_LOG_NAME = $"Runtime_{DateTime.Now.ToString("MM-yyyy")}";
         public const string REGION = "NG";
+        public const string SQL_SERVER_CONNECTION_STRING = "Server=(localdb)\\MSSQLLocalDB;Integrated Security=true;AttachDbFilename=|DataDirectory|\\Identity.mdf;Initial Catalog=Chop9ja";
         #endregion
 
         #region Directories
         public static readonly string BASE_DIR = Directory.GetCurrentDirectory();
-        public static readonly string WORK_DIR = Path.Combine(BASE_DIR, "ApplicationBase");
+        public static readonly string WORK_DIR = Path.Combine(BASE_DIR, "App");
         public static readonly string DATA_DIR = Path.Combine(WORK_DIR, "Data");
         public static readonly string INDEX_DIR = Path.Combine(WORK_DIR, "Indexes");
         public readonly static string LOG_DIR = Path.Combine(WORK_DIR, "Logs");
@@ -170,6 +176,19 @@ namespace Chop9ja.API
             config.LoggingRules.Add(runtimeRule);
 
 
+            var stackDriverTarget = new Google.Cloud.Logging.NLog.GoogleStackdriverTarget()
+            {
+                Name = "Google StackDriver Logger",
+                Layout = Core.LOG_LAYOUT,
+                ProjectId = "chop9ja", 
+                CredentialFile = Path.Combine(BASE_DIR, "credentials.json")
+            };
+
+            config.AddTarget(stackDriverTarget);
+            var stackDriverRule = new LoggingRule("*", LogLevel.Trace, stackDriverTarget);
+            config.LoggingRules.Add(stackDriverRule);
+
+
             LogManager.Configuration = config;
 
             LogManager.ReconfigExistingLoggers();
@@ -184,10 +203,18 @@ namespace Chop9ja.API
             }, s => s.ToRunOnceAt(nextMonth));
         }
 
+        public static void RegisterServiceProvider(IServiceProvider serviceProvider)
+        {
+            ServiceProvider = serviceProvider;
+            Core.Log.Debug("Successfully registered the service provider");
+        }
+
         public static void ConfigureCoreServices(IUnityContainer container)
         {
             Container = container;
         }
+
+
 
         public static Task Initialize()
         {
@@ -203,18 +230,19 @@ namespace Chop9ja.API
 
         static async Task InitializeData()
         {
-            var roleManager = Container.Resolve<RoleManager<IdentityRole>>();
+            var roleManager = Container.Resolve<RoleManager<UserRole>>();
             var userManager = Container.Resolve<UserManager<User>>();
-            var dataContext = Container.Resolve<UserDataContext>();
+            var dataContext = Container.Resolve<MongoDataContext>();
 
-            string[] roles = Enum.GetValues(typeof(UserRole)).
-                OfType<UserRole>().Select(u => u.ToString()).ToArray();
+            string[] roles = Enum.GetValues(typeof(UserRoles)).
+                OfType<UserRoles>().Select(u => u.ToString()).ToArray();
 
             foreach (var role in roles)
             {
                 if (await roleManager.RoleExistsAsync(role)) continue;
-                await roleManager.CreateAsync(new IdentityRole(role));
-                await dataContext.SaveChangesAsync();
+                await roleManager.CreateAsync(new UserRole(role));
+
+                //await dataContext.SaveChangesAsync();
             }
         }
 

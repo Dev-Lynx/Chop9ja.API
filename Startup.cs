@@ -35,7 +35,20 @@ using NSwag.SwaggerGeneration.Processors.Security;
 using PhoneNumbers;
 using Chop9ja.API.Models.Mapping;
 using Chop9ja.API.Extensions.RedocExtensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Blueshift.Identity.MongoDB;
+using MongoDB.Driver;
+using Blueshift.EntityFrameworkCore.MongoDB.Infrastructure;
+using Blueshift.EntityFrameworkCore.MongoDB.DependencyInjection;
+using AspNetCore.Identity.Mongo;
+using AspNetCore.Identity.Mongo.Model;
+using MongoStores = AspNetCore.Identity.Mongo.Stores;
+using Google.Cloud.Diagnostics.AspNetCore;
+using Chop9ja.API.Services.Mail;
+using AspNetCore.Identity.MongoDbCore.Models;
+using AspNetCore.Identity.MongoDbCore;
 
+// July 22nd, 1998
 namespace Chop9ja.API
 {
     public class Startup
@@ -44,6 +57,10 @@ namespace Chop9ja.API
 
         #region Internals
         IConfiguration Configuration { get; }
+        IServiceCollection ServiceCollection { get; set; }
+        string ConnectionString => Configuration.GetConnectionString("MongoDBAtlasConnection");
+        JwtIssuerOptions JwtIssuerOptions { get; set; }
+
         #endregion
 
         #endregion
@@ -60,18 +77,20 @@ namespace Chop9ja.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(
-                CompatibilityVersion.Version_2_1)
+                CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
 
             services.AddAutoMapper(config => config.AddProfile<ViewModelToEntityProfile>(), Assembly.GetCallingAssembly());
-
-            services.AddDbContext<UserDataContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-                .Replace("|DataDirectory|", Core.DATA_DIR)));
+            //services.AddDbContext<UserDataContext>(opt => opt.UseMongoDb(new MongoUrl(ConnectionString)));
 
             ConfigureOptions(services);
             ConfigureAuthentication(services);
 
+            EmailSettings emailSettings = Configuration.GetSection(EmailSettings.ConfigKey).Get<EmailSettings>();
+            services.AddFluentEmail(emailSettings.EmailAddress)
+                .AddMailGunSender(emailSettings.Domain, emailSettings.ClientSecret);
+
+            
             services.AddOpenApiDocument(doc =>
             {
                 doc.Title = Core.PRODUCT_NAME;
@@ -90,14 +109,17 @@ namespace Chop9ja.API
                 doc.OperationProcessors.Add(
                     new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
+
+
+            ServiceCollection = services;
+            Core.RegisterServiceProvider(services.BuildServiceProvider());
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
             }
             else
             {
@@ -106,15 +128,18 @@ namespace Chop9ja.API
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
-            app.UseMvc();
             
 
             ConfigureDocumentation(app);
             Core.Initialize();
+
+            app.ConfigureExceptionHandler(loggerFactory);
+            app.UseMvc();
         }
 
         public void ConfigureContainer(IUnityContainer container)
         {
+            container.AddNewExtension<UnityFallbackProviderExtension>();
             container.AddNewExtension<AutomaticBuildExtension>();
             container.AddNewExtension<DeepDependencyExtension>();
             container.AddNewExtension<DeepMethodExtension>();
@@ -122,15 +147,24 @@ namespace Chop9ja.API
             container.RegisterInstance(new LoggerFactory().AddNLog());
             container.RegisterSingleton(typeof(ILogger<>), typeof(LoggingAdapter<>));
 
-            container.RegisterTransient<UserDataContext>();
+
+            container.RegisterType<IUserStore<User>, MongoUserStore<User, UserRole, MongoDataContext, Guid>>();
+            container.RegisterType<IRoleStore<UserRole>, MongoRoleStore<UserRole, MongoDataContext, Guid>>();
+            //container.RegisterType<IUserStore<User>, MongoStores.UserStore<User, UserRole>>();
+            //container.RegisterType<IRoleStore<UserRole>, MongoStores.RoleStore<UserRole>>();
+
+            //container.RegisterTransient<UserDataContext>();
+
+            container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, "__identities"));
 
             container.RegisterControllers();
 
             Core.ConfigureCoreServices(container);
 
+            
             container.RegisterScoped<IAuthService, AuthService>();
             container.RegisterScoped<IJwtFactory, JwtFactory>();
-            container.RegisterScoped<IEmailService, EmailService>();
+            container.RegisterScoped<IEmailService, GoogleMailService>();
             container.RegisterScoped<ISmsService, SmsService>();
             container.RegisterFactory<PhoneNumberUtil>(c => PhoneNumberUtil.GetInstance());
         }
@@ -162,24 +196,27 @@ namespace Chop9ja.API
         {
             services.AddOptions();
 
+            var auth = Configuration.GetSection(AuthSettings.ConfigKey).Get<AuthSettings>();
+            byte[] bytes = Encoding.ASCII.GetBytes(auth.Key);
+
+            services.AddScoped<ITokenGenerator, TokenGenerator>(s => new TokenGenerator(bytes));
+
             services.Configure<EmailSettings>(Configuration.GetSection(EmailSettings.ConfigKey));
             services.Configure<SMSOptions>(Configuration.GetSection(SMSOptions.ConfigKey));
             services.Configure<AuthSettings>(Configuration.GetSection(AuthSettings.ConfigKey));
 
             services.Configure<JwtIssuerOptions>(opt =>
             {
-                var options = Configuration.GetSection(JwtIssuerOptions.ConfigKey)
-                    .Get<JwtIssuerOptions>();
-                var auth = Configuration.GetSection(AuthSettings.ConfigKey)
-                    .Get<AuthSettings>();
-
-                byte[] bytes = Encoding.ASCII.GetBytes(auth.Key);
                 SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
+                JwtIssuerOptions = Configuration.GetSection(JwtIssuerOptions.ConfigKey)
+                    .Get<JwtIssuerOptions>();
+                JwtIssuerOptions.SigningCredentials = new SigningCredentials(key, 
+                    SecurityAlgorithms.HmacSha512Signature);
 
+                var options = JwtIssuerOptions;
                 opt.Audience = options.Audience;
                 opt.Issuer = options.Issuer;
-                opt.SigningCredentials = new SigningCredentials(key,
-                    SecurityAlgorithms.HmacSha512Signature);
+                opt.SigningCredentials = JwtIssuerOptions.SigningCredentials;
                 opt.Subject = opt.Subject;
             });
 
@@ -190,14 +227,43 @@ namespace Chop9ja.API
         {
             services.AddCors();
 
-            services.AddIdentity<User, IdentityRole>(u =>
+            /*
+            services.AddIdentity<User, UserRole>(opt =>
             {
-                u.Password.RequireDigit = true;
-                u.Password.RequireLowercase = true;
-                u.Password.RequireUppercase = true;
-                u.Password.RequiredLength = 8;
-                u.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<UserDataContext>().AddDefaultTokenProviders();
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequiredLength = 8;
+                opt.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkMongoDbStores<UserDataContext>()
+            .AddDefaultTokenProviders();
+            services.AddEntityFrameworkMongoDb();
+
+            services.AddIdentityMongoDbProvider<User, UserRole>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequiredLength = 8;
+                opt.User.RequireUniqueEmail = true;
+            }, mongoIdentityOptions => {
+                mongoIdentityOptions.ConnectionString = ConnectionString;
+            });
+            */
+
+            services.AddIdentity<User, UserRole>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequiredLength = 8;
+                opt.User.RequireUniqueEmail = true;
+            })
+            .AddMongoDbStores<User, UserRole, Guid>(new MongoDataContext(ConnectionString, "__identities"))
+            .AddDefaultTokenProviders();
+
+            // services.AddTransient(s => new MongoDataContext(ConnectionString, "__identities"));
 
             services.AddAuthentication(options =>
             {
@@ -206,8 +272,11 @@ namespace Chop9ja.API
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(configureOptions =>
             {
-                var options = services.BuildServiceProvider().
-                    GetService<IOptions<JwtIssuerOptions>>().Value;
+                var options = Configuration.GetSection(JwtIssuerOptions.ConfigKey).Get<JwtIssuerOptions>();
+                var auth = Configuration.GetSection(AuthSettings.ConfigKey)
+                 .Get<AuthSettings>();
+                byte[] bytes = Encoding.ASCII.GetBytes(auth.Key);
+                SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
 
                 configureOptions.ClaimsIssuer = options.Issuer;
                 configureOptions.TokenValidationParameters = new TokenValidationParameters
@@ -219,7 +288,7 @@ namespace Chop9ja.API
                     ValidAudience = options.Audience,
 
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = options.SigningCredentials.Key,
+                    IssuerSigningKey = key,
 
                     RequireExpirationTime = false,
                     ValidateLifetime = true,
@@ -230,8 +299,8 @@ namespace Chop9ja.API
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("ApiUser", config => config.RequireRole(Enum.GetValues(typeof(UserRole)).
-                    OfType<UserRole>().Select(u => u.ToString()).ToArray()));
+                options.AddPolicy("ApiUser", config => config.RequireRole(Enum.GetValues(typeof(UserRoles)).
+                    OfType<UserRoles>().Select(u => u.ToString()).ToArray()));
                 //options.AddPolicy("ApiUser", policy => policy.RequireClaim(Core.JWT_CLAIM_ROL, UserRole.RegularUser.ToString()));
             });
 

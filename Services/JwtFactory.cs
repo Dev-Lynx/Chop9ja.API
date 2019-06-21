@@ -35,9 +35,9 @@ namespace Chop9ja.API.Services
         {
             string role = (await UserManager.GetRolesAsync(user)).FirstOrDefault();
 
-            var identity = new ClaimsIdentity(new GenericIdentity(user.Id, "Token"), new[]
+            var identity = new ClaimsIdentity(new GenericIdentity(user.Id.ToString(), "Token"), new[]
             {
-                new Claim(Core.JWT_CLAIM_ID, user.Id),
+                new Claim(Core.JWT_CLAIM_ID, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, await Options.JtiGenerator()),
                 new Claim(Core.JWT_CLAIM_ROL, role),

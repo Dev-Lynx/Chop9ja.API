@@ -35,7 +35,7 @@ namespace Chop9ja.API.Extensions.UnityExtensions
     #region Strategy
     class DeepMethodStrategy : BuilderStrategy
     {
-        public override void PostBuildUp(ref BuilderContext context)
+        public override void PreBuildUp(ref BuilderContext context)
         {
             // Only invoke methods when the objects have been built.
             if (context.Type != typeof(object)) return;
@@ -44,7 +44,7 @@ namespace Chop9ja.API.Extensions.UnityExtensions
                 | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => x.GetCustomAttributes(typeof(DeepInjectionMethod), true)
                 .Any());
-
+            var type = context.Existing.GetType();
             foreach (var method in methods)
             {
                 try

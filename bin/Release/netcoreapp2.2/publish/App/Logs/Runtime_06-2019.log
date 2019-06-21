@@ -1,0 +1,420 @@
+2019-06-14 13:10:01.0033|INFO| 
+
+ 
+2019-06-14 13:10:01.0974|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-14 13:10:05.3919|DEBUG| Successfully registered the service provider 
+2019-06-14 13:10:05.7988|DEBUG| Hosting starting 
+2019-06-14 13:10:05.9989|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-06-14 13:10:06.0114|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-06-14 13:10:06.0732|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-06-14 13:10:06.1173|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-06-14 13:10:06.1173|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-06-14 13:10:06.1413|DEBUG| Considering key {18916efd-b695-4d36-b241-b546bb59b759} with expiration date 2019-07-05 14:21:07Z as default key. 
+2019-06-14 13:10:06.1714|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-14 13:10:06.1714|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-06-14 13:10:06.1714|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-14 13:10:06.1714|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-06-14 13:10:06.1895|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-06-14 13:10:06.1895|DEBUG| Using key {18916efd-b695-4d36-b241-b546bb59b759} as the default key. 
+2019-06-14 13:10:06.1895|DEBUG| Key ring with default key {18916efd-b695-4d36-b241-b546bb59b759} was loaded during application startup. 
+2019-06-14 13:10:06.2809|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3248|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3248|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3289|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3289|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-06-14 13:10:06.3289|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3289|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3441|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-06-14 13:10:06.3441|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3441|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:10:06.3605|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:10:06.3605|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:10:06.3870|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3870|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3906|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.3906|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-06-14 13:10:06.4703|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.4703|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:10:06.5180|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-06-14 13:10:07.6737|DEBUG| An 'IServiceProvider' was created for internal use by Entity Framework. 
+2019-06-14 13:10:13.0875|DEBUG| Chop9ja API has successfully been initialized. 
+2019-06-14 13:10:13.1418|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-06-14 13:10:13.3162|DEBUG| Using development certificate: CN=localhost (Thumbprint: 4B845F03251A4DEAA09BCDC8D71B07E89C2A21D6) 
+2019-06-14 13:10:13.3162|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-06-14 13:10:13.3162|DEBUG| Hosting started 
+2019-06-14 13:10:13.3291|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-06-14 13:10:16.3169|DEBUG| Hosting shutdown 
+2019-06-14 13:11:06.9013|INFO| 
+
+ 
+2019-06-14 13:11:06.9662|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-14 13:11:09.9123|DEBUG| Successfully registered the service provider 
+2019-06-14 13:11:10.0398|DEBUG| Hosting starting 
+2019-06-14 13:11:10.1857|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-06-14 13:11:10.2020|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-06-14 13:11:10.2243|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-06-14 13:11:10.2243|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-06-14 13:11:10.2355|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-06-14 13:11:10.2566|DEBUG| Considering key {18916efd-b695-4d36-b241-b546bb59b759} with expiration date 2019-07-05 14:21:07Z as default key. 
+2019-06-14 13:11:10.2837|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-14 13:11:10.2837|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-06-14 13:11:10.2837|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-14 13:11:10.2837|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-06-14 13:11:10.2980|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-06-14 13:11:10.2980|DEBUG| Using key {18916efd-b695-4d36-b241-b546bb59b759} as the default key. 
+2019-06-14 13:11:10.2980|DEBUG| Key ring with default key {18916efd-b695-4d36-b241-b546bb59b759} was loaded during application startup. 
+2019-06-14 13:11:10.3330|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3543|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3543|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3543|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3598|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-06-14 13:11:10.3598|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3598|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3598|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-06-14 13:11:10.3598|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.3861|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:11:10.4259|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:11:10.4408|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-06-14 13:11:10.4834|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.4834|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.4834|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.5061|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-06-14 13:11:10.5754|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.5787|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-14 13:11:10.6666|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-06-14 13:11:11.6245|DEBUG| An 'IServiceProvider' was created for internal use by Entity Framework. 
+2019-06-14 13:11:15.2680|DEBUG| Chop9ja API has successfully been initialized. 
+2019-06-14 13:11:15.3146|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-06-14 13:11:15.4291|DEBUG| Using development certificate: CN=localhost (Thumbprint: 4B845F03251A4DEAA09BCDC8D71B07E89C2A21D6) 
+2019-06-14 13:11:15.4387|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-06-14 13:11:15.4387|DEBUG| Hosting started 
+2019-06-14 13:11:15.4387|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-06-14 13:11:25.8497|DEBUG| Hosting shutdown 
+2019-06-15 01:34:30.2068|INFO| 
+
+ 
+2019-06-15 01:34:30.3111|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-15 01:34:33.2219|DEBUG| Successfully registered the service provider 
+2019-06-15 01:34:33.3712|DEBUG| Hosting starting 
+2019-06-15 01:34:33.5091|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-06-15 01:34:33.5220|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-06-15 01:34:33.5418|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-06-15 01:34:33.5526|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-06-15 01:34:33.5526|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-06-15 01:34:33.5734|DEBUG| Considering key {18916efd-b695-4d36-b241-b546bb59b759} with expiration date 2019-07-05 14:21:07Z as default key. 
+2019-06-15 01:34:33.6010|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-15 01:34:33.6010|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-06-15 01:34:33.6282|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-15 01:34:33.6282|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-06-15 01:34:33.6429|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-06-15 01:34:33.6429|DEBUG| Using key {18916efd-b695-4d36-b241-b546bb59b759} as the default key. 
+2019-06-15 01:34:33.6584|DEBUG| Key ring with default key {18916efd-b695-4d36-b241-b546bb59b759} was loaded during application startup. 
+2019-06-15 01:34:34.5904|DEBUG| An 'IServiceProvider' was created for internal use by Entity Framework. 
+2019-06-15 01:34:37.4153|DEBUG| Chop9ja API has successfully been initialized. 
+2019-06-15 01:34:37.4329|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.4758|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.4758|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.4961|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.4961|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-06-15 01:34:37.4961|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5014|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5014|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-06-15 01:34:37.5014|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5196|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-06-15 01:34:37.5196|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-06-15 01:34:37.5196|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-06-15 01:34:37.5427|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5427|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5427|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5557|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-06-15 01:34:37.5903|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.5903|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-15 01:34:37.6377|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-06-15 01:34:37.8363|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-06-15 01:34:37.9651|DEBUG| Using development certificate: CN=localhost (Thumbprint: 4B845F03251A4DEAA09BCDC8D71B07E89C2A21D6) 
+2019-06-15 01:34:37.9708|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-06-15 01:34:37.9708|DEBUG| Hosting started 
+2019-06-15 01:34:37.9708|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-06-15 01:35:33.7637|DEBUG| Hosting shutdown 
+2019-06-15 12:14:46.1656|INFO| 
+
+ 
+2019-06-15 12:14:46.3062|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-06-15 12:15:03.6134|DEBUG| Successfully registered the service provider 
+2019-06-15 12:15:04.4337|DEBUG| Hosting starting 
+2019-06-15 12:15:06.1762|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-06-15 12:15:06.2154|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-06-15 12:15:06.2786|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-06-15 12:15:06.9467|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-06-15 12:15:07.0819|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-06-15 12:15:07.3299|DEBUG| Considering key {18916efd-b695-4d36-b241-b546bb59b759} with expiration date 2019-07-05 14:21:07Z as default key. 
+2019-06-15 12:15:07.3617|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-15 12:15:07.3617|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-06-15 12:15:07.3617|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-06-15 12:15:07.3617|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-06-15 12:15:07.3808|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-06-15 12:15:07.3808|DEBUG| Using key {18916efd-b695-4d36-b241-b546bb59b759} as the default key. 
+2019-06-15 12:15:07.3908|DEBUG| Key ring with default key {18916efd-b695-4d36-b241-b546bb59b759} was loaded during application startup. 
+2019-06-15 12:15:15.1792|DEBUG| An 'IServiceProvider' was created for internal use by Entity Framework. 
+2019-06-15 12:15:51.0410|DEBUG| Chop9ja API has successfully been initialized. 
+2019-06-15 12:15:51.8158|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-06-15 12:15:51.9558|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.0262|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-06-15 12:15:52.0262|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-06-15 12:15:52.0346|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-06-15 12:15:52.2321|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.2321|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.2349|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.4325|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-06-15 12:15:52.6978|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.6978|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-06-15 12:15:52.7792|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-06-15 12:15:54.2582|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-06-15 12:15:55.0926|DEBUG| Using development certificate: CN=localhost (Thumbprint: 4B845F03251A4DEAA09BCDC8D71B07E89C2A21D6) 
+2019-06-15 12:15:55.1038|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-06-15 12:15:55.1495|DEBUG| Hosting started 
+2019-06-15 12:15:55.1495|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-06-15 12:16:08.5984|DEBUG| Connection id "0HLNHGBEQ36K7" started. 
+2019-06-15 12:16:08.5984|DEBUG| Connection id "0HLNHGBEQ36K8" started. 
+2019-06-15 12:16:09.3070|DEBUG| Connection id "0HLNHGBEQ36K7" received FIN. 
+2019-06-15 12:16:09.3199|DEBUG| Connection id "0HLNHGBEQ36K7" sending FIN because: "The client closed the connection." 
+2019-06-15 12:16:09.3199|DEBUG| Connection id "0HLNHGBEQ36K7" disconnecting. 
+2019-06-15 12:16:09.3785|DEBUG| Connection id "0HLNHGBEQ36K7" stopped. 
+2019-06-15 12:16:09.9781|INFO| Request starting HTTP/1.1 POST http://localhost:5000/api/messenger/email application/json 205 
+2019-06-15 12:16:09.9781|DEBUG| Wildcard detected, all requests with hosts will be allowed. 
+2019-06-15 12:16:09.9781|TRACE| All hosts are allowed. 
+2019-06-15 12:16:09.9881|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-06-15 12:16:11.0817|INFO| Successfully validated the token. 
+2019-06-15 12:16:11.0817|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-06-15 12:16:11.2712|DEBUG| POST requests are not supported 
+2019-06-15 12:16:11.2712|DEBUG| POST requests are not supported 
+2019-06-15 12:16:11.4269|DEBUG| 1 candidate(s) found for the request path '/api/messenger/email' 
+2019-06-15 12:16:11.4269|DEBUG| Endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' with route pattern 'api/Messenger/email' is valid for the request path '/api/messenger/email' 
+2019-06-15 12:16:11.4269|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:16:11.4472|INFO| Executing endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:16:11.7260|INFO| Route matched with {action = "SendEmail", controller = "Messenger"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(Chop9ja.API.Models.ViewModels.CustomEmailViewModel) on controller Chop9ja.API.Controllers.MessengerController (Chop9ja.API). 
+2019-06-15 12:16:11.7445|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-06-15 12:16:11.7445|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-06-15 12:16:11.7546|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-06-15 12:16:11.7546|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-06-15 12:16:11.7546|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-06-15 12:16:11.7546|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:16:11.8409|INFO| Authorization was successful. 
+2019-06-15 12:16:11.8409|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:16:11.8438|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:11.8438|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:14.0035|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:16:14.0652|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' using the name '' in request data ... 
+2019-06-15 12:16:14.0652|DEBUG| Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonPatchInputFormatter' for content type 'application/json'. 
+2019-06-15 12:16:14.0652|DEBUG| Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter' for content type 'application/json'. 
+2019-06-15 12:16:14.1198|DEBUG| Connection id "0HLNHGBEQ36K8", Request id "0HLNHGBEQ36K8:00000001": started reading request body. 
+2019-06-15 12:16:14.1417|DEBUG| Connection id "0HLNHGBEQ36K8", Request id "0HLNHGBEQ36K8:00000001": done reading request body. 
+2019-06-15 12:16:14.1560|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:16:14.1560|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:16:14.1560|DEBUG| Attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:16:14.2033|DEBUG| Done attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:16:14.2033|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:16:14.2033|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:16:14.2033|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:16:14.2033|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:16:14.2273|INFO| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) - Validation state: Valid 
+2019-06-15 12:16:14.2273|TRACE| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) with arguments (Chop9ja.API.Models.ViewModels.CustomEmailViewModel) 
+2019-06-15 12:16:54.1462|INFO| Executed action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkResult in 39909.2381ms. 
+2019-06-15 12:16:54.1462|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:16:54.1462|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:16:54.1462|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:16:54.1606|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:16:54.1846|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.2266|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.2749|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:16:54.2914|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:16:54.2914|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:16:54.3022|INFO| Executing HttpStatusCodeResult, setting HTTP status code 200 
+2019-06-15 12:16:54.3022|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:16:54.3022|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:16:54.3022|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:16:54.3022|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.3022|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.3022|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.3131|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:16:54.3131|INFO| Executed action Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) in 42556.3727ms 
+2019-06-15 12:16:54.3291|INFO| Executed endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:16:54.4126|DEBUG| Connection id "0HLNHGBEQ36K8" completed keep alive response. 
+2019-06-15 12:16:54.4126|INFO| Request finished in 44441.58ms 200  
+2019-06-15 12:18:55.3539|DEBUG| Connection id "0HLNHGBEQ36K8" disconnecting. 
+2019-06-15 12:18:55.3808|DEBUG| Connection id "0HLNHGBEQ36K8" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-06-15 12:18:55.5144|DEBUG| Connection id "0HLNHGBEQ36K8" stopped. 
+2019-06-15 12:20:46.0966|DEBUG| Connection id "0HLNHGBEQ36K9" started. 
+2019-06-15 12:20:46.1107|DEBUG| Connection id "0HLNHGBEQ36K9" received FIN. 
+2019-06-15 12:20:46.1630|DEBUG| Connection id "0HLNHGBEQ36KA" started. 
+2019-06-15 12:20:46.1989|DEBUG| Connection id "0HLNHGBEQ36K9" sending FIN because: "The client closed the connection." 
+2019-06-15 12:20:46.1989|DEBUG| Connection id "0HLNHGBEQ36K9" disconnecting. 
+2019-06-15 12:20:46.2055|INFO| Request starting HTTP/1.1 POST http://localhost:5000/api/messenger/email application/json 213 
+2019-06-15 12:20:46.2055|TRACE| All hosts are allowed. 
+2019-06-15 12:20:46.2055|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-06-15 12:20:46.2055|DEBUG| Connection id "0HLNHGBEQ36K9" stopped. 
+2019-06-15 12:20:46.2055|INFO| Successfully validated the token. 
+2019-06-15 12:20:46.2055|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-06-15 12:20:46.2228|DEBUG| POST requests are not supported 
+2019-06-15 12:20:46.2228|DEBUG| POST requests are not supported 
+2019-06-15 12:20:46.2228|DEBUG| 1 candidate(s) found for the request path '/api/messenger/email' 
+2019-06-15 12:20:46.2228|DEBUG| Endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' with route pattern 'api/Messenger/email' is valid for the request path '/api/messenger/email' 
+2019-06-15 12:20:46.2408|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:20:46.2408|INFO| Executing endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:20:46.2408|INFO| Route matched with {action = "SendEmail", controller = "Messenger"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(Chop9ja.API.Models.ViewModels.CustomEmailViewModel) on controller Chop9ja.API.Controllers.MessengerController (Chop9ja.API). 
+2019-06-15 12:20:46.2497|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-06-15 12:20:46.2497|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-06-15 12:20:46.2497|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-06-15 12:20:46.2497|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-06-15 12:20:46.2497|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-06-15 12:20:46.2497|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:20:46.2497|INFO| Authorization was successful. 
+2019-06-15 12:20:46.2497|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:20:46.2497|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:46.2497|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:46.2692|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:20:46.2692|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' using the name '' in request data ... 
+2019-06-15 12:20:46.2692|DEBUG| Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonPatchInputFormatter' for content type 'application/json'. 
+2019-06-15 12:20:46.2692|DEBUG| Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter' for content type 'application/json'. 
+2019-06-15 12:20:46.2692|DEBUG| Connection id "0HLNHGBEQ36KA", Request id "0HLNHGBEQ36KA:00000001": started reading request body. 
+2019-06-15 12:20:46.2692|DEBUG| Connection id "0HLNHGBEQ36KA", Request id "0HLNHGBEQ36KA:00000001": done reading request body. 
+2019-06-15 12:20:46.2692|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:20:46.2692|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:20:46.2828|DEBUG| Attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:20:46.2828|DEBUG| Done attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:20:46.2828|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:20:46.2828|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:20:46.3015|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:20:46.3646|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:20:46.3750|INFO| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) - Validation state: Valid 
+2019-06-15 12:20:46.3750|TRACE| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) with arguments (Chop9ja.API.Models.ViewModels.CustomEmailViewModel) 
+2019-06-15 12:20:48.3380|INFO| Executed action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkResult in 1960.365ms. 
+2019-06-15 12:20:48.3380|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:20:48.3442|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:20:48.3442|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:20:48.3442|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:20:48.3442|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3442|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3609|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:20:48.3609|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:20:48.3609|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:20:48.3609|INFO| Executing HttpStatusCodeResult, setting HTTP status code 200 
+2019-06-15 12:20:48.3609|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:20:48.3609|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:20:48.3609|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:20:48.3609|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3761|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3761|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3761|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:20:48.3761|INFO| Executed action Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) in 2122.286ms 
+2019-06-15 12:20:48.3761|INFO| Executed endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:20:48.3761|DEBUG| Connection id "0HLNHGBEQ36KA" completed keep alive response. 
+2019-06-15 12:20:48.4097|INFO| Request finished in 2204.1407ms 200  
+2019-06-15 12:22:49.3033|DEBUG| Connection id "0HLNHGBEQ36KA" disconnecting. 
+2019-06-15 12:22:49.3033|DEBUG| Connection id "0HLNHGBEQ36KA" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-06-15 12:22:49.3033|DEBUG| Connection id "0HLNHGBEQ36KA" stopped. 
+2019-06-15 12:24:05.2005|DEBUG| Connection id "0HLNHGBEQ36KB" started. 
+2019-06-15 12:24:05.2161|DEBUG| Connection id "0HLNHGBEQ36KB" received FIN. 
+2019-06-15 12:24:05.2478|DEBUG| Connection id "0HLNHGBEQ36KC" started. 
+2019-06-15 12:24:05.2519|DEBUG| Connection id "0HLNHGBEQ36KB" disconnecting. 
+2019-06-15 12:24:05.2519|DEBUG| Connection id "0HLNHGBEQ36KB" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-06-15 12:24:05.2519|INFO| Request starting HTTP/1.1 POST http://localhost:5000/api/messenger/email application/json 213 
+2019-06-15 12:24:05.2519|TRACE| All hosts are allowed. 
+2019-06-15 12:24:05.2519|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-06-15 12:24:05.2519|DEBUG| Connection id "0HLNHGBEQ36KB" stopped. 
+2019-06-15 12:24:05.5731|INFO| Successfully validated the token. 
+2019-06-15 12:24:05.5731|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-06-15 12:24:05.5999|DEBUG| POST requests are not supported 
+2019-06-15 12:24:05.5999|DEBUG| POST requests are not supported 
+2019-06-15 12:24:05.5999|DEBUG| 1 candidate(s) found for the request path '/api/messenger/email' 
+2019-06-15 12:24:05.5999|DEBUG| Endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' with route pattern 'api/Messenger/email' is valid for the request path '/api/messenger/email' 
+2019-06-15 12:24:05.6162|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:24:05.6162|INFO| Executing endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:24:05.6162|INFO| Route matched with {action = "SendEmail", controller = "Messenger"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(Chop9ja.API.Models.ViewModels.CustomEmailViewModel) on controller Chop9ja.API.Controllers.MessengerController (Chop9ja.API). 
+2019-06-15 12:24:05.6469|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-06-15 12:24:05.6789|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-06-15 12:24:05.6789|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-06-15 12:24:05.7433|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-06-15 12:24:05.7433|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-06-15 12:24:05.7694|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:24:05.7694|INFO| Authorization was successful. 
+2019-06-15 12:24:05.7694|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-06-15 12:24:05.7807|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:05.7807|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:05.7807|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:24:05.7807|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' using the name '' in request data ... 
+2019-06-15 12:24:05.8489|DEBUG| Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonPatchInputFormatter' for content type 'application/json'. 
+2019-06-15 12:24:05.8736|DEBUG| Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter' for content type 'application/json'. 
+2019-06-15 12:24:05.8844|DEBUG| Connection id "0HLNHGBEQ36KC", Request id "0HLNHGBEQ36KC:00000001": started reading request body. 
+2019-06-15 12:24:05.8966|DEBUG| Connection id "0HLNHGBEQ36KC", Request id "0HLNHGBEQ36KC:00000001": done reading request body. 
+2019-06-15 12:24:06.0166|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:24:06.0467|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:24:06.0467|DEBUG| Attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel' ... 
+2019-06-15 12:24:06.0467|DEBUG| Done attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.CustomEmailViewModel'. 
+2019-06-15 12:24:06.0467|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:24:06.0467|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:24:06.0467|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:24:06.0467|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:24:06.0672|INFO| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) - Validation state: Valid 
+2019-06-15 12:24:06.0672|TRACE| Executing action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) with arguments (Chop9ja.API.Models.ViewModels.CustomEmailViewModel) 
+2019-06-15 12:24:07.8195|INFO| Executed action method Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkResult in 1749.1915ms. 
+2019-06-15 12:24:07.8195|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:24:07.8195|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-06-15 12:24:07.8195|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:24:07.8195|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-06-15 12:24:07.8195|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.8195|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.8281|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:24:07.8281|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:24:07.8281|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:24:07.8281|INFO| Executing HttpStatusCodeResult, setting HTTP status code 200 
+2019-06-15 12:24:07.8281|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkResult. 
+2019-06-15 12:24:07.8281|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:24:07.9183|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-06-15 12:24:07.9183|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.9183|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.9219|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.9219|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-06-15 12:24:07.9219|INFO| Executed action Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API) in 2154.6786ms 
+2019-06-15 12:24:07.9219|INFO| Executed endpoint 'Chop9ja.API.Controllers.MessengerController.SendEmail (Chop9ja.API)' 
+2019-06-15 12:24:07.9219|DEBUG| Connection id "0HLNHGBEQ36KC" completed keep alive response. 
+2019-06-15 12:24:07.9219|INFO| Request finished in 2673.3992ms 200  
+2019-06-15 12:24:53.9563|DEBUG| Hosting shutdown 
+2019-06-15 12:24:54.0083|DEBUG| Connection id "0HLNHGBEQ36KC" disconnecting. 
+2019-06-15 12:24:54.0083|DEBUG| Connection id "0HLNHGBEQ36KC" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-06-15 12:24:54.0508|DEBUG| Connection id "0HLNHGBEQ36KC" stopped. 

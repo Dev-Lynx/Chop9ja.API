@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <UserSecretsId>c3dfa754-ff35-4384-b8f7-309222806317</UserSecretsId>
   </PropertyGroup>
@@ -12,7 +12,12 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <StartupObject>Chop9ja.API.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,18 +26,37 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!--#region Upgrade to dotnet core 2.2-->
+    <PackageReference Include="AspNetCore.Identity.Mongo" Version="5.1.0.15" />
+    <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="1.1.1" />
+    <PackageReference Include="Blueshift.EntityFrameworkCore.MongoDb" Version="2.1.0-preview2-t007bc0fad" />
+    <PackageReference Include="Blueshift.Identity.MongoDB" Version="2.1.0-preview2-t007bc0fad" />
+    <PackageReference Include="FluentEmail.Mailgun" Version="2.5.3" />
+    <PackageReference Include="Google.Cloud.Diagnostics.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Google.Cloud.Logging.NLog" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <!---->
+    <!--#endregion-->
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
     <PackageReference Include="FluentScheduler" Version="5.3.0" />
     <PackageReference Include="Google.Apis.Auth.AspNetCore" Version="1.40.1" />
-    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.40.1.1613" />
+    <PackageReference Include="Google.Apis.Firestore.v1" Version="1.40.1.1569" />
+    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.40.2.1613" />
     <PackageReference Include="libphonenumber-csharp" Version="8.10.13" />
+    <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="MailKit" Version="2.1.5.1" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
+    
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.4.10" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.0-beta1" />
     <PackageReference Include="Mono.Reflection.Core" Version="1.1.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.2" />
     <PackageReference Include="NSwag.AspNetCore" Version="12.3.1" />
@@ -49,11 +73,11 @@
   </Target>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp2.1\Chop9ja.API.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp2.1\Chop9ja.API.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

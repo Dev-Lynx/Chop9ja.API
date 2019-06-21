@@ -1,4 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Blueshift.EntityFrameworkCore.MongoDB.Annotations;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDbGenericRepository.Attributes;
+using MongoDbGenericRepository.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -15,14 +20,19 @@ namespace Chop9ja.API.Models.Entities
         /// <summary>
         /// One Time Password for email.
         /// </summary>
-        Email = 1,
+        Email,
         /// <summary>
         /// One Time Password for Phone\SMS.
         /// </summary>
-        Phone = 2
+        Phone
     };
 
-    public class OneTimePassword
+
+    [ComplexType]
+    [BsonIgnoreExtraElements]
+    [CollectionName("OneTimePasswords")]
+    [MongoCollection("OneTimePasswords")]
+    public class OneTimePassword : Document
     {
         #region Properties
 
@@ -38,11 +48,8 @@ namespace Chop9ja.API.Models.Entities
         public const double SmsLifeSpan = 5;
         #endregion
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
-        public User User { get; set; }
         public string Code { get; set; }
+
         public TimeSpan LifeSpan
         {
             get
@@ -59,7 +66,6 @@ namespace Chop9ja.API.Models.Entities
         }
         public DateTime Created { get; set; } = DateTime.Now;
 
-        [EnumDataType(typeof(OnePasswordType))]
         [JsonConverter(typeof(StringEnumConverter))]
         public OnePasswordType Kind { get; set; }
 
@@ -68,7 +74,7 @@ namespace Chop9ja.API.Models.Entities
 
         public bool Validated { get; set; }
 
-        public bool IsExpired => Created + LifeSpan < DateTime.Now;
+        public bool IsExpired => Created.ToLocalTime().Add(LifeSpan) < DateTime.Now;
         #endregion
 
         #region Methods
