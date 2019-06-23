@@ -47,6 +47,7 @@ using Google.Cloud.Diagnostics.AspNetCore;
 using Chop9ja.API.Services.Mail;
 using AspNetCore.Identity.MongoDbCore.Models;
 using AspNetCore.Identity.MongoDbCore;
+using PayStack.Net;
 
 // July 22nd, 1998
 namespace Chop9ja.API
@@ -143,16 +144,18 @@ namespace Chop9ja.API
             container.AddNewExtension<AutomaticBuildExtension>();
             container.AddNewExtension<DeepDependencyExtension>();
             container.AddNewExtension<DeepMethodExtension>();
-
             container.RegisterInstance(new LoggerFactory().AddNLog());
             container.RegisterSingleton(typeof(ILogger<>), typeof(LoggingAdapter<>));
 
 
             container.RegisterType<IUserStore<User>, MongoUserStore<User, UserRole, MongoDataContext, Guid>>();
             container.RegisterType<IRoleStore<UserRole>, MongoRoleStore<UserRole, MongoDataContext, Guid>>();
+
+            container.RegisterFactory<IPayStackApi>(c => new PayStackApi(c.Resolve<IOptions<PaystackOptions>>().Value.SecretKey));
+            container.RegisterTransient<IPaymentService, PaymentService>();
             //container.RegisterType<IUserStore<User>, MongoStores.UserStore<User, UserRole>>();
             //container.RegisterType<IRoleStore<UserRole>, MongoStores.RoleStore<UserRole>>();
-
+            
             //container.RegisterTransient<UserDataContext>();
 
             container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, "__identities"));
@@ -204,6 +207,7 @@ namespace Chop9ja.API
             services.Configure<EmailSettings>(Configuration.GetSection(EmailSettings.ConfigKey));
             services.Configure<SMSOptions>(Configuration.GetSection(SMSOptions.ConfigKey));
             services.Configure<AuthSettings>(Configuration.GetSection(AuthSettings.ConfigKey));
+            services.Configure<PaystackOptions>(Configuration.GetSection(PaystackOptions.ConfigKey));
 
             services.Configure<JwtIssuerOptions>(opt =>
             {
@@ -227,31 +231,6 @@ namespace Chop9ja.API
         {
             services.AddCors();
 
-            /*
-            services.AddIdentity<User, UserRole>(opt =>
-            {
-                opt.Password.RequireDigit = true;
-                opt.Password.RequireLowercase = true;
-                opt.Password.RequireUppercase = true;
-                opt.Password.RequiredLength = 8;
-                opt.User.RequireUniqueEmail = true;
-            })
-            .AddEntityFrameworkMongoDbStores<UserDataContext>()
-            .AddDefaultTokenProviders();
-            services.AddEntityFrameworkMongoDb();
-
-            services.AddIdentityMongoDbProvider<User, UserRole>(opt =>
-            {
-                opt.Password.RequireDigit = true;
-                opt.Password.RequireLowercase = true;
-                opt.Password.RequireUppercase = true;
-                opt.Password.RequiredLength = 8;
-                opt.User.RequireUniqueEmail = true;
-            }, mongoIdentityOptions => {
-                mongoIdentityOptions.ConnectionString = ConnectionString;
-            });
-            */
-
             services.AddIdentity<User, UserRole>(opt =>
             {
                 opt.Password.RequireDigit = true;
@@ -264,6 +243,7 @@ namespace Chop9ja.API
             .AddDefaultTokenProviders();
 
             // services.AddTransient(s => new MongoDataContext(ConnectionString, "__identities"));
+            
 
             services.AddAuthentication(options =>
             {

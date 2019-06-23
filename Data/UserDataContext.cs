@@ -20,7 +20,7 @@ namespace Chop9ja.API.Data
         #region Properties
         public DbSet<OneTimePassword> OneTimePasswords { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
-        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<PaymentChannel> PaymentMethods { get; set; }
         public DbSet<Bank> Banks { get; set; }
         
         /*

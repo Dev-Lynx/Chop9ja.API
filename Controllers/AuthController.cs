@@ -96,6 +96,8 @@ namespace Chop9ja.API.Controllers
             result = await UserManager.AddPasswordAsync(user, model.Password);
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
+            await user.InitializeAsync();
+
             return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
         }
 

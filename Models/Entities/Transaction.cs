@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDbGenericRepository.Attributes;
+using MongoDbGenericRepository.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,47 +12,59 @@ using System.Threading.Tasks;
 
 namespace Chop9ja.API.Models.Entities
 {
+
+    #region Enumerations
     public enum TransactionType
     {
-        Debit, Credit
+        Deposit, Withdrawal
     }
+    #endregion
 
-    public enum TransactionStatus
-    {
-        Idle, Success, Failed
-    }
-
+    #region Entity
     [Owned]
-    public class Transaction
+    [BsonIgnoreExtraElements]
+    public class Transaction : Document
     {
         public decimal Amount { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime CompletionTime { get; set; } = DateTime.MinValue;
 
         [BsonIgnoreIfDefault]
-        public Guid PaymentMethodId { get; set; }
+        public Guid PaymentChannelId { get; set; }
 
-        PaymentMethod _paymentMethod;
+        PaymentChannel _paymentChannel;
         [BsonIgnore]
-        public PaymentMethod PaymentMethod
+        public PaymentChannel PaymentChannel
         {
             get
             {
-                if (_paymentMethod == null || _paymentMethod.Id == Guid.Empty)
-                    _paymentMethod = Core.DataContext.Store.GetById<PaymentMethod>(PaymentMethodId);
-                return _paymentMethod;
+                if (_paymentChannel == null || _paymentChannel.Id == Guid.Empty)
+                    _paymentChannel = Core.DataContext.Store.GetById<PaymentChannel>(PaymentChannelId);
+                return _paymentChannel;
             }
             set
             {
-                if (_paymentMethod != null)
-                    PaymentMethodId = value.Id;
-                _paymentMethod = value;
+                if (value != null)
+                    PaymentChannelId = value.Id;
+                _paymentChannel = value;
             }
         }
 
+        [BsonRepresentation(BsonType.String)]
         public TransactionType Type { get; set; }
-        public TransactionStatus Status { get; set; }
+    }
+    #endregion
+}
+
+
+namespace Chop9ja.API.Models.ViewModels
+{
+    #region ViewModel
+
+    public class TransactionViewModel
+    {
+        public decimal Amount { get; set; }
+        public Entities.TransactionType Type { get; set; }
+        public PaymentChannelViewModel PaymentMethod { get; set; }
     }
 
-    
+    #endregion
 }

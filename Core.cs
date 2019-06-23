@@ -5,6 +5,7 @@ using Chop9ja.API.Models.Entities;
 using FluentScheduler;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using NLog;
 using NLog.Conditions;
 using NLog.Config;
@@ -242,8 +243,30 @@ namespace Chop9ja.API
                 if (await roleManager.RoleExistsAsync(role)) continue;
                 await roleManager.CreateAsync(new UserRole(role));
 
-                //await dataContext.SaveChangesAsync();
+                //await dataContex var dataContext = Container.Resolve<MongoDataContext>();t.SaveChangesAsync();
             }
+
+            string bankData = Path.Combine(DATA_DIR, "banks.json");
+            string bankJson = await File.ReadAllTextAsync(bankData);
+            var banks = JsonConvert.DeserializeObject<List<Bank>>(bankJson);
+
+            foreach (var bank in banks)
+            {
+                bool exists = await DataContext.Store.AnyAsync<Bank, int>(b => b.Id == bank.Id);
+                if (!exists) await DataContext.Store.AddOneAsync<Bank, int>(bank);
+            }
+
+            await ConfigurePaymentChannels();
+        }
+
+        static async Task ConfigurePaymentChannels()
+        {
+            string json = await File.ReadAllTextAsync(Path.Combine(Core.DATA_DIR, "paymentChannels.json"));
+            var channels = JsonConvert.DeserializeObject<List<PaymentChannel>>(json);
+
+            foreach (var channel in channels)
+                if (!await DataContext.Store.AnyAsync<PaymentChannel>(c => c.Type == channel.Type))
+                    await DataContext.Store.AddOneAsync(channel);
         }
 
         public static Task SeedUsers()

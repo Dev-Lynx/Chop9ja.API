@@ -18,6 +18,15 @@ namespace Chop9ja.API.Models.Mapping
                 ForMember(ov => ov.Expires, opt => opt.MapFrom(o => o.Created.Add(o.LifeSpan)));
 
             CreateMap<User, UserViewModel>();
+
+            CreateMap<PaymentChannel, PaymentChannelViewModel>().
+                ForMember(c => c.PaymentRange, opt => opt.MapFrom(o => o.PaymentRange.ToString()));
+
+            CreateMap<Transaction, TransactionViewModel>();
+            CreateMap<Wallet, WalletViewModel>();
+
+            CreateMap<NewBankAccountViewModel, BankAccount>();
+            CreateMap<BankAccount, BankAccountViewModel>();
         }
     }
 }

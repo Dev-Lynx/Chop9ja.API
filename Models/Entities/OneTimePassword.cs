@@ -66,6 +66,7 @@ namespace Chop9ja.API.Models.Entities
         }
         public DateTime Created { get; set; } = DateTime.Now;
 
+        [BsonRepresentation(BsonType.String)]
         [JsonConverter(typeof(StringEnumConverter))]
         public OnePasswordType Kind { get; set; }
 

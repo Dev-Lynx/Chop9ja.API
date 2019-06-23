@@ -20,6 +20,7 @@ namespace Chop9ja.API.Data
         public IMongoCollection<User> Users => GetCollection<User>();
         public IMongoCollection<Wallet> Wallets => GetCollection<Wallet>();
         public IMongoCollection<Transaction> Transactions => GetCollection<Transaction>();
+        public IMongoCollection<Bank> Banks => GetCollection<Bank>();
         #endregion
 
         #region Services

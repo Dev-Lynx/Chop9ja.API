@@ -1,0 +1,36 @@
+[
+  {
+    "Name": "Bank Payment",
+    "Logo": "https://res.cloudinary.com/dev-lynx/image/upload/v1561331239/BankLogo.svg",
+    "Currency": "Naira",
+    "ConversionRate": 1.0,
+    "Description": "Manual Bank Payment",
+    "Type": "BankDeposit",
+    "ContainsFee": false,
+    "Fee": "0%",
+    "PaymentRange": {
+      "From": "00:30:00",
+      "To": "06:00:00"
+    },
+    "Id": "15cb99ea-a294-4457-b955-e70b43529543",
+    "AddedAtUtc": "2019-06-23T23:43:26.9790966Z",
+    "Version": 0
+  },
+  {
+    "Name": "Paystack",
+    "Logo": "https://res.cloudinary.com/dev-lynx/image/upload/v1561331203/PaystackLogo.png",
+    "Currency": "Kobo",
+    "ConversionRate": 100.0,
+    "Description": "Payment using Paystack Services",
+    "Type": "Paystack",
+    "ContainsFee": true,
+    "Fee": "1.5% + N100",
+    "PaymentRange": {
+      "From": "00:01:00",
+      "To": "00:03:00"
+    },
+    "Id": "e2a6ed07-436a-435a-9c89-4ffe6386bf54",
+    "AddedAtUtc": "2019-06-23T23:43:26.9798622Z",
+    "Version": 0
+  }
+]

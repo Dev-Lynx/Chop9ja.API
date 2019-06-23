@@ -43,8 +43,9 @@ namespace Chop9ja.API.Models.Entities
         {
             get
             {
-                if (_wallet == null || _wallet.Id == Guid.Empty)
+                if (_wallet == null)
                     _wallet = Core.DataContext.Store.GetById<Wallet>(WalletId);
+
                 return _wallet;
             }
             set
@@ -55,21 +56,22 @@ namespace Chop9ja.API.Models.Entities
             }
         }
 
-        public List<Guid> OneTimePasswordIds { get; set; } = new List<Guid>();
 
-        IEnumerable<OneTimePassword> _oneTimePasswords;
-        [BsonIgnore]
-        public IEnumerable<OneTimePassword> OneTimePasswords
-        {
-            get
-            {
-                if (_oneTimePasswords == null || _oneTimePasswords.Count() != OneTimePasswordIds.Count)
-                    _oneTimePasswords = Core.DataStore.GetAll<OneTimePassword>(o => OneTimePasswordIds.Contains(o.Id));
-                return _oneTimePasswords == null ? Enumerable.Empty<OneTimePassword>() : _oneTimePasswords;
-            }
-        }
+        public List<OneTimePassword> OneTimePasswords { get; set; } = new List<OneTimePassword>();
 
         public List<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
+        #endregion
+
+        #region Methods
+        public async Task InitializeAsync()
+        {
+            Wallet = new Wallet();
+            Wallet.User = this;
+            await Core.DataContext.Store.AddOneAsync(Wallet);
+
+            WalletId = Wallet.Id;
+            await Core.DataContext.Store.UpdateOneAsync(this);
+        }
         #endregion
     }
 }

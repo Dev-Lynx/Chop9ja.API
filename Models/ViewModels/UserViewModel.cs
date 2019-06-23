@@ -14,6 +14,9 @@ namespace Chop9ja.API.Models.ViewModels
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+
+        public string Initials => $"{FirstName.FirstOrDefault()}{LastName.FirstOrDefault()}";
+
         [Required]
         public DateTime DateOfBirth { get; set; }
         [Required]
