@@ -8,10 +8,14 @@ using Chop9ja.API.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using PayStack.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +53,7 @@ namespace Chop9ja.API.Services
 
         #region Methods
 
+        #region Paystack
         public async Task<PaymentResult> UsePaystack(User user, decimal amount)
         {
             bool customerExists = Paystack.Customers.Fetch(user.Email).Status;
@@ -72,6 +77,7 @@ namespace Chop9ja.API.Services
 
             // Convert to kobo
             int total = (int)Math.Round(amount * channel.ConversionRate);
+            int fee = (int)Math.Round((total * channel.FeePercentage) + channel.FixedFee);
 
             // Handle Recurring payments
             if (isRecurring)
@@ -85,9 +91,23 @@ namespace Chop9ja.API.Services
                     return result;
                 }
             }
+
+            var request = new TransactionInitializeRequest()
+            {
+                Email = user.Email,
+                AmountInKobo = total,
+                Reference = Guid.NewGuid().ToString(),
+                MetadataObject = new Dictionary<string, object>()
+                {
+                    { "walletId", user.WalletId.ToString() }
+                }
+            };
+
+
+
             
-            var response = Paystack.Transactions.Initialize(user.Email, total, user.WalletId.ToString(), false);
-            
+            var response = Paystack.Transactions.Initialize(request);
+
             result.Status = response.Status ? PaymentStatus.Redirected : PaymentStatus.Failed;
             result.Message = response.Data.AuthorizationUrl;
 
@@ -95,7 +115,7 @@ namespace Chop9ja.API.Services
             {
                 Logger.LogError("A Paystack Transaction appears to have failed. \n{0}", response.Message);
                 result.Message = response.Message;
-            }            
+            }
 
             return result;
         }
@@ -130,16 +150,28 @@ namespace Chop9ja.API.Services
             PaymentChannel channel = await DataContext.Store.GetOneAsync<PaymentChannel>(p => p.Type == ChannelType.Paystack);
 
             if (!decimal.TryParse(data.Amount, out decimal transactionAmount)) return false;
-            if (!Guid.TryParse(data.Reference, out Guid walletId)) return false;
+
+            if (!Guid.TryParse((string)data.Metadata["walletId"], out Guid walletId)) return false;
+            if (!Guid.TryParse(data.Reference, out Guid transactionId)) return false;
+
+
+            User platformAccount = DataContext.PlatformAccount;
+            Wallet wallet = await DataContext.Store.GetByIdAsync<Wallet>(walletId);
 
             Transaction transaction = new Transaction()
             {
+                Id = transactionId,
+                AddedAtUtc = DateTime.UtcNow,
                 Amount = transactionAmount / channel.ConversionRate,
                 PaymentChannel = channel,
-                Type = TransactionType.Deposit
+                Type = TransactionType.Deposit,
+                AuxilaryUser = platformAccount
             };
 
-            Wallet wallet = await DataContext.Store.GetByIdAsync<Wallet>(walletId);
+            Transaction platformTransaction = new Transaction(transaction)
+            {
+                AuxilaryUser = wallet.User
+            };
 
             if (data.Authorization.Reusable && string.IsNullOrWhiteSpace(wallet.PaystackAuthorization))
             {
@@ -148,8 +180,54 @@ namespace Chop9ja.API.Services
             }
 
             await wallet.AddTransactionAsync(transaction);
+            await platformAccount.Wallet.AddTransactionAsync(platformTransaction);
+            
             return true;
         }
+        #endregion
+
+        #region Bank
+        public async Task<PaymentResult> UseBank(User user, decimal amount, BankAccount userAccount, BankAccount platformAccount)
+        {
+            PaymentChannel channel = await DataContext.Store.GetOneAsync<PaymentChannel>(p => p.Type == ChannelType.Bank);
+
+            DepositPaymentRequest request = new DepositPaymentRequest()
+            {
+                AddedAtUtc = DateTime.UtcNow,
+                User = user,
+                Amount = amount,
+                PaymentChannel = channel,
+                Status = RequestStatus.Pending,
+                TransactionType = TransactionType.Deposit,
+                UserBankAccountId = userAccount.Id,
+                PlatformBankAccountId = platformAccount.Id
+            };
+
+            await user.AddPaymentRequestAsync(request);
+
+            return new PaymentResult() { Status = PaymentStatus.Pending };
+        }
+
+        public async Task BankWithdrawal(User user, decimal amount, BankAccount account)
+        {
+            PaymentChannel channel = DataContext.Store.GetOne<PaymentChannel>(p => p.Type == ChannelType.Bank);
+
+            PaymentRequest request = new PaymentRequest()
+            {
+                AddedAtUtc = DateTime.UtcNow,
+                User = user,
+                Amount = amount,
+                PaymentChannel = channel,
+                Status = RequestStatus.Pending,
+                TransactionType = TransactionType.Withdrawal,
+                UserBankAccountId = account.Id
+            };
+
+            user.Wallet.AvailableBalance -= amount;
+
+            await user.AddPaymentRequestAsync(request);
+        }
+        #endregion
 
         #endregion
     }

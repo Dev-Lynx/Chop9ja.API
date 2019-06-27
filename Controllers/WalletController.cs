@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using Chop9ja.API.Data;
+using Chop9ja.API.Extensions;
 using Chop9ja.API.Extensions.UnityExtensions;
 using Chop9ja.API.Models;
 using Chop9ja.API.Models.Entities;
 using Chop9ja.API.Models.ViewModels;
 using Chop9ja.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -44,6 +47,9 @@ namespace Chop9ja.API.Controllers
 
         [DeepDependency]
         IPaymentService PaymentService { get; }
+
+        [DeepDependency]
+        IHostingEnvironment Env { get; }
         #endregion
 
         #endregion
@@ -66,8 +72,29 @@ namespace Chop9ja.API.Controllers
             if (user == null) return Unauthorized();
 
             var view = Mapper.Map<WalletViewModel>(user.Wallet);
-
+            
             return Ok(view);
+        }
+
+        /// <summary>
+        /// Get list of payment methods.
+        /// </summary>
+        [HttpGet("deposit/paymentChannels")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<PaymentChannelViewModel>), Description = "List of available payment methods")]
+        public async Task<IActionResult> GetPaymentChannels()
+        {
+            var channels = await DataContext.Store.GetAllAsync<PaymentChannel>(p => true);
+            return Ok(Mapper.Map<IEnumerable<PaymentChannelViewModel>>(channels));
+        }
+
+        /// <summary>
+        /// Get list of bank accounts for deposit
+        /// </summary>
+        [HttpGet("deposit/platformBankAccounts")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<UserBankAccountViewModel>), Description = "List of available bank accounts for deposit")]
+        public IActionResult GetPlatformBankAccounts()
+        {
+            return Ok(Mapper.Map<IEnumerable<UserBankAccountViewModel>>(DataContext.PlatformAccount.BankAccounts));
         }
 
         /// <summary>
@@ -77,7 +104,7 @@ namespace Chop9ja.API.Controllers
         [HttpPost("deposit")]
         [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Deposit was automatic and successful")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "Invalid User Credentials.")]
-        [SwaggerResponse(HttpStatusCode.Accepted, typeof(RedirectResult), Description = "Transaction has been created. User should be redirected to paystack")]
+        [SwaggerResponse(HttpStatusCode.Accepted, typeof(AcceptedResult), Description = "Transaction has been created. User should be redirected to the returned url.")]
         [SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequestObjectResult), Description = "Deposit was automatic and successful")]
         public async Task<IActionResult> Deposit([FromBody]DepositViewModel model)
         {
@@ -90,16 +117,36 @@ namespace Chop9ja.API.Controllers
             switch (model.PaymentChannel)
             {
                 case ChannelType.Paystack:
+                    if (!Env.IsDevelopment())
+                    {
+                        string baseUrl = new Uri(HttpContext.Request.GetEncodedUrl()).GetBaseUrl();
+                        Core.ONLINE_BASE_ADDRESS = baseUrl;
+                    }
+
                     result = await PaymentService.UsePaystack(user, model.Amount);
+                    break;
+
+                case ChannelType.Bank:
+                    BankAccount account = user.BankAccounts.FirstOrDefault(b => b.IsActive && b.Id == model.UserBankAccountId);
+
+                    if (account == null) return NotFound("Invalid User Account Id");
+
+                    BankAccount platformAccount = DataContext.PlatformAccount.BankAccounts.FirstOrDefault(b => b.IsActive && b.Id == model.PlatformBankAccountId);
+
+                    if (platformAccount == null) return NotFound("Invalid Platform Account Id");
+
+                    result = await PaymentService.UseBank(user, model.Amount, account, platformAccount);
                     break;
             }
 
             switch (result.Status)
             {
                 case PaymentStatus.Redirected:
-                    return Ok(result.Message);
+                    return Accepted(result.Message, result.Message);
                 case PaymentStatus.Success:
                     return Ok();
+                case PaymentStatus.Pending:
+                    return Accepted();
 
                 default: return BadRequest(result.Message);
             }
@@ -118,19 +165,13 @@ namespace Chop9ja.API.Controllers
 
             if (user == null) return Unauthorized();
 
-            if (model.Amount > user.Wallet.Balance) return BadRequest("Insufficient Funds");
+            if (model.Amount > user.Wallet.AvailableBalance) return BadRequest("Insufficient Funds");
 
-            PaymentChannel channel = DataContext.Store.GetOne<PaymentChannel>(p => p.Type == ChannelType.BankDeposit);
+            BankAccount account = user.BankAccounts.FirstOrDefault(b => b.Id == model.BankAccountId);
 
-            // TODO: Create a claim
-            Transaction transaction = new Transaction()
-            {
-                Amount = model.Amount,
-                PaymentChannel = channel,
-                Type = TransactionType.Withdrawal
-            };
+            if (account == null) return NotFound("The provided bank account could not be located for this user.");
 
-            await user.Wallet.AddTransactionAsync(transaction);
+            await PaymentService.BankWithdrawal(user, model.Amount, account);
 
             return Ok();
         }

@@ -19,7 +19,10 @@ namespace Chop9ja.API
         public static void Main(string[] args)
         {
             Core.StartupArguments = args;
-            CreateWebHostBuilder(args).Build().Run();
+            IWebHost host = CreateWebHostBuilder(args).Build();
+            Core.Initialize(host);
+            host.Run();
+                //.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

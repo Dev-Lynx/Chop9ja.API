@@ -58,6 +58,7 @@ namespace Chop9ja.API
 
         #region Internals
         IConfiguration Configuration { get; }
+        IHostingEnvironment CurrentEnvironment { get; }
         IServiceCollection ServiceCollection { get; set; }
         string ConnectionString => Configuration.GetConnectionString("MongoDBAtlasConnection");
         JwtIssuerOptions JwtIssuerOptions { get; set; }
@@ -67,9 +68,10 @@ namespace Chop9ja.API
         #endregion
 
         #region Constructors
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            CurrentEnvironment = env;
         }
         #endregion
 
@@ -129,10 +131,8 @@ namespace Chop9ja.API
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
-            
 
             ConfigureDocumentation(app);
-            Core.Initialize();
 
             app.ConfigureExceptionHandler(loggerFactory);
             app.UseMvc();
@@ -158,7 +158,7 @@ namespace Chop9ja.API
             
             //container.RegisterTransient<UserDataContext>();
 
-            container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, "__identities"));
+            container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, "localIdentities"));
 
             container.RegisterControllers();
 
@@ -239,7 +239,7 @@ namespace Chop9ja.API
                 opt.Password.RequiredLength = 8;
                 opt.User.RequireUniqueEmail = true;
             })
-            .AddMongoDbStores<User, UserRole, Guid>(new MongoDataContext(ConnectionString, "__identities"))
+            .AddMongoDbStores<User, UserRole, Guid>(new MongoDataContext(ConnectionString, "localIdentities"))
             .AddDefaultTokenProviders();
 
             // services.AddTransient(s => new MongoDataContext(ConnectionString, "__identities"));
@@ -253,8 +253,7 @@ namespace Chop9ja.API
             }).AddJwtBearer(configureOptions =>
             {
                 var options = Configuration.GetSection(JwtIssuerOptions.ConfigKey).Get<JwtIssuerOptions>();
-                var auth = Configuration.GetSection(AuthSettings.ConfigKey)
-                 .Get<AuthSettings>();
+                var auth = Configuration.GetSection(AuthSettings.ConfigKey).Get<AuthSettings>();
                 byte[] bytes = Encoding.ASCII.GetBytes(auth.Key);
                 SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
 

@@ -35,21 +35,44 @@ namespace Chop9ja.API.Models.Entities
 
         public string AccountName { get; set; }
         public string AccountNumber { get; set; }
+
+        public bool IsActive { get; set; } = true;
     }
 }
 
 
 namespace Chop9ja.API.Models.ViewModels
 {
-    public class NewBankAccountViewModel
+    public class BankAccountViewModel
     {
+        /// <summary>
+        /// ID of the bank on the list. 
+        /// List can be found at (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+        /// </summary>
+        [Required]
         public int BankId { get; set; }
+        
+        /// <summary>
+        /// Registered Name of the bank account
+        /// </summary>
+        [Required]
         public string AccountName { get; set; }
+
+        /// <summary>
+        /// Bank Account Number
+        /// </summary>
+        [Required]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Only numbers are allowed")]
         public string AccountNumber { get; set; }
     }
 
-    public class BankAccountViewModel : NewBankAccountViewModel
-    {
+    public class UserBankAccountViewModel : BankAccountViewModel
+    { 
+        /// <summary>
+        /// Identity for the bank account. It should be stored for easy 
+        /// account referencing.
+        /// </summary>
+        [Required]
         public Guid Id { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 [
   {
-    "Name": "Bank Payment",
+    "Name": "Bank",
     "Logo": "https://res.cloudinary.com/dev-lynx/image/upload/v1561331239/BankLogo.svg",
     "Currency": "Naira",
     "ConversionRate": 1.0,
     "Description": "Manual Bank Payment",
-    "Type": "BankDeposit",
-    "ContainsFee": false,
-    "Fee": "0%",
+    "Type": "Bank",
+    "UsesFeePercentage": false,
+    "FeePercentage": 0,
+    "UsesFixedFee": false,
+    "FixedFee": 0,
     "PaymentRange": {
       "From": "00:30:00",
       "To": "06:00:00"
@@ -23,8 +25,10 @@
     "ConversionRate": 100.0,
     "Description": "Payment using Paystack Services",
     "Type": "Paystack",
-    "ContainsFee": true,
-    "Fee": "1.5% + N100",
+    "UsesFeePercentage": true,
+    "FeePercentage": 1.5,
+    "UsesFixedFee": true,
+    "FixedFee": 100,
     "PaymentRange": {
       "From": "00:01:00",
       "To": "00:03:00"

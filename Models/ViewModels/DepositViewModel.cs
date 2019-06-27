@@ -10,5 +10,8 @@ namespace Chop9ja.API.Models.ViewModels
     {
         public decimal Amount { get; set; }
         public ChannelType PaymentChannel { get; set; }
+
+        public Guid UserBankAccountId { get; set; }
+        public Guid PlatformBankAccountId { get; set; }
     }
 }

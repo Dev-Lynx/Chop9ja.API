@@ -23,9 +23,14 @@ namespace Chop9ja.API.Models.Entities
     #region Entity
     [Owned]
     [BsonIgnoreExtraElements]
+    [BsonKnownTypes(typeof(BankTransaction))]
+    [BsonDiscriminator(Required = true, RootClass = true)]
     public class Transaction : Document
     {
+        #region Properties
         public decimal Amount { get; set; }
+
+        public DateTime AddedAt => AddedAtUtc.ToLocalTime();
 
         [BsonIgnoreIfDefault]
         public Guid PaymentChannelId { get; set; }
@@ -50,6 +55,62 @@ namespace Chop9ja.API.Models.Entities
 
         [BsonRepresentation(BsonType.String)]
         public TransactionType Type { get; set; }
+
+        public Guid AuxilaryUserId { get; set; }
+
+        User _auxilaryUser;
+        [BsonIgnore]
+        public User AuxilaryUser
+        {
+            get
+            {
+                if (_auxilaryUser == null || _auxilaryUser.Id == Guid.Empty)
+                    _auxilaryUser = Core.DataContext.Store.GetById<User>(AuxilaryUserId);
+                return _auxilaryUser;
+            }
+            set
+            {
+                if (value != null) AuxilaryUserId = value.Id;
+                _auxilaryUser = value;
+            }
+        }
+        #endregion
+
+        #region Constructors
+        public Transaction() { }
+        public Transaction(Transaction transaction)
+        {
+            Id = transaction.Id;
+            AddedAtUtc = transaction.AddedAtUtc;
+            Amount = transaction.Amount;
+            PaymentChannelId = transaction.PaymentChannelId;
+            Type = transaction.Type;
+            AuxilaryUserId = transaction.AuxilaryUserId;
+        }
+        #endregion
+    }
+
+    
+    public class BankTransaction : Transaction
+    {
+        public Guid AuxilaryBankAccountId { get; set; }
+
+        BankAccount _auxilaryBankAccount;
+        [BsonIgnore]
+        public BankAccount AuxilaryBankAccount
+        {
+            get
+            {
+                if (_auxilaryBankAccount == null || _auxilaryBankAccount.Id == Guid.Empty)
+                    _auxilaryBankAccount = AuxilaryUser.BankAccounts.FirstOrDefault(b => b.Id == AuxilaryBankAccountId);
+                return _auxilaryBankAccount;
+            }
+            set
+            {
+                if (value != null) AuxilaryBankAccountId = value.Id;
+                _auxilaryBankAccount = value;
+            }
+        }
     }
     #endregion
 }
@@ -61,9 +122,10 @@ namespace Chop9ja.API.Models.ViewModels
 
     public class TransactionViewModel
     {
+        public DateTime AddedAt { get; set; }
         public decimal Amount { get; set; }
         public Entities.TransactionType Type { get; set; }
-        public PaymentChannelViewModel PaymentMethod { get; set; }
+        public PaymentChannelViewModel PaymentChannel { get; set; }
     }
 
     #endregion

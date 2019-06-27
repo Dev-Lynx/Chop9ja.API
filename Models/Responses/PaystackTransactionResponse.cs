@@ -25,6 +25,7 @@ namespace Chop9ja.API.Models.Responses
 
         public string GateWayResponse { get; set; }
         public decimal Fees { get; set; }
+        public Dictionary<string, object> Metadata { get; set; }
 
         public PaystackPaymentAuthorization Authorization { get; set; }
     }

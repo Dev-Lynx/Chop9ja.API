@@ -123,7 +123,32 @@ namespace Chop9ja.API.Controllers
             return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
         }
 
-        
+        /// <summary>
+        /// Change account password
+        /// </summary>
+        /// <param name="model">Password change model</param>
+        /// <returns>An OK Response</returns>
+        [Authorize]
+        [HttpPost("changePassword")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Password was successfully changed")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "User was not found or the user credentials were invalid.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, typeof(IEnumerable<IdentityError>), Description = "The input was invalid. Returns a collection of the errors found.")]
+        public async Task<IActionResult> ChangePassword([FromBody]PasswordChangeViewModel model)
+        {
+            string id = User.FindFirst("id").Value;
+            User user = await UserManager.FindByIdAsync(id);
+
+            if (user == null) return Unauthorized();
+
+            IdentityResult result = await UserManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+
+            return Ok();
+        }
+
+
 
         /// <summary>
         /// Send an email for user verification.

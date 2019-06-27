@@ -6,10 +6,12 @@ using Chop9ja.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
+using NSwag.Annotations;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +39,15 @@ namespace Chop9ja.API.Controllers
 
         #region Methods
 
+        /// <summary>
+        /// Webhook for paystack. 
+        /// This method is only for calls from paystack.
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns>An OK Response</returns>
         [HttpPost("paystack")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult))]
+        [SwaggerResponse(HttpStatusCode.BadRequest, typeof(string), Description = "An unexpected error occured.")]
         public async Task<IActionResult> Paystack([FromBody]PaystackTransactionResponse response)
         {
             // Make sure the webhook is calling to report success

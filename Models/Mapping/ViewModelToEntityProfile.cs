@@ -25,8 +25,8 @@ namespace Chop9ja.API.Models.Mapping
             CreateMap<Transaction, TransactionViewModel>();
             CreateMap<Wallet, WalletViewModel>();
 
-            CreateMap<NewBankAccountViewModel, BankAccount>();
-            CreateMap<BankAccount, BankAccountViewModel>();
+            CreateMap<BankAccountViewModel, BankAccount>();
+            CreateMap<BankAccount, UserBankAccountViewModel>();
         }
     }
 }

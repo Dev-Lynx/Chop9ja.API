@@ -3,6 +3,8 @@ using AspNetCore.Identity.MongoDbCore.Models;
 using Chop9ja.API.Data;
 using Chop9ja.API.Models.Entities;
 using FluentScheduler;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -30,6 +32,7 @@ namespace Chop9ja.API
         public static IServiceProvider ServiceProvider { get; private set; }
         public static MongoDataContext DataContext => MongoDataContext.Current;
         public static IMongoRepository DataStore => MongoDataContext.Current.Store;
+        static IWebHost Host { get; set; }
 
         #region Solids
 
@@ -62,6 +65,8 @@ namespace Chop9ja.API
         #endregion
 
         #region Routes
+        public const string NGROK_SERVER = "http://c9dae43d.ngrok.io";
+        public static string ONLINE_BASE_ADDRESS { get; set; }
         public const string DOCS_ROUTE = "/api/docs";
         #endregion
 
@@ -88,7 +93,7 @@ namespace Chop9ja.API
             JobManager.Initialize(new Registry());
 
             ConfigureLogger();
-            
+
             Core.Log.Info("\n\n");
             Core.Log.Info($"*** Application Started ***\nWelcome to the {PRODUCT_NAME}\nBuilt by {AUTHOR}" +
                 $"\nUnder the supervision of {COMPANY}\nCopyright 2019.\nAll rights reserved.\n\n");
@@ -181,7 +186,7 @@ namespace Chop9ja.API
             {
                 Name = "Google StackDriver Logger",
                 Layout = Core.LOG_LAYOUT,
-                ProjectId = "chop9ja", 
+                ProjectId = "chop9ja",
                 CredentialFile = Path.Combine(BASE_DIR, "credentials.json")
             };
 
@@ -217,8 +222,14 @@ namespace Chop9ja.API
 
 
 
-        public static Task Initialize()
+        public static Task Initialize(IWebHost host)
         {
+            Host = host;
+            var env = Container.Resolve<IHostingEnvironment>();
+
+            if (env.IsDevelopment()) ONLINE_BASE_ADDRESS = Core.NGROK_SERVER;
+            else ONLINE_BASE_ADDRESS = Host.ServerFeatures.Get<IServerAddressesFeature>().Addresses.FirstOrDefault();
+
             InitializeData().Wait();
 
             if (StartupArguments.Length > 0)
@@ -242,21 +253,49 @@ namespace Chop9ja.API
             {
                 if (await roleManager.RoleExistsAsync(role)) continue;
                 await roleManager.CreateAsync(new UserRole(role));
-
-                //await dataContex var dataContext = Container.Resolve<MongoDataContext>();t.SaveChangesAsync();
             }
 
-            string bankData = Path.Combine(DATA_DIR, "banks.json");
-            string bankJson = await File.ReadAllTextAsync(bankData);
-            var banks = JsonConvert.DeserializeObject<List<Bank>>(bankJson);
-
-            foreach (var bank in banks)
-            {
-                bool exists = await DataContext.Store.AnyAsync<Bank, int>(b => b.Id == bank.Id);
-                if (!exists) await DataContext.Store.AddOneAsync<Bank, int>(bank);
-            }
-
+            await ConfigureBanks();
             await ConfigurePaymentChannels();
+
+            if (await userManager.FindByEmailAsync("devlynx.official@gmail.com") == null)
+            {
+                User platformAccount = new User()
+                {
+                    Email = "devlynx.official@gmail.com",
+                    UserName = "Chop9ja",
+                    FirstName = "Chop9ja",
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true,
+                    IsPlatform = true,
+                    BankAccounts = new List<BankAccount>()
+                    {
+                        new BankAccount()
+                        {
+                            AddedAtUtc = DateTime.UtcNow,
+                            AccountName = "Chop9ja INC.",
+                            AccountNumber = "123456789",
+                            BankId = 5
+                        },
+
+                        new BankAccount()
+                        {
+                            AddedAtUtc = DateTime.UtcNow,
+                            AccountName = "Chop9ja International",
+                            AccountNumber = "987654321",
+                            BankId = 2
+                        }
+                    }
+                };
+
+                await userManager.CreateAsync(platformAccount);
+                await userManager.AddToRoleAsync(platformAccount, UserRoles.Platform.ToString());
+                await userManager.AddPasswordAsync(platformAccount, "Password@Password321");
+                await platformAccount.InitializeAsync();
+            }
+
+
+            
         }
 
         static async Task ConfigurePaymentChannels()
@@ -267,6 +306,19 @@ namespace Chop9ja.API
             foreach (var channel in channels)
                 if (!await DataContext.Store.AnyAsync<PaymentChannel>(c => c.Type == channel.Type))
                     await DataContext.Store.AddOneAsync(channel);
+        }
+
+        static async Task ConfigureBanks()
+        {
+            string bankData = Path.Combine(DATA_DIR, "banks.json");
+            string bankJson = await File.ReadAllTextAsync(bankData);
+            var banks = JsonConvert.DeserializeObject<List<Bank>>(bankJson);
+
+            foreach (var bank in banks)
+            {
+                bool exists = await DataContext.Store.AnyAsync<Bank, int>(b => b.Id == bank.Id);
+                if (!exists) await DataContext.Store.AddOneAsync<Bank, int>(bank);
+            }
         }
 
         public static Task SeedUsers()

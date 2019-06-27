@@ -23,6 +23,7 @@ namespace Chop9ja.API.Models.Entities
     {
         #region Properties
         public decimal Balance { get; set; }
+        public decimal AvailableBalance { get; set; }
 
         public ICollection<Transaction> Transactions { get; set; } = new Collection<Transaction>();
 
@@ -46,7 +47,6 @@ namespace Chop9ja.API.Models.Entities
                 _user = value;
             }
         }
-
         #region Payment Authorization
         [BsonIgnoreIfDefault]
         public string PaystackAuthorization { get; set; }
@@ -63,7 +63,9 @@ namespace Chop9ja.API.Models.Entities
         public async Task AddTransactionAsync(Transaction transaction)
         {
             if (transaction == null) throw new InvalidOperationException("Transaction cannot be null");
-            
+
+            if (Transactions.Any(t => t.Id == transaction.Id)) return;
+
             if (await EvaluateTransactionAsync(transaction))
                 Transactions.Add(transaction);
 
@@ -76,6 +78,7 @@ namespace Chop9ja.API.Models.Entities
             {
                 case TransactionType.Deposit:
                     Balance += transaction.Amount;
+                    AvailableBalance += transaction.Amount;
                     break;
 
                 case TransactionType.Withdrawal:
@@ -105,6 +108,7 @@ namespace Chop9ja.API.Models.ViewModels
     public class WalletViewModel
     {
         public decimal Balance { get; set; }
+        public decimal AvailableBalance { get; set; }
 
         public List<TransactionViewModel> Transactions { get; set; } = new List<TransactionViewModel>();
     }

@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace Chop9ja.API.Controllers
 {
     /// <summary>
-    /// Handles Manages User Account.
+    /// Manages User Account.
     /// </summary>
     [Authorize]
     [Route("api/[controller]")]
@@ -62,20 +62,14 @@ namespace Chop9ja.API.Controllers
             return Ok(Mapper.Map<UserViewModel>(user));
         }
 
-        [HttpPost("manage/changePassword")]
-        public async Task<IActionResult> ChangePassword([FromBody]PasswordChangeViewModel model)
-        {
-            string id = User.FindFirst("id").Value;
-            User user = await UserManager.FindByIdAsync(id);
-
-            if (user == null) return Unauthorized();
-
-            await UserManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
-
-            return Ok();
-        }
-
+        
+        /// <summary>
+        /// Get user bank accounts
+        /// </summary>
+        /// <returns>An OK Response</returns>
         [HttpGet("bankAccounts")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<UserBankAccountViewModel>), Description = "A list of the user's bank account.")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "User was not found or the user credentials were invalid.")]
         public async Task<IActionResult> GetBankAccounts()
         {
             string id = User.FindFirst("id").Value;
@@ -83,12 +77,21 @@ namespace Chop9ja.API.Controllers
 
             if (user == null) return Unauthorized();
 
-            var accounts = Mapper.Map<IEnumerable<BankAccountViewModel>>(user.BankAccounts);
+            var accounts = Mapper.Map<IEnumerable<UserBankAccountViewModel>>(user.BankAccounts.Where(b => b.IsActive));
             return Ok(accounts);
         }
-        
+
+        /// <summary>
+        /// Add a new bank account
+        /// </summary>
+        /// <param name="model">Banks and IDs are modelled after 
+        /// (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+        /// </param>
+        /// <returns>An OK Response</returns>
         [HttpPost("manage/bankAccounts/add")]
-        public async Task<IActionResult> AddBankAccount([FromBody]NewBankAccountViewModel model)
+        [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Bank account was successfully added")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "User was not found or the user credentials were invalid.")]
+        public async Task<IActionResult> AddBankAccount([FromBody]BankAccountViewModel model)
         {
             string id = User.FindFirst("id").Value;
             User user = await UserManager.FindByIdAsync(id);
@@ -97,13 +100,35 @@ namespace Chop9ja.API.Controllers
 
             BankAccount account = Mapper.Map<BankAccount>(model);
 
+            BankAccount clone = user.BankAccounts.FirstOrDefault(b =>
+            {
+                return b.BankId == model.BankId
+                && b.AccountNumber == b.AccountNumber;
+            });
+
+            if (clone != null)
+            {
+                int index = user.BankAccounts.IndexOf(clone);
+                clone.IsActive = true;
+                user.BankAccounts[index] = account;
+                await DataContext.Store.UpdateOneAsync(user);
+                return Ok();
+            }
+
             user.BankAccounts.Add(account);
             await DataContext.Store.UpdateOneAsync(user);
 
             return Ok();
         }
 
+        /// <summary>
+        /// Delete a bank account
+        /// </summary>
+        /// <param name="accountId">Bank Account ID value</param>
+        /// <returns>An OK Response</returns>
         [HttpPost("manage/bankAccounts/remove")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Bank account was successfully removed")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "User was not found or the user credentials were invalid.")]
         public async Task<IActionResult> RemoveBankAccount([FromBody]string accountId)
         {
             string id = User.FindFirst("id").Value;
@@ -111,10 +136,13 @@ namespace Chop9ja.API.Controllers
 
             if (user == null) return Unauthorized();
 
-            bool success = user.BankAccounts.RemoveAll(b => b.Id == Guid.Parse(accountId)) > 0;
-            await DataContext.Store.UpdateOneAsync(user);
+            BankAccount account = user.BankAccounts.FirstOrDefault(b => b.Id == Guid.Parse(accountId));
 
-            if (!success) return NotFound($"No Bank Account exists with id {accountId}");
+            if (account == null) return NotFound($"No Bank Account exists with id {accountId}");
+
+            account.IsActive = false;
+
+            bool success = await DataContext.Store.UpdateOneAsync(user);
             return Ok();
         }
        

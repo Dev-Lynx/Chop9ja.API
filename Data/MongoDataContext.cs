@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Infrastructure;
 using Chop9ja.API.Extensions.UnityExtensions;
 using Chop9ja.API.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using MongoDbGenericRepository;
@@ -21,6 +22,11 @@ namespace Chop9ja.API.Data
         public IMongoCollection<Wallet> Wallets => GetCollection<Wallet>();
         public IMongoCollection<Transaction> Transactions => GetCollection<Transaction>();
         public IMongoCollection<Bank> Banks => GetCollection<Bank>();
+        public IMongoCollection<PaymentChannel> PaymentChannels => GetCollection<PaymentChannel>();
+        #endregion
+
+        #region Entities
+        public User PlatformAccount => Store.GetOne<User>(u => u.IsPlatform);
         #endregion
 
         #region Services

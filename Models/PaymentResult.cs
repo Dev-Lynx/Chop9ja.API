@@ -7,7 +7,7 @@ namespace Chop9ja.API.Models
 {
     public enum PaymentStatus
     {
-        Success, Redirected, Failed
+        Success, Redirected, Pending, Failed
     }
 
     public class PaymentResult

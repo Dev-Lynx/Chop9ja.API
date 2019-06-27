@@ -6,13 +6,35 @@
     <members>
         <member name="T:Chop9ja.API.Controllers.AccountController">
             <summary>
-            Handles Manages User Account.
+            Manages User Account.
             </summary>
         </member>
         <member name="M:Chop9ja.API.Controllers.AccountController.GetUser">
             <summary>
             Gets the current user.
             </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.GetBankAccounts">
+            <summary>
+            Get user bank accounts
+            </summary>
+            <returns>An OK Response</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.AddBankAccount(Chop9ja.API.Models.ViewModels.BankAccountViewModel)">
+            <summary>
+            Add a new bank account
+            </summary>
+            <param name="model">Banks and IDs are modelled after 
+            (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+            </param>
+            <returns>An OK Response</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.RemoveBankAccount(System.String)">
+            <summary>
+            Delete a bank account
+            </summary>
+            <param name="accountId">Bank Account ID value</param>
+            <returns>An OK Response</returns>
         </member>
         <member name="T:Chop9ja.API.Controllers.AuthController">
             <summary>
@@ -32,6 +54,13 @@
             </summary>
             <param name="model">User login details.</param>
             <returns>A JWT access token or a collection of the errors found.</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.ChangePassword(Chop9ja.API.Models.ViewModels.PasswordChangeViewModel)">
+            <summary>
+            Change account password
+            </summary>
+            <param name="model">Password change model</param>
+            <returns>An OK Response</returns>
         </member>
         <member name="M:Chop9ja.API.Controllers.AuthController.GenerateEmailOneTimePassword(Chop9ja.API.Models.ViewModels.EmailViewModel)">
             <summary>
@@ -71,6 +100,11 @@
             One Time Password submitted by the user.
             </param>
         </member>
+        <member name="T:Chop9ja.API.Controllers.BetController">
+            <summary>
+            Manages User Bets
+            </summary>
+        </member>
         <member name="T:Chop9ja.API.Controllers.MessengerController">
             <summary>
             Handles API Messaging
@@ -107,6 +141,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetPaymentChannels">
+            <summary>
+            Get list of payment methods.
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetPlatformBankAccounts">
+            <summary>
+            Get list of bank accounts for deposit
+            </summary>
+        </member>
         <member name="M:Chop9ja.API.Controllers.WalletController.Deposit(Chop9ja.API.Models.ViewModels.DepositViewModel)">
             <summary>
             Make a deposit
@@ -119,6 +163,14 @@
             </summary>
             <param name="model"></param>
             <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WebHookController.Paystack(Chop9ja.API.Models.Responses.PaystackTransactionResponse)">
+            <summary>
+            Webhook for paystack. 
+            This method is only for calls from paystack.
+            </summary>
+            <param name="response"></param>
+            <returns>An OK Response</returns>
         </member>
         <member name="M:Chop9ja.API.Core.CreateDirectories(System.String[])">
             <summary>
@@ -219,6 +271,76 @@
             Life Span of an SMS one time password in seconds.
             </summary>
         </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.BankId">
+            <summary>
+            ID of the bank on the list. 
+            List can be found at (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.AccountName">
+            <summary>
+            Registered Name of the bank account
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.AccountNumber">
+            <summary>
+            Bank Account Number
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.Id">
+            <summary>
+            Identity for the bank account. It should be stored for easy 
+            account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Name">
+            <summary>
+            Name of payment channel
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Logo">
+            <summary>
+            Link to payment channel's logo
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.UsesFeePercentage">
+            <summary>
+            Indicates that the platform charges a percentage of the 
+            original amount during payment.
+            
+            Note: A platform can use both a fee percentage and a fixed fee.
+            For a consistent fee, use the following formula:
+            
+            fee = (amount * feePercentage) + fixedFee
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.FeePercentage">
+            <summary>
+            Percentage the platform charges during payment.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.UsesFixedFee">
+            <summary>
+            Indicates that the platform charges a fixed fee
+            during payment.
+            
+            Note: A platform can use both a fee percentage and a fixed fee.
+            For a consistent fee, use the following formula:
+            
+            fee = (amount * feePercentage) + fixedFee
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.FixedFee">
+            <summary>
+            Fixed amount the platform charges during payment.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.PaymentRange">
+            <summary>
+            An estimation of the time this payment channel 
+            would take to complete a payment.
+            </summary>
+        </member>
         <member name="T:Chop9ja.API.Models.ViewModels.AccessTokenModel">
             <summary>
             API Access Token Wrapper
@@ -245,6 +367,18 @@
             Email of the user the email is addressed to.
             </summary>
         </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PasswordChangeViewModel.CurrentPassword">
+            <summary>
+            Password must contain a letter, number and symbol. 
+            Password should not be less than 8 characters.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PasswordChangeViewModel.NewPassword">
+            <summary>
+            Password must contain a letter, number and symbol. 
+            Password should not be less than 8 characters.
+            </summary>
+        </member>
         <member name="P:Chop9ja.API.Models.ViewModels.SMSViewModel.Message">
             <summary>
             SMS content to send. Should not be more than 160 characters.
@@ -268,6 +402,12 @@
         <member name="P:Chop9ja.API.Models.ViewModels.UserLoginViewModel.Password">
             <summary>
             User Password.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserRegistrationViewModel.Password">
+            <summary>
+            Password must contain a letter, number and symbol. 
+            Password should not be less than 8 characters.
             </summary>
         </member>
         <member name="P:Chop9ja.API.Models.Options.JwtIssuerOptions.Issuer">

@@ -20,7 +20,8 @@ namespace Chop9ja.API.Models.Entities
     public enum UserRoles
     {
         RegularUser,
-        Administrator
+        Administrator,
+        Platform
     }
 
     [BsonIgnoreExtraElements]
@@ -28,6 +29,7 @@ namespace Chop9ja.API.Models.Entities
     public class User : MongoIdentityUser, IDocument
     {
         #region Properties
+        public DateTime Created { get; set; } = DateTime.Now;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -56,10 +58,26 @@ namespace Chop9ja.API.Models.Entities
             }
         }
 
+        public List<Guid> PaymentRequestIds { get; set; } = new List<Guid>();
+
+        IEnumerable<PaymentRequest> _paymentRequests = Enumerable.Empty<PaymentRequest>();
+        public IEnumerable<PaymentRequest> PaymentRequests
+        {
+            get
+            {
+                if (_paymentRequests.Count() != PaymentRequestIds.Count)
+                    _paymentRequests = Core.DataContext.Store
+                        .GetAll<PaymentRequest>(r => PaymentRequestIds.Contains(r.Id));
+                return _paymentRequests;
+            }
+        }
+
 
         public List<OneTimePassword> OneTimePasswords { get; set; } = new List<OneTimePassword>();
 
         public List<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
+
+        public bool IsPlatform { get; set; }
         #endregion
 
         #region Methods
@@ -70,6 +88,15 @@ namespace Chop9ja.API.Models.Entities
             await Core.DataContext.Store.AddOneAsync(Wallet);
 
             WalletId = Wallet.Id;
+            await Core.DataContext.Store.UpdateOneAsync(this);
+        }
+
+        public async Task AddPaymentRequestAsync(PaymentRequest request)
+        {
+            request.User = this;
+            await Core.DataContext.Store.AddOneAsync(request);
+
+            PaymentRequestIds.Add(request.Id);
             await Core.DataContext.Store.UpdateOneAsync(this);
         }
         #endregion

@@ -35,12 +35,12 @@ namespace Chop9ja.API.Extensions
             TimeSpan from = range.From;
             TimeSpan to = range.To;
 
-            if (to.TotalSeconds <= 1) return $@"{from:s\.ff} - {to:s\.ff} seconds";
-            if (to.TotalMinutes <= 1) return $@"{from:%s} - {to:%s} seconds";
-            if (to.TotalHours <= 1) return $@"{from:%m} - {to:%m} minutes";
-            if (to.TotalDays <= 1) return $@"{from:%h} - {to:%h} hours";
+            if (to.TotalSeconds <= 1) return $@"{from.TotalSeconds} - {to.TotalSeconds} seconds";
+            if (to.TotalMinutes <= 1) return $@"{from.TotalSeconds} - {to.TotalSeconds} seconds";
+            if (to.TotalHours <= 1) return $@"{from.TotalMinutes} - {to.TotalMinutes} minutes";
+            if (to.TotalDays <= 1) return $@"{from.TotalHours} - {to.TotalHours} hours";
 
-            return $@"{from:%d} - {to:%d} days";
+            return $@"{from.TotalDays} - {to.TotalDays} days";
         }
     }
 }
