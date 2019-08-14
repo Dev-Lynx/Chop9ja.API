@@ -1,0 +1,925 @@
+2019-08-12 02:38:07.5387|INFO| 
+
+ 
+2019-08-12 02:38:07.6343|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-08-12 02:38:12.8463|DEBUG| Successfully registered the service provider 
+2019-08-12 02:38:14.3522|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-08-12 02:38:45.5164|DEBUG| Chop9ja API has successfully been initialized. 
+2019-08-12 02:38:45.5303|DEBUG| Hosting starting 
+2019-08-12 02:38:45.7958|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-08-12 02:38:45.9111|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-08-12 02:38:46.0840|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-ec536e28-5a6b-4ee9-8860-1b42ae36e240.xml'. 
+2019-08-12 02:38:46.3932|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-08-12 02:38:46.4444|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-08-12 02:38:46.4444|DEBUG| Found key {ec536e28-5a6b-4ee9-8860-1b42ae36e240}. 
+2019-08-12 02:38:46.5094|DEBUG| Considering key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} with expiration date 2019-10-07 09:32:03Z as default key. 
+2019-08-12 02:38:46.5424|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-08-12 02:38:46.5452|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-08-12 02:38:46.5452|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-08-12 02:38:46.5452|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-08-12 02:38:46.5452|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-08-12 02:38:46.5675|DEBUG| Using key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} as the default key. 
+2019-08-12 02:38:46.5675|DEBUG| Key ring with default key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} was loaded during application startup. 
+2019-08-12 02:38:47.2955|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8565|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8709|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8709|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8766|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-08-12 02:38:47.8766|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8950|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:47.8950|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-08-12 02:38:47.8950|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.0199|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-08-12 02:38:48.0199|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-08-12 02:38:48.0199|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-08-12 02:38:48.0449|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.0468|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.0468|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.2454|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-08-12 02:38:48.7649|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.7649|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-08-12 02:38:48.7936|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-08-12 02:38:49.5761|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-08-12 02:38:50.7849|DEBUG| Using development certificate: CN=localhost (Thumbprint: B170A0FD12AC9485AD9441F202E2F79411B25DCB) 
+2019-08-12 02:38:51.2544|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-08-12 02:38:51.2544|DEBUG| Hosting started 
+2019-08-12 02:38:51.2544|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-08-12 02:40:25.6763|DEBUG| Connection id "0HLOUOO664O8M" started. 
+2019-08-12 02:40:26.4222|DEBUG| Connection id "0HLOUOO664O8N" started. 
+2019-08-12 02:40:26.4222|DEBUG| Connection id "0HLOUOO664O8N" received FIN. 
+2019-08-12 02:40:26.4222|DEBUG| Connection id "0HLOUOO664O8N" sending FIN because: "The client closed the connection." 
+2019-08-12 02:40:26.4222|DEBUG| Connection id "0HLOUOO664O8N" disconnecting. 
+2019-08-12 02:40:26.5894|DEBUG| Connection id "0HLOUOO664O8N" stopped. 
+2019-08-12 02:40:27.2126|INFO| Request starting HTTP/1.1 GET http://localhost:5000/   
+2019-08-12 02:40:27.2390|DEBUG| Wildcard detected, all requests with hosts will be allowed. 
+2019-08-12 02:40:27.2390|TRACE| All hosts are allowed. 
+2019-08-12 02:40:27.2390|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-08-12 02:40:29.3546|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:40:29.4585|DEBUG| Redirecting to 'https://localhost/'. 
+2019-08-12 02:40:30.3231|DEBUG| Connection id "0HLOUOO664O8M" completed keep alive response. 
+2019-08-12 02:40:30.3313|INFO| Request finished in 3217.8862ms 308  
+2019-08-12 02:40:36.3946|DEBUG| Connection id "0HLOUOO664O8M" received FIN. 
+2019-08-12 02:40:36.3946|DEBUG| Connection id "0HLOUOO664O8M" sending FIN because: "The client closed the connection." 
+2019-08-12 02:40:36.3946|DEBUG| Connection id "0HLOUOO664O8M" disconnecting. 
+2019-08-12 02:40:36.3946|DEBUG| Connection id "0HLOUOO664O8M" stopped. 
+2019-08-12 02:41:24.5821|DEBUG| Connection id "0HLOUOO664O8O" started. 
+2019-08-12 02:41:24.6647|DEBUG| Connection id "0HLOUOO664O8P" started. 
+2019-08-12 02:41:24.8463|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:26.3466|DEBUG| Connection id "0HLOUOO664O8P" disconnecting. 
+2019-08-12 02:41:26.3466|DEBUG| Connection id "0HLOUOO664O8P" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:26.3466|DEBUG| Connection id "0HLOUOO664O8P" stopped. 
+2019-08-12 02:41:26.3897|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:26.4231|DEBUG| Connection id "0HLOUOO664O8O" disconnecting. 
+2019-08-12 02:41:26.4231|DEBUG| Connection id "0HLOUOO664O8O" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:26.4231|DEBUG| Connection id "0HLOUOO664O8O" stopped. 
+2019-08-12 02:41:26.4231|DEBUG| Connection id "0HLOUOO664O8Q" started. 
+2019-08-12 02:41:26.4231|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:26.4389|DEBUG| Connection id "0HLOUOO664O8Q" disconnecting. 
+2019-08-12 02:41:26.4389|DEBUG| Connection id "0HLOUOO664O8Q" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:26.4389|DEBUG| Connection id "0HLOUOO664O8Q" stopped. 
+2019-08-12 02:41:40.3172|DEBUG| Connection id "0HLOUOO664O8R" started. 
+2019-08-12 02:41:40.3407|DEBUG| Connection id "0HLOUOO664O8S" started. 
+2019-08-12 02:41:41.0109|INFO| Request starting HTTP/1.1 GET https://localhost:5001/api/docs/redoc   
+2019-08-12 02:41:41.0109|TRACE| All hosts are allowed. 
+2019-08-12 02:41:41.0154|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:41:41.0154|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:41:42.1808|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:41:42.2318|DEBUG| Connection id "0HLOUOO664O8R" completed keep alive response. 
+2019-08-12 02:41:42.2357|INFO| Request finished in 1224.7935ms 302  
+2019-08-12 02:41:42.2645|INFO| Request starting HTTP/1.1 GET https://localhost:5001/api/docs/redoc/index.html?url=/api/docs/swagger/Chop9ja%20API%20v5-5/swagger.json   
+2019-08-12 02:41:42.2645|TRACE| All hosts are allowed. 
+2019-08-12 02:41:42.2645|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:41:42.2645|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:41:42.2645|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:41:42.3613|DEBUG| Connection id "0HLOUOO664O8R" completed keep alive response. 
+2019-08-12 02:41:42.3613|INFO| Request finished in 99.9792ms 200 text/html; charset=utf-8 
+2019-08-12 02:41:44.0450|INFO| Request starting HTTP/1.1 GET https://localhost:5001/api/docs/swagger/Chop9ja API v5-5/swagger.json   
+2019-08-12 02:41:44.0495|TRACE| All hosts are allowed. 
+2019-08-12 02:41:44.0495|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:41:44.0495|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:41:46.7809|DEBUG| Connection id "0HLOUOO664O8S" received FIN. 
+2019-08-12 02:41:46.7809|DEBUG| Connection id "0HLOUOO664O8S" sending FIN because: "The client closed the connection." 
+2019-08-12 02:41:46.8593|DEBUG| Connection id "0HLOUOO664O8S" disconnecting. 
+2019-08-12 02:41:46.8593|DEBUG| Connection id "0HLOUOO664O8S" stopped. 
+2019-08-12 02:41:49.2150|DEBUG| Connection id "0HLOUOO664O8T" started. 
+2019-08-12 02:41:49.2400|DEBUG| Connection id "0HLOUOO664O8U" started. 
+2019-08-12 02:41:49.2964|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:49.2964|DEBUG| Connection id "0HLOUOO664O8U" disconnecting. 
+2019-08-12 02:41:49.2964|DEBUG| Connection id "0HLOUOO664O8U" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:49.2964|DEBUG| Connection id "0HLOUOO664O8U" stopped. 
+2019-08-12 02:41:49.3131|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:49.3131|DEBUG| Connection id "0HLOUOO664O8T" disconnecting. 
+2019-08-12 02:41:49.3131|DEBUG| Connection id "0HLOUOO664O8T" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:49.3288|DEBUG| Connection id "0HLOUOO664O8T" stopped. 
+2019-08-12 02:41:49.3288|DEBUG| Connection id "0HLOUOO664O8V" started. 
+2019-08-12 02:41:49.3288|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:49.3526|DEBUG| Connection id "0HLOUOO664O8V" disconnecting. 
+2019-08-12 02:41:49.3526|DEBUG| Connection id "0HLOUOO664O8V" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:49.3601|DEBUG| Connection id "0HLOUOO664O8V" stopped. 
+2019-08-12 02:41:51.1522|DEBUG| Connection id "0HLOUOO664O8R" received FIN. 
+2019-08-12 02:41:51.1548|DEBUG| Connection id "0HLOUOO664O8R" sending FIN because: "The client closed the connection." 
+2019-08-12 02:41:51.1548|DEBUG| Connection id "0HLOUOO664O8R" disconnecting. 
+2019-08-12 02:41:51.8674|INFO| Request finished in 7822.3576ms 200 application/json; charset=utf-8 
+2019-08-12 02:41:51.8674|DEBUG| Connection id "0HLOUOO664O8R" stopped. 
+2019-08-12 02:41:52.7099|DEBUG| Connection id "0HLOUOO664O90" started. 
+2019-08-12 02:41:54.1424|DEBUG| Connection id "0HLOUOO664O91" started. 
+2019-08-12 02:41:54.1424|DEBUG| Connection id "0HLOUOO664O92" started. 
+2019-08-12 02:41:54.1424|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:54.1424|DEBUG| Connection id "0HLOUOO664O91" disconnecting. 
+2019-08-12 02:41:54.1424|DEBUG| Connection id "0HLOUOO664O91" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:54.1571|DEBUG| Connection id "0HLOUOO664O91" stopped. 
+2019-08-12 02:41:54.1571|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:54.1571|DEBUG| Connection id "0HLOUOO664O90" disconnecting. 
+2019-08-12 02:41:54.1571|DEBUG| Connection id "0HLOUOO664O90" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:54.1571|DEBUG| Connection id "0HLOUOO664O90" stopped. 
+2019-08-12 02:41:54.1571|DEBUG| Connection id "0HLOUOO664O93" started. 
+2019-08-12 02:41:54.1746|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:54.2363|DEBUG| Connection id "0HLOUOO664O93" disconnecting. 
+2019-08-12 02:41:54.2363|DEBUG| Connection id "0HLOUOO664O93" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:54.2363|DEBUG| Connection id "0HLOUOO664O93" stopped. 
+2019-08-12 02:41:56.7832|DEBUG| Connection id "0HLOUOO664O92" received FIN. 
+2019-08-12 02:41:56.7832|DEBUG| Connection id "0HLOUOO664O92" sending FIN because: "The client closed the connection." 
+2019-08-12 02:41:56.7832|DEBUG| Connection id "0HLOUOO664O92" disconnecting. 
+2019-08-12 02:41:56.7832|DEBUG| Connection id "0HLOUOO664O92" stopped. 
+2019-08-12 02:41:59.2665|DEBUG| Connection id "0HLOUOO664O94" started. 
+2019-08-12 02:41:59.2862|DEBUG| Connection id "0HLOUOO664O95" started. 
+2019-08-12 02:41:59.2862|DEBUG| Connection id "0HLOUOO664O96" started. 
+2019-08-12 02:41:59.3149|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:59.3149|DEBUG| Connection id "0HLOUOO664O95" disconnecting. 
+2019-08-12 02:41:59.3406|DEBUG| Connection id "0HLOUOO664O95" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:59.3455|DEBUG| Connection id "0HLOUOO664O95" stopped. 
+2019-08-12 02:41:59.3455|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:59.3645|DEBUG| Connection id "0HLOUOO664O94" disconnecting. 
+2019-08-12 02:41:59.3645|DEBUG| Connection id "0HLOUOO664O94" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:59.4089|DEBUG| Connection id "0HLOUOO664O94" stopped. 
+2019-08-12 02:41:59.4089|DEBUG| Connection id "0HLOUOO664O97" started. 
+2019-08-12 02:41:59.4089|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:41:59.4089|DEBUG| Connection id "0HLOUOO664O97" disconnecting. 
+2019-08-12 02:41:59.4244|DEBUG| Connection id "0HLOUOO664O97" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:41:59.4244|DEBUG| Connection id "0HLOUOO664O97" stopped. 
+2019-08-12 02:42:05.9762|DEBUG| Connection id "0HLOUOO664O98" started. 
+2019-08-12 02:42:06.0081|DEBUG| Connection id "0HLOUOO664O99" started. 
+2019-08-12 02:42:06.1245|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:06.1245|DEBUG| Connection id "0HLOUOO664O99" disconnecting. 
+2019-08-12 02:42:06.1245|DEBUG| Connection id "0HLOUOO664O99" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:06.1245|DEBUG| Connection id "0HLOUOO664O99" stopped. 
+2019-08-12 02:42:06.1245|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:06.1415|DEBUG| Connection id "0HLOUOO664O98" disconnecting. 
+2019-08-12 02:42:06.1415|DEBUG| Connection id "0HLOUOO664O98" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:06.1549|DEBUG| Connection id "0HLOUOO664O98" stopped. 
+2019-08-12 02:42:06.1549|DEBUG| Connection id "0HLOUOO664O9A" started. 
+2019-08-12 02:42:06.1549|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:06.1549|DEBUG| Connection id "0HLOUOO664O9A" disconnecting. 
+2019-08-12 02:42:06.1549|DEBUG| Connection id "0HLOUOO664O9A" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:06.1759|DEBUG| Connection id "0HLOUOO664O9A" stopped. 
+2019-08-12 02:42:06.7862|DEBUG| Connection id "0HLOUOO664O96" received FIN. 
+2019-08-12 02:42:06.7862|DEBUG| Connection id "0HLOUOO664O96" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:06.7862|DEBUG| Connection id "0HLOUOO664O96" disconnecting. 
+2019-08-12 02:42:06.7974|DEBUG| Connection id "0HLOUOO664O96" stopped. 
+2019-08-12 02:42:09.9643|DEBUG| Connection id "0HLOUOO664O9B" started. 
+2019-08-12 02:42:09.9770|DEBUG| Connection id "0HLOUOO664O9C" started. 
+2019-08-12 02:42:09.9770|DEBUG| Connection id "0HLOUOO664O9D" started. 
+2019-08-12 02:42:10.0061|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:10.0061|DEBUG| Connection id "0HLOUOO664O9C" disconnecting. 
+2019-08-12 02:42:10.0061|DEBUG| Connection id "0HLOUOO664O9C" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:10.0153|DEBUG| Connection id "0HLOUOO664O9C" stopped. 
+2019-08-12 02:42:10.0153|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslState.ThrowIfExceptional()
+   at System.Net.Security.SslState.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslState.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:10.0153|DEBUG| Connection id "0HLOUOO664O9B" disconnecting. 
+2019-08-12 02:42:10.0153|DEBUG| Connection id "0HLOUOO664O9B" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:10.0311|DEBUG| Connection id "0HLOUOO664O9B" stopped. 
+2019-08-12 02:42:10.0311|DEBUG| Connection id "0HLOUOO664O9E" started. 
+2019-08-12 02:42:10.0311|DEBUG| Failed to authenticate HTTPS connection. System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__51_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionAdapter.InnerOnConnectionAsync(ConnectionAdapterContext context)
+2019-08-12 02:42:10.0311|DEBUG| Connection id "0HLOUOO664O9E" disconnecting. 
+2019-08-12 02:42:10.0470|DEBUG| Connection id "0HLOUOO664O9E" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:10.0470|DEBUG| Connection id "0HLOUOO664O9E" stopped. 
+2019-08-12 02:42:14.6484|DEBUG| Connection id "0HLOUOO664O9F" started. 
+2019-08-12 02:42:14.7121|INFO| Request starting HTTP/1.1 GET https://localhost:5001/backOffice   
+2019-08-12 02:42:14.7121|TRACE| All hosts are allowed. 
+2019-08-12 02:42:14.7190|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:14.7190|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:14.7380|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:14.7380|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.4127|DEBUG| No candidates found for the request path '/backOffice' 
+2019-08-12 02:42:16.4127|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:16.4214|DEBUG| The request path /backOffice does not match a supported file type 
+2019-08-12 02:42:16.4214|DEBUG| The request path /backOffice does not match a supported file type 
+2019-08-12 02:42:16.4598|TRACE| Range header's value is empty. 
+2019-08-12 02:42:16.5217|INFO| Sending file. Request path: '/index.html'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\index.html' 
+2019-08-12 02:42:16.5376|DEBUG| Connection id "0HLOUOO664O9D" completed keep alive response. 
+2019-08-12 02:42:16.5376|INFO| Request finished in 1828.1011ms 200 text/html 
+2019-08-12 02:42:16.6478|DEBUG| Connection id "0HLOUOO664O9G" started. 
+2019-08-12 02:42:16.6478|DEBUG| Connection id "0HLOUOO664O9H" started. 
+2019-08-12 02:42:16.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/assets/fonts/zwicon.css   
+2019-08-12 02:42:16.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/css/main.aeed0438.chunk.css   
+2019-08-12 02:42:16.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/6.a4b44f91.chunk.js   
+2019-08-12 02:42:16.6556|TRACE| All hosts are allowed. 
+2019-08-12 02:42:16.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/main.65326a0a.chunk.js   
+2019-08-12 02:42:16.6556|TRACE| All hosts are allowed. 
+2019-08-12 02:42:16.6556|TRACE| All hosts are allowed. 
+2019-08-12 02:42:16.6756|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:16.6756|TRACE| All hosts are allowed. 
+2019-08-12 02:42:16.6756|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:16.6756|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:16.6884|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:16.6884|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:16.6884|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:16.6884|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:16.6884|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:16.6884|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.6884|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7038|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7038|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7038|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7038|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7196|DEBUG| No candidates found for the request path '/static/css/main.aeed0438.chunk.css' 
+2019-08-12 02:42:16.7196|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:16.7196|DEBUG| No candidates found for the request path '/static/js/6.a4b44f91.chunk.js' 
+2019-08-12 02:42:16.7529|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:16.7038|DEBUG| No candidates found for the request path '/assets/fonts/zwicon.css' 
+2019-08-12 02:42:16.7529|TRACE| Range header's value is empty. 
+2019-08-12 02:42:16.7038|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.7975|TRACE| Range header's value is empty. 
+2019-08-12 02:42:16.7975|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:16.8157|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:16.8276|DEBUG| No candidates found for the request path '/static/js/main.65326a0a.chunk.js' 
+2019-08-12 02:42:16.8276|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:16.8157|TRACE| Range header's value is empty. 
+2019-08-12 02:42:16.8276|TRACE| Range header's value is empty. 
+2019-08-12 02:42:16.8540|INFO| Sending file. Request path: '/static/css/main.aeed0438.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\css\main.aeed0438.chunk.css' 
+2019-08-12 02:42:16.8605|DEBUG| Connection id "0HLOUOO664O9F" completed keep alive response. 
+2019-08-12 02:42:16.8605|INFO| Request finished in 206.5948ms 200 text/css 
+2019-08-12 02:42:16.8746|INFO| Sending file. Request path: '/static/js/main.65326a0a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\main.65326a0a.chunk.js' 
+2019-08-12 02:42:16.8746|DEBUG| Connection id "0HLOUOO664O9H" completed keep alive response. 
+2019-08-12 02:42:16.8904|INFO| Sending file. Request path: '/assets/fonts/zwicon.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\assets\fonts\zwicon.css' 
+2019-08-12 02:42:16.8904|INFO| Request finished in 227.9937ms 200 application/javascript 
+2019-08-12 02:42:16.8904|DEBUG| Connection id "0HLOUOO664O9D" completed keep alive response. 
+2019-08-12 02:42:16.8904|INFO| Request finished in 243.2345ms 200 text/css 
+2019-08-12 02:42:17.0292|INFO| Sending file. Request path: '/static/js/6.a4b44f91.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\6.a4b44f91.chunk.js' 
+2019-08-12 02:42:17.0436|DEBUG| Connection id "0HLOUOO664O9G" completed keep alive response. 
+2019-08-12 02:42:17.0492|INFO| Request finished in 388.5476ms 200 application/javascript 
+2019-08-12 02:42:17.3372|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/31.8f869242.chunk.js   
+2019-08-12 02:42:17.3372|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.3372|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.3449|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.3449|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.3449|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.3449|DEBUG| No candidates found for the request path '/static/js/31.8f869242.chunk.js' 
+2019-08-12 02:42:17.3449|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.3449|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.4000|INFO| Sending file. Request path: '/static/js/31.8f869242.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\31.8f869242.chunk.js' 
+2019-08-12 02:42:17.4000|DEBUG| Connection id "0HLOUOO664O9G" completed keep alive response. 
+2019-08-12 02:42:17.4072|INFO| Request finished in 69.9969ms 200 application/javascript 
+2019-08-12 02:42:17.4964|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/0.7bea189c.chunk.js   
+2019-08-12 02:42:17.4964|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/1.80f694fc.chunk.js   
+2019-08-12 02:42:17.4995|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/2.a5e451e9.chunk.js   
+2019-08-12 02:42:17.4995|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.4995|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.4995|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/3.7f78d439.chunk.js   
+2019-08-12 02:42:17.4995|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.5311|DEBUG| Connection id "0HLOUOO664O9I" started. 
+2019-08-12 02:42:17.5143|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.5311|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.5311|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.4995|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.5311|DEBUG| Connection id "0HLOUOO664O9J" started. 
+2019-08-12 02:42:17.5311|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.5311|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.5461|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.5769|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.5769|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5769|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.5769|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5769|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5937|DEBUG| No candidates found for the request path '/static/js/2.a5e451e9.chunk.js' 
+2019-08-12 02:42:17.5937|DEBUG| No candidates found for the request path '/static/js/1.80f694fc.chunk.js' 
+2019-08-12 02:42:17.5937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.5937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.6107|DEBUG| No candidates found for the request path '/static/js/0.7bea189c.chunk.js' 
+2019-08-12 02:42:17.6107|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.6107|DEBUG| No candidates found for the request path '/static/js/3.7f78d439.chunk.js' 
+2019-08-12 02:42:17.6107|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.6107|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.6107|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.6246|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.6246|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.6246|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.6246|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.6436|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/css/13.a0663a15.chunk.css   
+2019-08-12 02:42:17.6613|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/13.fa961f7b.chunk.js   
+2019-08-12 02:42:17.6613|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.6613|TRACE| All hosts are allowed. 
+2019-08-12 02:42:17.6613|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.6729|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:17.6729|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.6729|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.6729|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:17.6937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.6937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.6937|DEBUG| No candidates found for the request path '/static/css/13.a0663a15.chunk.css' 
+2019-08-12 02:42:17.6937|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:17.6937|INFO| Sending file. Request path: '/static/js/2.a5e451e9.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\2.a5e451e9.chunk.js' 
+2019-08-12 02:42:17.7035|DEBUG| Connection id "0HLOUOO664O9H" completed keep alive response. 
+2019-08-12 02:42:17.7035|DEBUG| No candidates found for the request path '/static/js/13.fa961f7b.chunk.js' 
+2019-08-12 02:42:17.7035|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.7035|INFO| Request finished in 210.6676ms 200 application/javascript 
+2019-08-12 02:42:17.7035|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:17.7035|INFO| Sending file. Request path: '/static/js/0.7bea189c.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\0.7bea189c.chunk.js' 
+2019-08-12 02:42:17.7035|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.7189|TRACE| Range header's value is empty. 
+2019-08-12 02:42:17.7189|DEBUG| Connection id "0HLOUOO664O9G" completed keep alive response. 
+2019-08-12 02:42:17.7189|INFO| Request finished in 231.3278ms 200 application/javascript 
+2019-08-12 02:42:17.7189|INFO| Sending file. Request path: '/static/js/3.7f78d439.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\3.7f78d439.chunk.js' 
+2019-08-12 02:42:17.7189|INFO| Sending file. Request path: '/static/js/1.80f694fc.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\1.80f694fc.chunk.js' 
+2019-08-12 02:42:17.7376|DEBUG| Connection id "0HLOUOO664O9F" completed keep alive response. 
+2019-08-12 02:42:17.7376|DEBUG| Connection id "0HLOUOO664O9D" completed keep alive response. 
+2019-08-12 02:42:17.7376|INFO| Request finished in 234.5671ms 200 application/javascript 
+2019-08-12 02:42:17.7376|INFO| Request finished in 245.5409ms 200 application/javascript 
+2019-08-12 02:42:17.7566|INFO| Sending file. Request path: '/static/css/13.a0663a15.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\css\13.a0663a15.chunk.css' 
+2019-08-12 02:42:17.7566|DEBUG| Connection id "0HLOUOO664O9I" completed keep alive response. 
+2019-08-12 02:42:17.7566|INFO| Request finished in 116.7951ms 200 text/css 
+2019-08-12 02:42:17.7566|INFO| Sending file. Request path: '/static/js/13.fa961f7b.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\13.fa961f7b.chunk.js' 
+2019-08-12 02:42:17.7644|DEBUG| Connection id "0HLOUOO664O9J" completed keep alive response. 
+2019-08-12 02:42:17.7644|INFO| Request finished in 105.8986ms 200 application/javascript 
+2019-08-12 02:42:18.8537|DEBUG| Connection id "0HLOUOO664O9K" started. 
+2019-08-12 02:42:18.8959|INFO| Request starting HTTP/1.1 GET https://localhost:5001/manifest.json   
+2019-08-12 02:42:18.8959|TRACE| All hosts are allowed. 
+2019-08-12 02:42:18.8959|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:18.9098|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:18.9098|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:18.9098|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:18.9098|DEBUG| No candidates found for the request path '/manifest.json' 
+2019-08-12 02:42:18.9098|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:18.9211|TRACE| Range header's value is empty. 
+2019-08-12 02:42:18.9211|INFO| Sending file. Request path: '/manifest.json'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\manifest.json' 
+2019-08-12 02:42:18.9211|DEBUG| Connection id "0HLOUOO664O9K" completed keep alive response. 
+2019-08-12 02:42:18.9211|INFO| Request finished in 36.6934ms 200 application/json 
+2019-08-12 02:42:25.1021|INFO| Request starting HTTP/1.1 GET https://localhost:5001/   
+2019-08-12 02:42:25.1021|TRACE| All hosts are allowed. 
+2019-08-12 02:42:25.1021|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:25.1097|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:25.1097|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.1097|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.1097|DEBUG| No candidates found for the request path '/' 
+2019-08-12 02:42:25.1097|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:25.1097|DEBUG| The request path / does not match a supported file type 
+2019-08-12 02:42:25.1097|DEBUG| The request path / does not match a supported file type 
+2019-08-12 02:42:25.1097|TRACE| Range header's value is empty. 
+2019-08-12 02:42:25.1259|INFO| Sending file. Request path: '/index.html'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\index.html' 
+2019-08-12 02:42:25.1259|DEBUG| Connection id "0HLOUOO664O9F" completed keep alive response. 
+2019-08-12 02:42:25.1259|INFO| Request finished in 29.1828ms 200 text/html 
+2019-08-12 02:42:25.6330|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/7.9eedaf0a.chunk.js   
+2019-08-12 02:42:25.6330|TRACE| All hosts are allowed. 
+2019-08-12 02:42:25.6330|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/14.7694f196.chunk.js   
+2019-08-12 02:42:25.6330|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/css/14.7f5a7e11.chunk.css   
+2019-08-12 02:42:25.6416|TRACE| All hosts are allowed. 
+2019-08-12 02:42:25.6416|TRACE| All hosts are allowed. 
+2019-08-12 02:42:25.6416|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:25.6416|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:25.6416|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:25.6576|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:25.6576|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:25.6576|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:25.6576|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6576|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6576|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6723|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6723|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6576|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:25.6723|DEBUG| No candidates found for the request path '/static/js/7.9eedaf0a.chunk.js' 
+2019-08-12 02:42:25.6723|DEBUG| No candidates found for the request path '/static/css/14.7f5a7e11.chunk.css' 
+2019-08-12 02:42:25.6723|DEBUG| No candidates found for the request path '/static/js/14.7694f196.chunk.js' 
+2019-08-12 02:42:25.6723|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:25.6723|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:25.6879|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:25.6879|TRACE| Range header's value is empty. 
+2019-08-12 02:42:25.6879|TRACE| Range header's value is empty. 
+2019-08-12 02:42:25.6879|TRACE| Range header's value is empty. 
+2019-08-12 02:42:25.7497|INFO| Sending file. Request path: '/static/js/14.7694f196.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\14.7694f196.chunk.js' 
+2019-08-12 02:42:25.7497|DEBUG| Connection id "0HLOUOO664O9D" completed keep alive response. 
+2019-08-12 02:42:25.7497|INFO| Request finished in 117.3853ms 200 application/javascript 
+2019-08-12 02:42:25.7497|INFO| Sending file. Request path: '/static/css/14.7f5a7e11.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\css\14.7f5a7e11.chunk.css' 
+2019-08-12 02:42:25.7497|DEBUG| Connection id "0HLOUOO664O9J" completed keep alive response. 
+2019-08-12 02:42:25.7646|INFO| Request finished in 126.3632ms 200 text/css 
+2019-08-12 02:42:25.7797|INFO| Sending file. Request path: '/static/js/7.9eedaf0a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\7.9eedaf0a.chunk.js' 
+2019-08-12 02:42:25.7797|DEBUG| Connection id "0HLOUOO664O9F" completed keep alive response. 
+2019-08-12 02:42:25.7797|INFO| Request finished in 150.4127ms 200 application/javascript 
+2019-08-12 02:42:26.7856|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/media/LiveMatch.aeb80a16.jpg   
+2019-08-12 02:42:26.8053|DEBUG| Connection id "0HLOUOO664O9K" received FIN. 
+2019-08-12 02:42:26.8053|TRACE| All hosts are allowed. 
+2019-08-12 02:42:26.8115|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-12 02:42:26.8053|DEBUG| Connection id "0HLOUOO664O9G" received FIN. 
+2019-08-12 02:42:26.8115|DEBUG| Connection id "0HLOUOO664O9H" received FIN. 
+2019-08-12 02:42:26.8115|DEBUG| Connection id "0HLOUOO664O9I" received FIN. 
+2019-08-12 02:42:26.8115|DEBUG| Connection id "0HLOUOO664O9J" received FIN. 
+2019-08-12 02:42:26.8115|DEBUG| Connection id "0HLOUOO664O9K" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8296|DEBUG| Connection id "0HLOUOO664O9K" disconnecting. 
+2019-08-12 02:42:26.8446|DEBUG| Connection id "0HLOUOO664O9I" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8296|DEBUG| Connection id "0HLOUOO664O9D" received FIN. 
+2019-08-12 02:42:26.8296|DEBUG| Connection id "0HLOUOO664O9H" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8115|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-12 02:42:26.8296|DEBUG| Connection id "0HLOUOO664O9G" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8446|DEBUG| Connection id "0HLOUOO664O9J" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8446|DEBUG| Connection id "0HLOUOO664O9I" disconnecting. 
+2019-08-12 02:42:26.8446|DEBUG| Connection id "0HLOUOO664O9H" disconnecting. 
+2019-08-12 02:42:26.8446|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:26.8591|DEBUG| Connection id "0HLOUOO664O9G" disconnecting. 
+2019-08-12 02:42:26.8982|DEBUG| Connection id "0HLOUOO664O9J" disconnecting. 
+2019-08-12 02:42:26.8982|DEBUG| Connection id "0HLOUOO664O9D" sending FIN because: "The client closed the connection." 
+2019-08-12 02:42:26.8982|DEBUG| Connection id "0HLOUOO664O9K" stopped. 
+2019-08-12 02:42:26.8982|DEBUG| The request path  does not match the path filter 
+2019-08-12 02:42:26.9062|DEBUG| Connection id "0HLOUOO664O9I" stopped. 
+2019-08-12 02:42:26.9062|DEBUG| Connection id "0HLOUOO664O9H" stopped. 
+2019-08-12 02:42:26.9062|DEBUG| Connection id "0HLOUOO664O9G" stopped. 
+2019-08-12 02:42:26.9062|DEBUG| Connection id "0HLOUOO664O9D" disconnecting. 
+2019-08-12 02:42:26.9209|DEBUG| Connection id "0HLOUOO664O9J" stopped. 
+2019-08-12 02:42:26.9209|DEBUG| No candidates found for the request path '/static/media/LiveMatch.aeb80a16.jpg' 
+2019-08-12 02:42:26.9209|DEBUG| Connection id "0HLOUOO664O9D" stopped. 
+2019-08-12 02:42:26.9388|DEBUG| Request did not match any endpoints 
+2019-08-12 02:42:27.0189|TRACE| Range header's value is empty. 
+2019-08-12 02:42:27.3257|INFO| Sending file. Request path: '/static/media/LiveMatch.aeb80a16.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\media\LiveMatch.aeb80a16.jpg' 
+2019-08-12 02:42:27.3312|DEBUG| Connection id "0HLOUOO664O9F" completed keep alive response. 
+2019-08-12 02:42:27.3312|INFO| Request finished in 549.1519ms 200 image/jpeg 
+2019-08-12 02:42:35.1545|DEBUG| Hosting shutdown 
+2019-08-12 02:42:35.2153|DEBUG| Connection id "0HLOUOO664O9F" disconnecting. 
+2019-08-12 02:42:35.2210|DEBUG| Connection id "0HLOUOO664O9F" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-08-12 02:42:35.2739|DEBUG| Connection id "0HLOUOO664O9F" stopped. 
+2019-08-13 08:54:23.6007|INFO| 
+
+ 
+2019-08-13 08:54:23.7116|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-08-13 08:54:29.1158|DEBUG| Successfully registered the service provider 
+2019-08-13 08:54:35.2394|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-08-13 08:56:28.3861|DEBUG| Chop9ja API has successfully been initialized. 
+2019-08-13 08:56:28.4152|DEBUG| Hosting starting 
+2019-08-13 08:56:28.4822|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-08-13 08:56:28.5413|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-08-13 08:56:28.5728|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-ec536e28-5a6b-4ee9-8860-1b42ae36e240.xml'. 
+2019-08-13 08:56:28.6835|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-08-13 08:56:28.7065|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-08-13 08:56:28.7065|DEBUG| Found key {ec536e28-5a6b-4ee9-8860-1b42ae36e240}. 
+2019-08-13 08:56:28.7292|DEBUG| Considering key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} with expiration date 2019-10-07 09:32:03Z as default key. 
+2019-08-13 08:56:28.7480|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-08-13 08:56:28.7514|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-08-13 08:56:28.7514|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-08-13 08:56:28.7514|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-08-13 08:56:28.7669|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-08-13 08:56:28.7669|DEBUG| Using key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} as the default key. 
+2019-08-13 08:56:28.7669|DEBUG| Key ring with default key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} was loaded during application startup. 
+2019-08-13 08:56:29.0217|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1070|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-08-13 08:56:29.1093|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.1361|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-08-13 08:56:29.1361|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-08-13 08:56:29.1398|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-08-13 08:56:29.2111|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.2111|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.2111|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.3053|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-08-13 08:56:29.4670|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.4694|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-08-13 08:56:29.4939|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-08-13 08:56:29.9897|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-08-13 08:56:30.5663|DEBUG| Using development certificate: CN=localhost (Thumbprint: B170A0FD12AC9485AD9441F202E2F79411B25DCB) 
+2019-08-13 08:56:30.5663|DEBUG| No listening endpoints were configured. Binding to http://localhost:5000 and https://localhost:5001 by default. 
+2019-08-13 08:56:30.5817|DEBUG| Hosting started 
+2019-08-13 08:56:30.5817|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-08-13 08:56:44.2237|DEBUG| Connection id "0HLOVOF4AP0ES" started. 
+2019-08-13 08:56:44.8206|INFO| Request starting HTTP/1.1 GET https://localhost:5001/favicon.ico   
+2019-08-13 08:56:44.8206|DEBUG| Wildcard detected, all requests with hosts will be allowed. 
+2019-08-13 08:56:44.8286|TRACE| All hosts are allowed. 
+2019-08-13 08:56:44.8816|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:56:45.0788|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:56:45.1518|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:56:45.1518|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:56:45.3517|DEBUG| No candidates found for the request path '/favicon.ico' 
+2019-08-13 08:56:45.3517|DEBUG| Request did not match any endpoints 
+2019-08-13 08:56:45.4116|TRACE| Range header's value is empty. 
+2019-08-13 08:56:45.4116|INFO| The file /favicon.ico was not modified 
+2019-08-13 08:56:45.4213|DEBUG| Handled. Status code: 304 File: /favicon.ico 
+2019-08-13 08:56:45.4578|DEBUG| Connection id "0HLOVOF4AP0ES" completed keep alive response. 
+2019-08-13 08:56:45.4578|INFO| Request finished in 645.7387ms 304 image/x-icon 
+2019-08-13 08:56:51.9434|DEBUG| Connection id "0HLOVOF4AP0ES" received FIN. 
+2019-08-13 08:56:51.9434|DEBUG| Connection id "0HLOVOF4AP0ES" sending FIN because: "The client closed the connection." 
+2019-08-13 08:56:51.9434|DEBUG| Connection id "0HLOVOF4AP0ES" disconnecting. 
+2019-08-13 08:56:51.9619|DEBUG| Connection id "0HLOVOF4AP0ES" stopped. 
+2019-08-13 08:57:00.0073|DEBUG| Connection id "0HLOVOF4AP0ET" started. 
+2019-08-13 08:57:00.0193|DEBUG| Connection id "0HLOVOF4AP0EU" started. 
+2019-08-13 08:57:00.0979|INFO| Request starting HTTP/1.1 GET https://localhost:5001/   
+2019-08-13 08:57:00.0979|TRACE| All hosts are allowed. 
+2019-08-13 08:57:00.0979|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:00.0979|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:00.1096|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.1096|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.1096|DEBUG| No candidates found for the request path '/' 
+2019-08-13 08:57:00.1096|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:00.1096|DEBUG| The request path / does not match a supported file type 
+2019-08-13 08:57:00.1096|DEBUG| The request path / does not match a supported file type 
+2019-08-13 08:57:00.1245|TRACE| Range header's value is empty. 
+2019-08-13 08:57:00.1245|INFO| The file /index.html was not modified 
+2019-08-13 08:57:00.1245|DEBUG| Handled. Status code: 304 File: /index.html 
+2019-08-13 08:57:00.1245|DEBUG| Connection id "0HLOVOF4AP0ET" completed keep alive response. 
+2019-08-13 08:57:00.1245|INFO| Request finished in 35.8906ms 304 text/html 
+2019-08-13 08:57:00.6911|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/6.a4b44f91.chunk.js   
+2019-08-13 08:57:00.6911|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/main.65326a0a.chunk.js   
+2019-08-13 08:57:00.6911|TRACE| All hosts are allowed. 
+2019-08-13 08:57:00.6911|TRACE| All hosts are allowed. 
+2019-08-13 08:57:00.6911|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:00.6911|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:00.7021|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:00.7021|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:00.7021|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.7021|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.7021|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.7021|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:00.7021|DEBUG| No candidates found for the request path '/static/js/6.a4b44f91.chunk.js' 
+2019-08-13 08:57:00.7021|DEBUG| No candidates found for the request path '/static/js/main.65326a0a.chunk.js' 
+2019-08-13 08:57:00.7021|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:00.7181|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:00.7181|TRACE| Range header's value is empty. 
+2019-08-13 08:57:00.7181|TRACE| Range header's value is empty. 
+2019-08-13 08:57:00.8787|INFO| Sending file. Request path: '/static/js/main.65326a0a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\main.65326a0a.chunk.js' 
+2019-08-13 08:57:00.9131|DEBUG| Connection id "0HLOVOF4AP0EU" completed keep alive response. 
+2019-08-13 08:57:00.9131|INFO| Request finished in 223.9569ms 200 application/javascript 
+2019-08-13 08:57:01.1273|DEBUG| Connection id "0HLOVOF4AP0EV" started. 
+2019-08-13 08:57:01.1273|INFO| Sending file. Request path: '/static/js/6.a4b44f91.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\6.a4b44f91.chunk.js' 
+2019-08-13 08:57:01.1273|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/css/main.aeed0438.chunk.css   
+2019-08-13 08:57:01.1273|DEBUG| Connection id "0HLOVOF4AP0ET" completed keep alive response. 
+2019-08-13 08:57:01.1273|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.1408|INFO| Request finished in 449.7448ms 200 application/javascript 
+2019-08-13 08:57:01.1408|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.1408|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.1408|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.1408|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.1408|DEBUG| No candidates found for the request path '/static/css/main.aeed0438.chunk.css' 
+2019-08-13 08:57:01.1554|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.1554|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.1554|INFO| The file /static/css/main.aeed0438.chunk.css was not modified 
+2019-08-13 08:57:01.1554|DEBUG| Handled. Status code: 304 File: /static/css/main.aeed0438.chunk.css 
+2019-08-13 08:57:01.1554|DEBUG| Connection id "0HLOVOF4AP0EV" completed keep alive response. 
+2019-08-13 08:57:01.1554|INFO| Request finished in 34.0052ms 304 text/css 
+2019-08-13 08:57:01.6298|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/0.7bea189c.chunk.js   
+2019-08-13 08:57:01.6298|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/1.80f694fc.chunk.js   
+2019-08-13 08:57:01.6298|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.6298|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.6298|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.6298|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.6430|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.6430|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.6430|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6430|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6430|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6556|DEBUG| Connection id "0HLOVOF4AP0F0" started. 
+2019-08-13 08:57:01.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/7.9eedaf0a.chunk.js   
+2019-08-13 08:57:01.6556|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.6556|DEBUG| No candidates found for the request path '/static/js/1.80f694fc.chunk.js' 
+2019-08-13 08:57:01.6556|DEBUG| Connection id "0HLOVOF4AP0F1" started. 
+2019-08-13 08:57:01.6556|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6556|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/css/14.7f5a7e11.chunk.css   
+2019-08-13 08:57:01.6556|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.6556|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.6556|DEBUG| Connection id "0HLOVOF4AP0F2" started. 
+2019-08-13 08:57:01.6556|DEBUG| No candidates found for the request path '/static/js/0.7bea189c.chunk.js' 
+2019-08-13 08:57:01.6721|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.6721|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.6721|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.6721|INFO| The file /static/js/1.80f694fc.chunk.js was not modified 
+2019-08-13 08:57:01.6721|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.6721|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6871|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.6871|DEBUG| Handled. Status code: 304 File: /static/js/1.80f694fc.chunk.js 
+2019-08-13 08:57:01.6871|DEBUG| Connection id "0HLOVOF4AP0EV" completed keep alive response. 
+2019-08-13 08:57:01.6721|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.6871|DEBUG| No candidates found for the request path '/static/js/7.9eedaf0a.chunk.js' 
+2019-08-13 08:57:01.6871|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.6871|INFO| Request finished in 68.3038ms 304 application/javascript 
+2019-08-13 08:57:01.6871|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.7039|INFO| The file /static/js/0.7bea189c.chunk.js was not modified 
+2019-08-13 08:57:01.7039|DEBUG| Handled. Status code: 304 File: /static/js/0.7bea189c.chunk.js 
+2019-08-13 08:57:01.6871|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.7039|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7039|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/14.7694f196.chunk.js   
+2019-08-13 08:57:01.7039|DEBUG| Connection id "0HLOVOF4AP0ET" completed keep alive response. 
+2019-08-13 08:57:01.7039|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.7039|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7039|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.7189|INFO| Request finished in 88.9664ms 304 application/javascript 
+2019-08-13 08:57:01.7189|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/js/3.7f78d439.chunk.js   
+2019-08-13 08:57:01.7189|DEBUG| No candidates found for the request path '/static/css/14.7f5a7e11.chunk.css' 
+2019-08-13 08:57:01.7189|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.7189|TRACE| All hosts are allowed. 
+2019-08-13 08:57:01.7189|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.7189|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:01.7189|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.7338|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.7338|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7338|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:01.7338|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7338|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7338|DEBUG| No candidates found for the request path '/static/js/14.7694f196.chunk.js' 
+2019-08-13 08:57:01.7338|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:01.7338|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.7493|DEBUG| No candidates found for the request path '/static/js/3.7f78d439.chunk.js' 
+2019-08-13 08:57:01.7493|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:01.7493|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.7493|INFO| The file /static/js/3.7f78d439.chunk.js was not modified 
+2019-08-13 08:57:01.7493|TRACE| Range header's value is empty. 
+2019-08-13 08:57:01.7493|DEBUG| Handled. Status code: 304 File: /static/js/3.7f78d439.chunk.js 
+2019-08-13 08:57:01.7493|DEBUG| Connection id "0HLOVOF4AP0F2" completed keep alive response. 
+2019-08-13 08:57:01.7493|INFO| Sending file. Request path: '/static/css/14.7f5a7e11.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\css\14.7f5a7e11.chunk.css' 
+2019-08-13 08:57:01.7647|INFO| Request finished in 42.8866ms 304 application/javascript 
+2019-08-13 08:57:01.7647|DEBUG| Connection id "0HLOVOF4AP0F0" completed keep alive response. 
+2019-08-13 08:57:01.7647|INFO| Request finished in 107.0137ms 200 text/css 
+2019-08-13 08:57:01.8235|INFO| Sending file. Request path: '/static/js/7.9eedaf0a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\7.9eedaf0a.chunk.js' 
+2019-08-13 08:57:01.8235|DEBUG| Connection id "0HLOVOF4AP0EU" completed keep alive response. 
+2019-08-13 08:57:01.8293|INFO| Request finished in 173.093ms 200 application/javascript 
+2019-08-13 08:57:01.8293|INFO| Sending file. Request path: '/static/js/14.7694f196.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\js\14.7694f196.chunk.js' 
+2019-08-13 08:57:01.8293|DEBUG| Connection id "0HLOVOF4AP0F1" completed keep alive response. 
+2019-08-13 08:57:01.8293|INFO| Request finished in 128.1244ms 200 application/javascript 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0ET" received FIN. 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0EV" received FIN. 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0F2" received FIN. 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0ET" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0EV" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:01.9457|DEBUG| Connection id "0HLOVOF4AP0F2" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0ET" disconnecting. 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0EV" disconnecting. 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0F2" disconnecting. 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0EV" stopped. 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0ET" stopped. 
+2019-08-13 08:57:01.9543|DEBUG| Connection id "0HLOVOF4AP0F2" stopped. 
+2019-08-13 08:57:03.0192|INFO| Request starting HTTP/1.1 GET https://localhost:5001/static/media/LiveMatch.aeb80a16.jpg   
+2019-08-13 08:57:03.0192|TRACE| All hosts are allowed. 
+2019-08-13 08:57:03.0192|DEBUG| The host 'localhost' is excluded. Skipping HSTS header. 
+2019-08-13 08:57:03.0192|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-08-13 08:57:03.0325|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:03.0325|DEBUG| The request path  does not match the path filter 
+2019-08-13 08:57:03.0325|DEBUG| No candidates found for the request path '/static/media/LiveMatch.aeb80a16.jpg' 
+2019-08-13 08:57:03.0325|DEBUG| Request did not match any endpoints 
+2019-08-13 08:57:03.0325|TRACE| Range header's value is empty. 
+2019-08-13 08:57:04.8257|INFO| Sending file. Request path: '/static/media/LiveMatch.aeb80a16.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\Release\netcoreapp2.2\publish\wwwroot\static\media\LiveMatch.aeb80a16.jpg' 
+2019-08-13 08:57:04.8399|DEBUG| Connection id "0HLOVOF4AP0EU" completed keep alive response. 
+2019-08-13 08:57:04.8655|INFO| Request finished in 1846.3412ms 200 image/jpeg 
+2019-08-13 08:57:11.9474|DEBUG| Connection id "0HLOVOF4AP0F0" received FIN. 
+2019-08-13 08:57:11.9474|DEBUG| Connection id "0HLOVOF4AP0F1" received FIN. 
+2019-08-13 08:57:12.7195|DEBUG| Connection id "0HLOVOF4AP0F1" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:12.7195|DEBUG| Connection id "0HLOVOF4AP0F1" disconnecting. 
+2019-08-13 08:57:11.9474|DEBUG| Connection id "0HLOVOF4AP0EU" received FIN. 
+2019-08-13 08:57:12.7173|DEBUG| Connection id "0HLOVOF4AP0F0" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:12.7415|DEBUG| Connection id "0HLOVOF4AP0F1" stopped. 
+2019-08-13 08:57:12.7513|DEBUG| Connection id "0HLOVOF4AP0EU" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:12.7513|DEBUG| Connection id "0HLOVOF4AP0F0" disconnecting. 
+2019-08-13 08:57:12.7513|DEBUG| Connection id "0HLOVOF4AP0EU" disconnecting. 
+2019-08-13 08:57:12.7513|DEBUG| Connection id "0HLOVOF4AP0F0" stopped. 
+2019-08-13 08:57:12.7513|DEBUG| Connection id "0HLOVOF4AP0EU" stopped. 
+2019-08-13 08:57:12.8298|DEBUG| Connection id "0HLOVOF4AP0F3" started. 
+2019-08-13 08:57:12.8298|DEBUG| Connection id "0HLOVOF4AP0F4" started. 
+2019-08-13 08:57:12.8298|DEBUG| Connection id "0HLOVOF4AP0F5" started. 
+2019-08-13 08:57:21.9502|DEBUG| Connection id "0HLOVOF4AP0F5" received FIN. 
+2019-08-13 08:57:21.9502|DEBUG| Connection id "0HLOVOF4AP0F3" received FIN. 
+2019-08-13 08:57:21.9502|DEBUG| Connection id "0HLOVOF4AP0F4" received FIN. 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F5" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F3" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F5" disconnecting. 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F3" disconnecting. 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F4" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F5" stopped. 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F3" stopped. 
+2019-08-13 08:57:21.9531|DEBUG| Connection id "0HLOVOF4AP0F4" disconnecting. 
+2019-08-13 08:57:21.9716|DEBUG| Connection id "0HLOVOF4AP0F4" stopped. 
+2019-08-13 08:57:25.9032|DEBUG| Connection id "0HLOVOF4AP0F6" started. 
+2019-08-13 08:57:31.8294|DEBUG| Connection id "0HLOVOF4AP0F7" started. 
+2019-08-13 08:57:31.8294|DEBUG| Connection id "0HLOVOF4AP0F8" started. 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F7" received FIN. 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F8" received FIN. 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F6" received FIN. 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F7" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F8" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F6" sending FIN because: "The client closed the connection." 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F7" disconnecting. 
+2019-08-13 08:57:31.9529|DEBUG| Connection id "0HLOVOF4AP0F8" disconnecting. 
+2019-08-13 08:57:31.9707|DEBUG| Connection id "0HLOVOF4AP0F6" disconnecting. 
+2019-08-13 08:57:31.9707|DEBUG| Connection id "0HLOVOF4AP0F7" stopped. 
+2019-08-13 08:57:31.9707|DEBUG| Connection id "0HLOVOF4AP0F8" stopped. 
+2019-08-13 08:57:31.9707|DEBUG| Connection id "0HLOVOF4AP0F6" stopped. 
+2019-08-13 08:57:56.3397|DEBUG| Hosting shutdown 

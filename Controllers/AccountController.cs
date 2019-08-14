@@ -124,21 +124,21 @@ namespace Chop9ja.API.Controllers
         /// <summary>
         /// Delete a bank account
         /// </summary>
-        /// <param name="accountId">Bank Account ID value</param>
         /// <returns>An OK Response</returns>
         [HttpPost("manage/bankAccounts/remove")]
         [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Bank account was successfully removed")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "User was not found or the user credentials were invalid.")]
-        public async Task<IActionResult> RemoveBankAccount([FromBody]string accountId)
+        public async Task<IActionResult> RemoveBankAccount([FromBody]BankAccountIdViewModel model)
         {
+            Logger.LogDebug(model.Id);
             string id = User.FindFirst("id").Value;
             User user = await UserManager.FindByIdAsync(id);
 
             if (user == null) return Unauthorized();
 
-            BankAccount account = user.BankAccounts.FirstOrDefault(b => b.Id == Guid.Parse(accountId));
+            BankAccount account = user.BankAccounts.FirstOrDefault(b => b.Id == Guid.Parse(model.Id));
 
-            if (account == null) return NotFound($"No Bank Account exists with id {accountId}");
+            if (account == null) return NotFound($"No Bank Account exists with id {model.Id}");
 
             account.IsActive = false;
 

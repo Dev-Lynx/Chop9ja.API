@@ -9,13 +9,6 @@ using System.Threading.Tasks;
 
 namespace Chop9ja.API.Models.Entities
 {
-    public enum RequestStatus
-    {
-        Pending, 
-        Approved,
-        Declined
-    }
-
     [ComplexType]
     [BsonIgnoreExtraElements]
     [CollectionName("PaymentRequests")]
@@ -84,7 +77,6 @@ namespace Chop9ja.API.Models.Entities
         }
     }
 
-    [CollectionName("PaymentRequests")]
     public class DepositPaymentRequest : PaymentRequest
     {
         [BsonIgnoreIfDefault]

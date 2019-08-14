@@ -13,6 +13,7 @@ using NLog.Conditions;
 using NLog.Config;
 using NLog.Layouts;
 using NLog.Targets;
+using PhoneNumbers;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -33,12 +34,13 @@ namespace Chop9ja.API
         public static MongoDataContext DataContext => MongoDataContext.Current;
         public static IMongoRepository DataStore => MongoDataContext.Current.Store;
         static IWebHost Host { get; set; }
+        public static PhoneNumberUtil Phone { get; } = PhoneNumberUtil.GetInstance();
 
         #region Solids
 
         #region Names
         public static string PRODUCT_NAME = "Chop9ja API";
-        public static string PRODUCT_VERSION = "v0-1";
+        public static string PRODUCT_VERSION = "v5-5";
         public static string FULL_PRODUCT_NAME => $"{Core.PRODUCT_NAME} {Core.PRODUCT_VERSION}";
         public static string AUTHOR = "Prince Owen";
         public static string COMPANY = "Dev-Lynx Technologies";
@@ -55,6 +57,7 @@ namespace Chop9ja.API
         public static readonly string BASE_DIR = Directory.GetCurrentDirectory();
         public static readonly string WORK_DIR = Path.Combine(BASE_DIR, "App");
         public static readonly string DATA_DIR = Path.Combine(WORK_DIR, "Data");
+        public static readonly string RESOURCES_DIR = Path.Combine(DATA_DIR, "Resources");
         public static readonly string INDEX_DIR = Path.Combine(WORK_DIR, "Indexes");
         public readonly static string LOG_DIR = Path.Combine(WORK_DIR, "Logs");
         #endregion
@@ -68,6 +71,11 @@ namespace Chop9ja.API
         public const string NGROK_SERVER = "http://c9dae43d.ngrok.io";
         public static string ONLINE_BASE_ADDRESS { get; set; }
         public const string DOCS_ROUTE = "/api/docs";
+
+        public static class EmailTemplates
+        {
+            public static string Verification { get; } = Path.Combine(RESOURCES_DIR, "Templates\\verification.html");
+        }
         #endregion
 
         #region JWT Claim Identifiers
@@ -253,10 +261,12 @@ namespace Chop9ja.API
             {
                 if (await roleManager.RoleExistsAsync(role)) continue;
                 await roleManager.CreateAsync(new UserRole(role));
+                
             }
 
             await ConfigureBanks();
             await ConfigurePaymentChannels();
+            await ConfigureBetPlatforms();
 
             if (await userManager.FindByEmailAsync("devlynx.official@gmail.com") == null)
             {
@@ -293,9 +303,23 @@ namespace Chop9ja.API
                 await userManager.AddPasswordAsync(platformAccount, "Password@Password321");
                 await platformAccount.InitializeAsync();
             }
-
-
             
+            if (await userManager.FindByEmailAsync("admin@chop9ja.com") == null)
+            {
+                User adminAccount = new User()
+                {
+                    Email = "admin@chop9ja.com",
+                    UserName = "admin",
+                    FirstName = "Admin",
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true
+                };
+
+                await userManager.CreateAsync(adminAccount);
+                await userManager.AddToRoleAsync(adminAccount, UserRoles.Administrator.ToString());
+                await userManager.AddPasswordAsync(adminAccount, "Password@Password321");
+                await adminAccount.InitializeAsync();
+            }
         }
 
         static async Task ConfigurePaymentChannels()
@@ -306,6 +330,21 @@ namespace Chop9ja.API
             foreach (var channel in channels)
                 if (!await DataContext.Store.AnyAsync<PaymentChannel>(c => c.Type == channel.Type))
                     await DataContext.Store.AddOneAsync(channel);
+        }
+
+        static async Task ConfigureBetPlatforms()
+        {
+            string path = Path.Combine(Core.DATA_DIR, "betPlatforms.json");
+            string json = await File.ReadAllTextAsync(path);
+            var platforms = JsonConvert.DeserializeObject<List<BetPlatform>>(json);
+
+            for (int i = 0; i < platforms.Count; i++)
+            {
+                var platform = platforms[i];
+                platform.Id = i + 1;
+                if (!await DataContext.Store.AnyAsync<BetPlatform, int>(b => b.Id == platform.Id))
+                    await DataContext.Store.AddOneAsync<BetPlatform, int>(platform);
+            }
         }
 
         static async Task ConfigureBanks()

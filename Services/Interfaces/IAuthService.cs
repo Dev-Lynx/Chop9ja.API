@@ -11,6 +11,7 @@ namespace Chop9ja.API.Services.Interfaces
     {
         AuthSettings AuthSettings { get; }
         Task<bool> ValidateOneTimePassword(User user, OnePasswordType kind, string code);
+        Task<bool> VerifyOneTimePassword(User user, OnePasswordType kind, string code);
         Task<OneTimePassword> GenerateOneTimePassword(User user, OnePasswordType kind);
     }
 }

@@ -56,7 +56,12 @@ namespace Chop9ja.API.Services
         #region Paystack
         public async Task<PaymentResult> UsePaystack(User user, decimal amount)
         {
-            bool customerExists = Paystack.Customers.Fetch(user.Email).Status;
+            bool customerExists = false;
+            try
+            {
+                customerExists = Paystack.Customers.Fetch(user.Email).Status;
+            }
+            catch { }
 
             if (!customerExists)
             {
@@ -158,29 +163,14 @@ namespace Chop9ja.API.Services
             User platformAccount = DataContext.PlatformAccount;
             Wallet wallet = await DataContext.Store.GetByIdAsync<Wallet>(walletId);
 
-            Transaction transaction = new Transaction()
-            {
-                Id = transactionId,
-                AddedAtUtc = DateTime.UtcNow,
-                Amount = transactionAmount / channel.ConversionRate,
-                PaymentChannel = channel,
-                Type = TransactionType.Deposit,
-                AuxilaryUser = platformAccount
-            };
-
-            Transaction platformTransaction = new Transaction(transaction)
-            {
-                AuxilaryUser = wallet.User
-            };
+            decimal amount = transactionAmount / channel.ConversionRate;
+            await CreateTransaction(wallet, amount, TransactionType.Deposit, ChannelType.Paystack);
 
             if (data.Authorization.Reusable && string.IsNullOrWhiteSpace(wallet.PaystackAuthorization))
             {
                 wallet.PaystackAuthorization = data.Authorization.AuthorizationCode;
                 await DataContext.Store.UpdateOneAsync(wallet.User);
             }
-
-            await wallet.AddTransactionAsync(transaction);
-            await platformAccount.Wallet.AddTransactionAsync(platformTransaction);
             
             return true;
         }
@@ -226,6 +216,29 @@ namespace Chop9ja.API.Services
             user.Wallet.AvailableBalance -= amount;
 
             await user.AddPaymentRequestAsync(request);
+        }
+        #endregion
+
+        #region Transactions
+        public async Task<bool> CreateTransaction(Wallet wallet, decimal amount, TransactionType type, ChannelType channelType)
+        {
+            PaymentChannel channel = await DataContext.Store.GetOneAsync<PaymentChannel>(p => p.Type == channelType);
+
+            User platformAccount = DataContext.PlatformAccount;
+
+            Transaction transaction = new Transaction()
+            {
+                AddedAtUtc = DateTime.UtcNow,
+                Amount = amount,
+                AuxilaryUser = platformAccount,
+                PaymentChannel = channel,
+                Type = type,
+            };
+
+            await wallet.AddTransactionAsync(transaction);
+            await platformAccount.Wallet.AddTransactionAsync(new Transaction(transaction) { AuxilaryUser = wallet.User });
+
+            return true;
         }
         #endregion
 

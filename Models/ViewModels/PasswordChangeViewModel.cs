@@ -8,21 +8,59 @@ namespace Chop9ja.API.Models.ViewModels
 {
     public class PasswordChangeViewModel
     {
-        /// <summary>
-        /// Password must contain a letter, number and symbol. 
-        /// Password should not be less than 8 characters.
-        /// </summary>
         [Required]
-        [MinLength(8)]
+        [MinLength(6)]
         [MaxLength(32)]
         public string CurrentPassword { get; set; }
-        /// <summary>
-        /// Password must contain a letter, number and symbol. 
-        /// Password should not be less than 8 characters.
-        /// </summary>
+
         [Required]
-        [MinLength(8)]
+        [MinLength(6)]
         [MaxLength(32)]
         public string NewPassword { get; set; }
     }
+
+    public class PasswordResetViewModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Token { get; set; }
+
+        [Required]
+        [MinLength(6)]
+        [MaxLength(32)]
+        public string NewPassword { get; set; }
+    }
+
+    public class OneTimePasswordResetViewModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string OneTimePassword { get; set; }
+
+        [Required]
+        [MinLength(6)]
+        [MaxLength(32)]
+        public string NewPassword { get; set; }
+    }
+
+    public class PasswordResetTokenVerificationModel
+    {
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        public string Token { get; set; }
+    }
+
+    public class OneTimePasswordResetVerificationModel
+    {
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        public string OneTimePassword { get; set; }
+    }
+
 }

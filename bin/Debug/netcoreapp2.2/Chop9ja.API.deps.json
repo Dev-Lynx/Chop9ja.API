@@ -1,10 +1,11 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "6d37ccaef307e95cabec74ebb2b0d2f174c5211e"
+    "signature": "f170f9857cd9f9420c429acee0774cf6be0c3dd2"
   },
   "compilationOptions": {
     "defines": [
+      "DEBUG",
       "TRACE",
       "DEBUG",
       "NETCOREAPP",
@@ -18,7 +19,7 @@
     "keyFile": "",
     "emitEntryPoint": true,
     "xmlDoc": true,
-    "debugType": "portable"
+    "debugType": "full"
   },
   "targets": {
     ".NETCoreApp,Version=v2.2": {
@@ -61,7 +62,8 @@
           "Sendgrid": "9.11.0",
           "Sieve": "2.3.2",
           "Unity.Microsoft.DependencyInjection": "5.10.2",
-          "libphonenumber-csharp": "8.10.13"
+          "WebMarkupMin.Core": "2.5.8",
+          "libphonenumber-csharp": "8.10.14"
         },
         "runtime": {
           "Chop9ja.API.dll": {}
@@ -572,11 +574,14 @@
           "lib/netstandard1.5/Grpc.Core.dll": {}
         }
       },
-      "libphonenumber-csharp/8.10.13": {
+      "libphonenumber-csharp/8.10.14": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.5.0"
+        },
         "runtime": {
           "lib/netstandard2.0/PhoneNumbers.dll": {
-            "assemblyVersion": "8.10.13.0",
-            "fileVersion": "8.10.13.0"
+            "assemblyVersion": "8.10.14.0",
+            "fileVersion": "8.10.14.0"
           }
         },
         "compile": {
@@ -1340,6 +1345,17 @@
         },
         "compile": {
           "lib/netcoreapp1.1/Unity.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "WebMarkupMin.Core/2.5.8": {
+        "runtime": {
+          "lib/netstandard2.0/WebMarkupMin.Core.dll": {
+            "assemblyVersion": "2.5.8.0",
+            "fileVersion": "2.5.8.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/WebMarkupMin.Core.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4699,12 +4715,12 @@
       "path": "grpc.core/1.18.0",
       "hashPath": "grpc.core.1.18.0.nupkg.sha512"
     },
-    "libphonenumber-csharp/8.10.13": {
+    "libphonenumber-csharp/8.10.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QH5b91D2Zz8TbEpppOOVWFAxBHOtGmPgAmOPgi0575DjashbYgk5miJod1tpyEegLPNWodHzDoDhti4Ugi4C4Q==",
-      "path": "libphonenumber-csharp/8.10.13",
-      "hashPath": "libphonenumber-csharp.8.10.13.nupkg.sha512"
+      "sha512": "sha512-9o3+LSndqtqLUidSA5kQ+5C0+3P4knfC1MUWQWZUW0EdJ2BAJnSMmSgNYKiWdN6+NWB+e3BrRKIGgQEgj+zuVA==",
+      "path": "libphonenumber-csharp/8.10.14",
+      "hashPath": "libphonenumber-csharp.8.10.14.nupkg.sha512"
     },
     "LiteDB/4.1.4": {
       "type": "package",
@@ -5083,6 +5099,13 @@
       "sha512": "sha512-guxBhiik+ChCG5DaB7IiuZeqJ3d6TN2zHB40Kr9jfaN6MXZuVeQbnjmSIj39ynjKUzHnOmtyFHLRvD+Cv9dSZw==",
       "path": "unity.microsoft.dependencyinjection/5.10.2",
       "hashPath": "unity.microsoft.dependencyinjection.5.10.2.nupkg.sha512"
+    },
+    "WebMarkupMin.Core/2.5.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lwmYYS+z/OKAh+5zQ4tD6sjXYpLEBlmq45wA29LLzQOu+HU5bH/l/v3Yyut+l2EvR/Ws04UilMMjfVw4+62Lng==",
+      "path": "webmarkupmin.core/2.5.8",
+      "hashPath": "webmarkupmin.core.2.5.8.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

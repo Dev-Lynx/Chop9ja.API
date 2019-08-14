@@ -25,5 +25,7 @@ namespace Chop9ja.API.Models.Entities
 
         public string Name { get; set; }
         public string Code { get; set; }
+        public string KnownAs { get; set; }
+        public string Logo { get; set; }
     }
 }

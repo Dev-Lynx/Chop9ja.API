@@ -36,11 +36,10 @@ namespace Chop9ja.API.Models.ViewModels
         public string StateOfOrigin { get; set; }
 
         /// <summary>
-        /// Password must contain a letter, number and symbol. 
-        /// Password should not be less than 8 characters.
+        /// Password should not be less than 6 characters.
         /// </summary>
         [Required]
-        [MinLength(8)] [MaxLength(32)]
+        [MinLength(6)] [MaxLength(32)]
         public string Password { get; set; }
         #endregion
     }

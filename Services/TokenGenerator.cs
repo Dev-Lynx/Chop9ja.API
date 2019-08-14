@@ -9,9 +9,7 @@ namespace Chop9ja.API.Services
 {
     public class TokenGenerator : OtpNet.Hotp, ITokenGenerator
     {
-        public TokenGenerator(byte[] secretKey, OtpHashMode mode = OtpHashMode.Sha1, int hotpSize = 6) : base(secretKey, mode, hotpSize)
-        {
-
-        }
+        public TokenGenerator(byte[] secretKey, OtpHashMode mode = OtpHashMode.Sha1, int hotpSize = 6) 
+            : base(secretKey, mode, hotpSize) { }
     }
 }

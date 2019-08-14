@@ -10,5 +10,6 @@ namespace Chop9ja.API.Services.Interfaces
     {
         EmailSettings Settings { get; }
         Task<bool> SendEmailAsync(string destinationMail, string subject, string message);
+        Task<string> GetTemplateAsync(string path);
     }
 }

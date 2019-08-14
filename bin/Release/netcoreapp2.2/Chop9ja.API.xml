@@ -6,13 +6,34 @@
     <members>
         <member name="T:Chop9ja.API.Controllers.AccountController">
             <summary>
-            Handles Manages User Account.
+            Manages User Account.
             </summary>
         </member>
         <member name="M:Chop9ja.API.Controllers.AccountController.GetUser">
             <summary>
             Gets the current user.
             </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.GetBankAccounts">
+            <summary>
+            Get user bank accounts
+            </summary>
+            <returns>An OK Response</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.AddBankAccount(Chop9ja.API.Models.ViewModels.BankAccountViewModel)">
+            <summary>
+            Add a new bank account
+            </summary>
+            <param name="model">Banks and IDs are modelled after 
+            (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+            </param>
+            <returns>An OK Response</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.RemoveBankAccount(Chop9ja.API.Models.ViewModels.BankAccountIdViewModel)">
+            <summary>
+            Delete a bank account
+            </summary>
+            <returns>An OK Response</returns>
         </member>
         <member name="T:Chop9ja.API.Controllers.AuthController">
             <summary>
@@ -32,6 +53,43 @@
             </summary>
             <param name="model">User login details.</param>
             <returns>A JWT access token or a collection of the errors found.</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.UserExists(Chop9ja.API.Models.ViewModels.UserExistsModel)">
+            <summary>
+            Check if an email or username is already taken.
+            </summary>
+            <param name="model">Data sent via query. Use either email or username.</param>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.ChangePassword(Chop9ja.API.Models.ViewModels.PasswordChangeViewModel)">
+            <summary>
+            Change account password
+            </summary>
+            <param name="model">Password change model</param>
+            <returns>An OK Response</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.GeneratePasswordResetToken(Chop9ja.API.Models.ViewModels.CustomEmailViewModel)">
+            <summary>
+            Send a password reset email.
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.GeneratePasswordResetSms(Chop9ja.API.Models.ViewModels.CustomSMSViewModel)">
+            <summary>
+            Send a password reset sms.
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.ResetPassword(Chop9ja.API.Models.ViewModels.PasswordResetViewModel)">
+            <summary>
+            Reset User's Password using token
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.AuthController.ResetPassword(Chop9ja.API.Models.ViewModels.OneTimePasswordResetViewModel)">
+            <summary>
+            Reset User's Password using One Time Password
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
         </member>
         <member name="M:Chop9ja.API.Controllers.AuthController.GenerateEmailOneTimePassword(Chop9ja.API.Models.ViewModels.EmailViewModel)">
             <summary>
@@ -71,6 +129,57 @@
             One Time Password submitted by the user.
             </param>
         </member>
+        <member name="T:Chop9ja.API.Controllers.BackOffice.AuthController">
+            <summary>
+            Handles BackOffice Authentication.
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.AuthController.Login(Chop9ja.API.Models.ViewModels.BackOfficeLoginViewModel)">
+            <summary>
+            Log in a user into the back office
+            </summary>
+            <param name="model">User login details.</param>
+            <returns>A JWT access token or a collection of the errors found.</returns>
+        </member>
+        <member name="T:Chop9ja.API.Controllers.BetController">
+            <summary>
+            Manages User Bets
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BetController.GetBet(System.String)">
+            <summary>
+            Retrieve an insured bet
+            </summary>
+            <param name="slipNumber">Slip Number located in the bet slip. By design, 
+            these values are expected to be unique to both users and bet platforms</param>
+            <returns>Information about the insured bet</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BetController.GetBets(Chop9ja.API.Models.DateRange)">
+            <summary>
+            Get a list of insured bets
+            </summary>
+            <param name="dateRange">The date range at that the bets where insured. When
+            null this field will return an all time list of insured bets.</param>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BetController.InsureBet(Chop9ja.API.Models.Entities.BetViewModel)">
+            <summary>
+            Insure a bet
+            </summary>
+            <param name="model">Information about the bet to insure</param>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BetController.CashOutBet(Chop9ja.API.Models.Entities.CashOutViewModel)">
+            <summary>
+            CashOut a bet
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BetController.GetCashOuts(Chop9ja.API.Models.DateRange)">
+            <summary>
+            Get list of bet cashouts
+            </summary>
+            <param name="dateRange">The date range at which the bets where cashed out. When
+            null this field will return an all time list of insured bets.</param>
+            <returns></returns>
+        </member>
         <member name="T:Chop9ja.API.Controllers.MessengerController">
             <summary>
             Handles API Messaging
@@ -96,11 +205,83 @@
             </summary>
             <returns>The value of the remaining sms balance in units.</returns>
         </member>
+        <member name="T:Chop9ja.API.Controllers.WalletController">
+            <summary>
+            Manages user wallet details
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetWallet">
+            <summary>
+            Get Wallet Details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetTransactions(Chop9ja.API.Models.DateRange)">
+            <summary>
+            Get a list of wallet transactions
+            </summary>
+            <param name="dateRange">Date Range to where transactions occured. Leave empty to get all time transactions</param>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetPaymentChannels">
+            <summary>
+            Get list of payment methods.
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetPlatformBankAccounts">
+            <summary>
+            Get list of bank accounts for deposit
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetDepositPaymentRequests">
+            <summary>
+            Get list of deposit requests and their statuses
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.Deposit(Chop9ja.API.Models.ViewModels.DepositViewModel)">
+            <summary>
+            Make a deposit
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.WithdrawFunds(Chop9ja.API.Models.ViewModels.WithdrawalViewModel)">
+            <summary>
+            Withdraw cash
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WalletController.GetWithdrawalPaymentRequests">
+            <summary>
+            Get list of withdrawal requests and their statuses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.WebHookController.Paystack(Chop9ja.API.Models.Responses.PaystackTransactionResponse)">
+            <summary>
+            Webhook for paystack. 
+            This method is only for calls from paystack.
+            </summary>
+            <param name="response"></param>
+            <returns>An OK Response</returns>
+        </member>
         <member name="M:Chop9ja.API.Core.CreateDirectories(System.String[])">
             <summary>
             Easy and safe way to create multiple directories. 
             </summary>
             <param name="directories">The set of directories to create</param>
+        </member>
+        <member name="M:Chop9ja.API.Extensions.Encryption.Crypt.XOR(System.String,System.String)">
+            <summary>
+            Encrypt or Decrypt text using XOR encryption
+            </summary>
+            <param name="text">Text to encrypt or decrypt</param>
+            <param name="key">Key to use during this process</param>
+            <remarks>
+            Thanks to Daniel Earwicker (https://stackoverflow.com/users/27423/daniel-earwicker)
+            for his answer on stackoverflow (https://stackoverflow.com/a/2532704/8058709)
+            </remarks>
+            <returns>A refined version of the given text</returns>
         </member>
         <member name="T:Chop9ja.API.Extensions.UnityExtensions.AutoBuild">
             <summary>
@@ -195,6 +376,147 @@
             Life Span of an SMS one time password in seconds.
             </summary>
         </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.BankId">
+            <summary>
+            ID of the bank on the list. 
+            List can be found at (https://github.com/tomiiide/nigerian-banks/blob/master/banks.json).
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.AccountName">
+            <summary>
+            Registered Name of the bank account
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BankAccountViewModel.AccountNumber">
+            <summary>
+            Bank Account Number
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.Id">
+            <summary>
+            Identity for the bank account. It should be stored for easy 
+            account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Name">
+            <summary>
+            Name of payment channel
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Logo">
+            <summary>
+            Link to payment channel's logo
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.UsesFeePercentage">
+            <summary>
+            Indicates that the platform charges a percentage of the 
+            original amount during payment.
+            
+            Note: A platform can use both a fee percentage and a fixed fee.
+            For a consistent fee, use the following formula:
+            
+            fee = (amount * feePercentage) + fixedFee
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.FeePercentage">
+            <summary>
+            Percentage the platform charges during payment.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.UsesFixedFee">
+            <summary>
+            Indicates that the platform charges a fixed fee
+            during payment.
+            
+            Note: A platform can use both a fee percentage and a fixed fee.
+            For a consistent fee, use the following formula:
+            
+            fee = (amount * feePercentage) + fixedFee
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.FixedFee">
+            <summary>
+            Fixed amount the platform charges during payment.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.PaymentRange">
+            <summary>
+            An estimation of the time this payment channel 
+            would take to complete a payment.
+            </summary>
+        </member>
+        <member name="T:Chop9ja.API.Models.ViewModels.AccessTokenModel">
+            <summary>
+            API Access Token Wrapper
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.AccessTokenModel.AccessToken">
+            <summary>
+            JWT Access Token for user account.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.EmailViewModel.Subject">
+            <summary>
+            Subject of the email.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.EmailViewModel.Body">
+            <summary>
+            Body of the email. HTML is the preferred format.
+            Should be less than 35MB.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.CustomEmailViewModel.To">
+            <summary>
+            Email of the user the email is addressed to.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.SMSViewModel.Message">
+            <summary>
+            SMS content to send. Should not be more than 160 characters.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.CustomSMSViewModel.Phone">
+            <summary>
+            User's phone number.
+            </summary>
+        </member>
+        <member name="T:Chop9ja.API.Models.ViewModels.UserLoginViewModel">
+            <summary>
+            Login Model for a user.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserLoginViewModel.Username">
+            <summary>
+            Mobile Number of the user.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserLoginViewModel.Password">
+            <summary>
+            User Password.
+            </summary>
+        </member>
+        <member name="T:Chop9ja.API.Models.ViewModels.BackOfficeLoginViewModel">
+            <summary>
+            Login Model for a user.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BackOfficeLoginViewModel.Username">
+            <summary>
+            Mobile Number of the user.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.BackOfficeLoginViewModel.Password">
+            <summary>
+            User Password.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserRegistrationViewModel.Password">
+            <summary>
+            Password should not be less than 6 characters.
+            </summary>
+        </member>
         <member name="P:Chop9ja.API.Models.Options.JwtIssuerOptions.Issuer">
             <summary>
             4.1.1.  "iss" (Issuer) Claim - The "iss" (issuer) claim identifies the principal that issued the JWT.
@@ -240,55 +562,9 @@
             "jti" (JWT ID) Claim (default ID is a GUID)
             </summary>
         </member>
-        <member name="T:Chop9ja.API.Models.ViewModels.AccessTokenModel">
+        <member name="M:Chop9ja.API.Models.DateRange.#ctor">
             <summary>
-            API Access Token Wrapper
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.AccessTokenModel.AccessToken">
-            <summary>
-            JWT Access Token for user account.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.EmailViewModel.Subject">
-            <summary>
-            Subject of the email.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.EmailViewModel.Body">
-            <summary>
-            Body of the email. HTML is the preferred format.
-            Should be less than 35MB.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.CustomEmailViewModel.To">
-            <summary>
-            Email of the user the email is addressed to.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.SMSViewModel.Message">
-            <summary>
-            SMS content to send. Should not be more than 160 characters.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.CustomSMSViewModel.Phone">
-            <summary>
-            User's phone number.
-            </summary>
-        </member>
-        <member name="T:Chop9ja.API.Models.ViewModels.UserLoginViewModel">
-            <summary>
-            Login Model for a user.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.UserLoginViewModel.Email">
-            <summary>
-            Email of the user.
-            </summary>
-        </member>
-        <member name="P:Chop9ja.API.Models.ViewModels.UserLoginViewModel.Password">
-            <summary>
-            User Password.
+            Start the DateRange from a day ago to this very moment
             </summary>
         </member>
     </members>

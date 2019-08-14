@@ -15,7 +15,7 @@ namespace Chop9ja.API.Models.ViewModels
         [Required]
         public string LastName { get; set; }
 
-        public string Initials => $"{LastName.FirstOrDefault()}{FirstName.FirstOrDefault()}";
+        public string Initials => (string.IsNullOrWhiteSpace(LastName) && string.IsNullOrWhiteSpace(FirstName)) ? $"{LastName.FirstOrDefault()}{FirstName.FirstOrDefault()}" : "";
 
         [Required]
         public DateTime DateOfBirth { get; set; }
@@ -35,5 +35,31 @@ namespace Chop9ja.API.Models.ViewModels
         public string Email { get; set; }
         [Required]
         public string EmailConfirmed { get; set; }
+
+        public bool LockoutEnabled { get; set; }
+    }
+
+    public class UserTokenViewModel : UserViewModel
+    {
+        public string Token { get; set; }
+    }
+
+    public class UserOneTimePasswordModel : UserViewModel
+    {
+        public string OneTimePassword { get; set; }
+    }
+
+    public class AccountViewModel : UserViewModel
+    {
+        [Required]
+        public Guid Id { get; set; }
+    }
+
+    public class UserExistsModel
+    {
+        [Phone]
+        public string UserName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }

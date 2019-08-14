@@ -4,12 +4,53 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <UserSecretsId>c3dfa754-ff35-4384-b8f7-309222806317</UserSecretsId>
+    <Configurations>Debug;Release;Staging</Configurations>
   </PropertyGroup>
 
+  <!--#region Configuration Settings-->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
+  
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <EnvironmentName>Development</EnvironmentName>
   </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>bin\Debug\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <!--<DebugType>pdbonly</DebugType>-->
+    <Optimize>true</Optimize>
+    <EnvironmentName>Staging</EnvironmentName>
+  </PropertyGroup>
+  
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
+    <EnvironmentName>Production</EnvironmentName>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <Content Remove="appsettings.*.json" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    
+    <Content Include="appsettings.$(EnvironmentName).json" DependentUpon="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="appsettings.*.json" Exclude="appsettings.$(EnvironmentName).json" DependentUpon="appsettings.json" CopyToOutputDirectory="Never" />
+  </ItemGroup>
+  
+  <Target Name="RenameAppsettings" AfterTargets="Publish">
+      <Move SourceFiles="$(OutputPath)\publish\appsettings.$(EnvironmentName).json" DestinationFiles="$(OutputPath)\publish\appsettings.overrides.json" />
+  </Target>
+  <!--#endregion-->
 
   <PropertyGroup>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
@@ -49,7 +90,7 @@
     <PackageReference Include="Google.Apis.Auth.AspNetCore" Version="1.40.1" />
     <PackageReference Include="Google.Apis.Firestore.v1" Version="1.40.1.1569" />
     <PackageReference Include="Google.Apis.Gmail.v1" Version="1.40.2.1613" />
-    <PackageReference Include="libphonenumber-csharp" Version="8.10.13" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.10.14" />
     <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="MailKit" Version="2.1.5.1" />
     
@@ -67,6 +108,19 @@
     <PackageReference Include="SendGrid" Version="9.11.0" />
     <PackageReference Include="Sieve" Version="2.3.2" />
     <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.10.2" />
+    <PackageReference Include="WebMarkupMin.Core" Version="2.5.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Staging.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App\Data\Resources\Templates\verification.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
   <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
@@ -75,13 +129,5 @@
     </ItemGroup>
     <Copy SourceFiles="@(DocFile)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="false" />
   </Target>
-  
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp2.2\Chop9ja.API.xml</DocumentationFile>
-  </PropertyGroup>
 
 </Project>

@@ -15,33 +15,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Chop9ja.API.Models
-{
-    [Owned]
-    public class TimeRange
-    {
-        public TimeRange(TimeSpan from, TimeSpan to)
-        {
-            From = from;
-            To = to;
-        }
-
-        public TimeSpan From { get; set; }
-        public TimeSpan To { get; set; }
-
-        public override string ToString() => this.ToHumanReadableString();
-    }
-}
-
 namespace Chop9ja.API.Models.Entities
 {
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ChannelType
-    {
-        Bank = 1,
-        Paystack = 2
-    }
-
     [ComplexType]
     [MongoCollection("PaymentChannels")]
     [CollectionName("PaymentChannels")]
@@ -65,6 +40,8 @@ namespace Chop9ja.API.Models.Entities
         public decimal FixedFee { get; set; }
 
         public TimeRange PaymentRange { get; set; }
+
+        public bool IsActive { get; set; } = true;
     }    
 }
 
@@ -121,6 +98,7 @@ namespace Chop9ja.API.Models.ViewModels
         /// would take to complete a payment.
         /// </summary>
         [Required] public string PaymentRange { get; set; }
+
 
         public ChannelType Type { get; set; }
     }

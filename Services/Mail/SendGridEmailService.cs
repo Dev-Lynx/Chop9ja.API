@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using WebMarkupMin.Core;
 
 namespace Chop9ja.API.Services.Mail
 {
@@ -57,6 +58,23 @@ namespace Chop9ja.API.Services.Mail
             }
         }
 
+        public async Task<string> GetTemplateAsync(string path)
+        {
+            string template = string.Empty;
+            try
+            {
+                template = await System.IO.File.ReadAllTextAsync(path);
+
+                HtmlMinifier minifier = new HtmlMinifier();
+                template = minifier.Minify(template).MinifiedContent;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"An error occured while retriving an email template.\n{ex}");
+            }
+
+            return template;
+        }
         #endregion
 
         #endregion

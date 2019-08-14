@@ -12,11 +12,31 @@ namespace Chop9ja.API.Models.ViewModels
     public class UserLoginViewModel
     {
         /// <summary>
-        /// Email of the user.
+        /// Mobile Number of the user.
         /// </summary>
         [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        public string Username { get; set; }
+
+        /// <summary>
+        /// User Password.
+        /// </summary>
+        [Required]
+        public string Password { get; set; }
+    }
+
+    /// <summary>
+    /// Login Model for a user.
+    /// </summary>
+    public class BackOfficeLoginViewModel
+    {
+
+        public string Role { get; set; }
+
+        /// <summary>
+        /// Mobile Number of the user.
+        /// </summary>
+        [Required]
+        public string Username { get; set; }
 
         /// <summary>
         /// User Password.

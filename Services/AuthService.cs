@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Chop9ja.API.Extensions;
 using AspNetCore.Identity.MongoDbCore.Infrastructure;
+using Chop9ja.API.Extensions.Encryption;
+using Unity;
 
 namespace Chop9ja.API.Services
 {
@@ -32,9 +34,6 @@ namespace Chop9ja.API.Services
         IOptions<AuthSettings> OAuthSettings { get; }
 
         [DeepDependency]
-        ITokenGenerator Generator { get; set; }
-
-        [DeepDependency]
         MongoDataContext DataContext { get; }
 
         [DeepDependency]
@@ -45,6 +44,13 @@ namespace Chop9ja.API.Services
 
         [DeepDependency]
         ILogger Logger { get; }
+
+        [DeepDependency]
+        IUnityContainer Container { get; }
+        #endregion
+
+        #region Internals
+        ITokenGenerator Generator { get; set; }
         #endregion
 
         #endregion
@@ -54,6 +60,8 @@ namespace Chop9ja.API.Services
         #region IAuthService Implementation
         public async Task<OneTimePassword> GenerateOneTimePassword(User user, OnePasswordType kind)
         {
+            Generator = NewGenerator(user);
+
             OneTimePassword password = user.OneTimePasswords
                 .FirstOrDefault(p => p.IsActive && p.Kind == kind);
 
@@ -74,16 +82,20 @@ namespace Chop9ja.API.Services
 
         public async Task<bool> ValidateOneTimePassword(User user, OnePasswordType kind, string code)
         {
+            Generator = NewGenerator(user);
+
+            // TODO: Stop Storing One Time Passwords, maybe just count them?
             OneTimePassword password = user.OneTimePasswords.
                 FirstOrDefault(p => p.IsActive && p.Kind == kind);
 
-
             if (password == null) return false;
 
+            if (!Generator.VerifyHotp(code, user.OneTimePasswords.LongCount())) return false;
             if (!password.Validate(code)) return false;
 
             switch (kind)
             {
+                // TODO: Deprecate OnePasswordType
                 case OnePasswordType.Email:
                     user.EmailConfirmed = true;
                     break;
@@ -96,7 +108,41 @@ namespace Chop9ja.API.Services
             await DataStore.UpdateOneAsync(user);
             return true;
         }
+
+        public async Task<bool> VerifyOneTimePassword(User user, OnePasswordType kind, string code)
+        {
+            Generator = NewGenerator(user);
+
+            // TODO: Stop Storing One Time Passwords, maybe just count them?
+            OneTimePassword password = user.OneTimePasswords.
+                FirstOrDefault(p => p.IsActive && p.Kind == kind);
+
+            if (password == null) return false;
+
+            if (!Generator.VerifyHotp(code, user.OneTimePasswords.LongCount())) return false;
+
+            return password.Code == code;
+        }
         #endregion
+
+        ITokenGenerator NewGenerator(User user)
+        {
+            ITokenGenerator generator;
+            try
+            {
+                string crypt = Crypt.XOR(user.UserName, AuthSettings.Key);
+                Logger.LogWarning(crypt);
+                byte[] key = Encoding.ASCII.GetBytes(crypt);
+                generator = new TokenGenerator(key);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "An error occured while attempting to create a user based token generator.");
+                generator = Container.Resolve<ITokenGenerator>();
+            }
+
+            return generator;
+        }
 
         #endregion
     }

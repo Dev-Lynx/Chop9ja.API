@@ -48,6 +48,9 @@ using Chop9ja.API.Services.Mail;
 using AspNetCore.Identity.MongoDbCore.Models;
 using AspNetCore.Identity.MongoDbCore;
 using PayStack.Net;
+using Chop9ja.API.Extensions.Conventions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 
 // July 22nd, 1998
 namespace Chop9ja.API
@@ -60,7 +63,8 @@ namespace Chop9ja.API
         IConfiguration Configuration { get; }
         IHostingEnvironment CurrentEnvironment { get; }
         IServiceCollection ServiceCollection { get; set; }
-        string ConnectionString => Configuration.GetConnectionString("MongoDBAtlasConnection");
+        string ConnectionString => Configuration.GetConnectionString("MongoDBAtlasConnection").Replace("|MongoDatabaseName|", DatabaseName);
+        string DatabaseName => Configuration.GetConnectionString("MongoDatabaseName");
         JwtIssuerOptions JwtIssuerOptions { get; set; }
 
         #endregion
@@ -68,10 +72,15 @@ namespace Chop9ja.API
         #endregion
 
         #region Constructors
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
             CurrentEnvironment = env;
+
+            Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("appsettings.overrides.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables().Build();
         }
         #endregion
 
@@ -79,12 +88,40 @@ namespace Chop9ja.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(
+            services.AddMvc(mvc =>
+            {
+                mvc.Conventions.Add(new ControllerNameAttributeConvention());
+            }).SetCompatibilityVersion(
                 CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
 
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+            });
+
+            bool isDevelopment = CurrentEnvironment.IsDevelopment();
+
+            if (isDevelopment)
+            {
+                services.AddHttpsRedirection(options =>
+                {
+                    options.RedirectStatusCode = isDevelopment ? StatusCodes.Status307TemporaryRedirect : StatusCodes.Status308PermanentRedirect;
+                    options.HttpsPort = isDevelopment ? 5001 : 443;
+                });
+            }
+            
+
             services.AddAutoMapper(config => config.AddProfile<ViewModelToEntityProfile>(), Assembly.GetCallingAssembly());
             //services.AddDbContext<UserDataContext>(opt => opt.UseMongoDb(new MongoUrl(ConnectionString)));
+
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
 
             ConfigureOptions(services);
             ConfigureAuthentication(services);
@@ -93,7 +130,11 @@ namespace Chop9ja.API
             services.AddFluentEmail(emailSettings.EmailAddress)
                 .AddMailGunSender(emailSettings.Domain, emailSettings.ClientSecret);
 
-            
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "wwwroot";
+            });
+
             services.AddOpenApiDocument(doc =>
             {
                 doc.Title = Core.PRODUCT_NAME;
@@ -113,6 +154,7 @@ namespace Chop9ja.API
                     new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
 
+            
 
             ServiceCollection = services;
             Core.RegisterServiceProvider(services.BuildServiceProvider());
@@ -120,6 +162,22 @@ namespace Chop9ja.API
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseForwardedHeaders();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.IsHttps || context.Request.Headers["X-Forwarded-Proto"] == Uri.UriSchemeHttps)
+                {
+                    await next();
+                }
+                else
+                {
+                    string queryString = context.Request.QueryString.HasValue ? context.Request.QueryString.Value : string.Empty;
+                    string https = "https://" + context.Request.Host + context.Request.Path + queryString;
+                    Core.Log.Warn(https);
+                    context.Response.Redirect(https);
+                }
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -127,15 +185,26 @@ namespace Chop9ja.API
             else
             {
                 app.UseHsts();
+
+                
             }
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
+            app.UseHttpsRedirection();
+
+            
 
             ConfigureDocumentation(app);
 
             app.ConfigureExceptionHandler(loggerFactory);
+
+            
+
             app.UseMvc();
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+            app.UseSpa(spa => { });
         }
 
         public void ConfigureContainer(IUnityContainer container)
@@ -158,11 +227,12 @@ namespace Chop9ja.API
             
             //container.RegisterTransient<UserDataContext>();
 
-            container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, "localIdentities"));
+            container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, DatabaseName));
 
             container.RegisterControllers();
 
             Core.ConfigureCoreServices(container);
+
 
             
             container.RegisterScoped<IAuthService, AuthService>();
@@ -233,13 +303,15 @@ namespace Chop9ja.API
 
             services.AddIdentity<User, UserRole>(opt =>
             {
-                opt.Password.RequireDigit = true;
-                opt.Password.RequireLowercase = true;
-                opt.Password.RequireUppercase = true;
-                opt.Password.RequiredLength = 8;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequiredLength = 6;
+                
                 opt.User.RequireUniqueEmail = true;
             })
-            .AddMongoDbStores<User, UserRole, Guid>(new MongoDataContext(ConnectionString, "localIdentities"))
+            .AddMongoDbStores<User, UserRole, Guid>(new MongoDataContext(ConnectionString, DatabaseName))
             .AddDefaultTokenProviders();
 
             // services.AddTransient(s => new MongoDataContext(ConnectionString, "__identities"));

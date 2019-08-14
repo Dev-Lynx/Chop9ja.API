@@ -43,6 +43,11 @@ namespace Chop9ja.API.Models.Entities
 
 namespace Chop9ja.API.Models.ViewModels
 {
+    public class BankAccountIdViewModel
+    {
+        public string Id { get; set; }
+    }
+
     public class BankAccountViewModel
     {
         /// <summary>

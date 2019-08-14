@@ -23,6 +23,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Chop9ja.API.Controllers
 {
@@ -75,6 +76,8 @@ namespace Chop9ja.API.Controllers
         #region Methods
 
         #region RESTful API Calls
+
+        #region Reception
         /// <summary>
         /// Register a new user.
         /// </summary>
@@ -90,13 +93,28 @@ namespace Chop9ja.API.Controllers
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
-            result = await UserManager.AddToRoleAsync(user, UserRoles.RegularUser.ToString());
+            result = await UserManager.AddToRoleAsync(user, UserRoles.Regular.ToString());
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
             result = await UserManager.AddPasswordAsync(user, model.Password);
             if (!result.Succeeded) return new BadRequestObjectResult(result.Errors);
 
             await user.InitializeAsync();
+
+            try
+            {
+                string template = await EmailService.GetTemplateAsync(Core.EmailTemplates.Verification);
+                template = template.Replace("|USERNAME|", user.FirstName);
+                await EmailService.SendEmailAsync(user.Email, "Welcome To Chop9ja", template);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"An error occured while sending an welcome email\n{ex}");
+            }
+
+
+            string message = string.Format("Hello {0}\n Welcome to Chop9ja. Click on the link below to validate your account", user.FirstName);
+            await SmsService.SendMessage(user.FormattedPhoneNumber, message);
 
             return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
         }
@@ -112,7 +130,7 @@ namespace Chop9ja.API.Controllers
         [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "Invalid User Credentials.")]
         public async Task<IActionResult> Login([FromBody]UserLoginViewModel model)
         {
-            User user = await UserManager.FindByEmailAsync(model.Email);
+            User user = await DataContext.Store.GetOneAsync<User>(u => u.UserName.ToLower() == model.Username.ToLower());
 
             if (user == null) return NotFound();
 
@@ -123,6 +141,34 @@ namespace Chop9ja.API.Controllers
             return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
         }
 
+        /// <summary>
+        /// Check if an email or username is already taken.
+        /// </summary>
+        /// <param name="model">Data sent via query. Use either email or username.</param>
+        [HttpGet("user/exists")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(bool))]
+        public async Task<IActionResult> UserExists([FromQuery]UserExistsModel model)
+        {
+            bool exists = false;
+            bool useMail = !string.IsNullOrWhiteSpace(model.Email);
+            bool useName = !string.IsNullOrWhiteSpace(model.UserName);
+            bool mailExists = false;
+            bool nameExists = false;
+
+            if (useMail)
+                mailExists = await DataContext.Store.AnyAsync<User>(u => u.Email.ToLower() == model.Email.ToLower());
+            if (useName)
+                nameExists = await DataContext.Store.AnyAsync<User>(u => u.UserName.ToLower() == model.UserName.ToLower());
+
+            if (useMail && useName) exists = nameExists && mailExists;
+            else if (useMail) exists = mailExists;
+            else if (useName) exists = nameExists;
+
+            return Ok(exists);
+        }
+        #endregion
+
+        #region Password Management
         /// <summary>
         /// Change account password
         /// </summary>
@@ -148,8 +194,159 @@ namespace Chop9ja.API.Controllers
             return Ok();
         }
 
+        [HttpGet("password/reset/verify/token")]
+        public async Task<IActionResult> VerifyPasswordResetToken([FromQuery]PasswordResetTokenVerificationModel model)
+        {
+            User user = await UserManager.FindByNameAsync(model.Username);
 
+            if (user == null) return NotFound();
 
+            bool valid = false;
+            try
+            {
+                valid = await UserManager.VerifyUserTokenAsync(user, UserManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", model.Token);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "An error occured while verifying user token.");
+            }
+            
+
+            return Ok(valid);
+        }
+
+        [HttpGet("password/reset/verify/otp")]
+        public async Task<IActionResult> VerifyOneTimePasswordResetToken([FromQuery]PasswordResetTokenVerificationModel model)
+        {
+            User user = await UserManager.FindByNameAsync(model.Username);
+
+            if (user == null) return NotFound();
+
+            bool valid = await Auth.VerifyOneTimePassword(user, OnePasswordType.Phone, model.Token);
+
+            return Ok(valid);
+        }
+
+        /// <summary>
+        /// Send a password reset email.
+        /// </summary>
+        [HttpPost("password/reset/mail")]
+        public async Task<IActionResult> GeneratePasswordResetToken([FromBody]CustomEmailViewModel model)
+        {
+            User user = await UserManager.FindByEmailAsync(model.To);
+
+            if (user == null) return NotFound($"No email ({model.To}) could be found on this platform");
+
+            string body = model.Body;
+
+            try
+            {
+                string token = await UserManager.GeneratePasswordResetTokenAsync(user);
+                UserTokenViewModel context = Mapper.Map<UserTokenViewModel>(user);
+                context.Token = HttpUtility.UrlEncode(token);
+
+                body = body.BindTo(context);
+                Logger.LogDebug(body);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "An error occured while formatting input body.\n{0}", body);
+                return BadRequest("The format of the email body is invalid.");
+            }
+
+            bool success = await EmailService.
+                SendEmailAsync(user.Email.ToLower(), model.Subject, body);
+
+            if (!success) return BadRequest("An error occured while sending the password reset email");
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// Send a password reset sms.
+        /// </summary>
+        [HttpPost("password/reset/sms")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(OneTimePasswordViewModel), Description = "One Time Password Metadata.")]
+        public async Task<IActionResult> GeneratePasswordResetSms([FromBody]CustomSMSViewModel model)
+        {
+            User user = await DataContext.Store.GetOneAsync<User>(u => u.PhoneNumber == model.Phone);
+
+            if (user == null) return NotFound($"No User with that phone number could be found on this platform.");
+
+            string message = model.Message;
+
+            OneTimePassword password = null;
+            try
+            {
+                password = await Auth.GenerateOneTimePassword(user, OnePasswordType.Phone);
+                UserOneTimePasswordModel context = Mapper.Map<UserOneTimePasswordModel>(user);
+                context.OneTimePassword = password.Code;
+
+                message = message.BindTo(context);
+                Logger.LogWarning(user.FormattedPhoneNumber);
+                Logger.LogWarning(message);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "An error occured while formatting a text message\n{0}", message);
+                return BadRequest("The format of the text message is invalid");
+            }
+
+            bool success = await SmsService.SendMessage(user.FormattedPhoneNumber, message);
+
+            if (!success) return BadRequest("An error occured while sending the password reset text message");
+
+            return Ok(Mapper.Map<OneTimePasswordViewModel>(password));
+        }
+
+        /// <summary>
+        /// Reset User's Password using token
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost("password/reset")]
+        public async Task<IActionResult> ResetPassword(PasswordResetViewModel model)
+        {
+            User user = await UserManager.FindByNameAsync(model.Username);
+
+            if (user == null) return NotFound($"No username ({model.Username}) could be found on this platform");
+
+            bool success = (await UserManager.
+                ResetPasswordAsync(user, model.Token, model.NewPassword)).Succeeded;
+
+            if (!success) success = (await UserManager.
+                ResetPasswordAsync(user, HttpUtility.UrlDecode(model.Token),
+                model.NewPassword)).Succeeded;
+
+            if (!success) return BadRequest("The provided token is expired or invalid");
+
+            return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
+        }
+
+        /// <summary>
+        /// Reset User's Password using One Time Password
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost("password/otpReset")]
+        public async Task<IActionResult> ResetPassword(OneTimePasswordResetViewModel model)
+        {
+            User user = await UserManager.FindByNameAsync(model.Username);
+
+            if (user == null) return NotFound($"No username ({model.Username}) could be found on this platform");
+
+            bool success = await Auth.ValidateOneTimePassword(user, OnePasswordType.Phone, model.OneTimePassword);
+
+            if (!success) return BadRequest("The provided one time password is expired or invalid");
+
+            string token = await UserManager.GeneratePasswordResetTokenAsync(user);
+            await UserManager.ResetPasswordAsync(user, token, model.NewPassword);
+
+            return Ok(new AccessTokenModel() { AccessToken = await JwtFactory.GenerateToken(user) });
+        }
+        #endregion
+
+        #region Verification
         /// <summary>
         /// Send an email for user verification.
         /// </summary>
@@ -170,9 +367,10 @@ namespace Chop9ja.API.Controllers
         {
             string id = User.FindFirst("id").Value;
             User user = await UserManager.FindByIdAsync(id);
-            
+
             if (user == null) return Unauthorized();
 
+            // TODO: Use inbuild tokens
             OneTimePassword password = await Auth.GenerateOneTimePassword(user, OnePasswordType.Email);
             var pvm = Mapper.Map<OneTimePasswordViewModel>(password);
 
@@ -188,7 +386,7 @@ namespace Chop9ja.API.Controllers
                 Logger.LogError(ex, "An error occured while formatting input body.\n{0}", body);
                 return BadRequest("The format of the email body is invalid.");
             }
-            
+
             await EmailService.SendEmailAsync(user.Email.ToLower(), model.Subject, body);
 
             return Ok(pvm);
@@ -238,7 +436,7 @@ namespace Chop9ja.API.Controllers
 
             phone = Phone.Format(number, PhoneNumberFormat.E164);
 
-            
+
             await SmsService.SendMessage(phone, body);
             return Ok(pvm);
         }
@@ -269,7 +467,7 @@ namespace Chop9ja.API.Controllers
 
             if (!valid) return BadRequest("One Time Password was invalid");
 
-            return Ok();   
+            return Ok();
         }
 
         /// <summary>
@@ -296,6 +494,8 @@ namespace Chop9ja.API.Controllers
 
             return Ok();
         }
+        #endregion
+
         #endregion
 
 

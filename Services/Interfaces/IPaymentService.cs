@@ -20,5 +20,7 @@ namespace Chop9ja.API.Services.Interfaces
 
         Task<PaymentResult> UseBank(User user, decimal amount, BankAccount userAccount, BankAccount platformAccount);
         Task BankWithdrawal(User user, decimal amount, BankAccount account);
+
+        Task<bool> CreateTransaction(Wallet wallet, decimal amount, TransactionType type, ChannelType channelType);
     }
 }

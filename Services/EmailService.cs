@@ -18,6 +18,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+using WebMarkupMin.Core;
 using GAuth = Google.Apis.Auth.OAuth2.GoogleWebAuthorizationBroker;
 
 namespace Chop9ja.API.Services
@@ -118,6 +119,24 @@ namespace Chop9ja.API.Services
                 .Replace('+', '-')
                 .Replace('/', '_')
                 .Replace("=", "");
+        }
+
+        public async Task<string> GetTemplateAsync(string path)
+        {
+            string template = string.Empty;
+            try
+            {
+                template = await System.IO.File.ReadAllTextAsync(path);
+
+                HtmlMinifier minifier = new HtmlMinifier();
+                template = minifier.Minify(template).MinifiedContent;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"An error occured while retriving an email template.\n{ex}");
+            }
+
+            return template;
         }
 
         #endregion

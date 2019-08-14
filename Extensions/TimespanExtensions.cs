@@ -32,8 +32,10 @@ namespace Chop9ja.API.Extensions
 
         public static string ToHumanReadableString(this TimeRange range)
         {
-            TimeSpan from = range.From;
-            TimeSpan to = range.To;
+            TimeSpan from = range.Start;
+            TimeSpan to = range.End;
+
+            if (to.TotalSeconds == 0 && from.TotalSeconds == 0) return "Instant";
 
             if (to.TotalSeconds <= 1) return $@"{from.TotalSeconds} - {to.TotalSeconds} seconds";
             if (to.TotalMinutes <= 1) return $@"{from.TotalSeconds} - {to.TotalSeconds} seconds";
@@ -41,6 +43,11 @@ namespace Chop9ja.API.Extensions
             if (to.TotalDays <= 1) return $@"{from.TotalHours} - {to.TotalHours} hours";
 
             return $@"{from.TotalDays} - {to.TotalDays} days";
+        }
+
+        public static DateRange ToLocalTime(this DateRange range)
+        {
+            return new DateRange(range.Start.ToLocalTime(), range.End.ToLocalTime());
         }
     }
 }

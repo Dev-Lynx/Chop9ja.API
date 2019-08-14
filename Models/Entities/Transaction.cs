@@ -12,25 +12,17 @@ using System.Threading.Tasks;
 
 namespace Chop9ja.API.Models.Entities
 {
-
-    #region Enumerations
-    public enum TransactionType
-    {
-        Deposit, Withdrawal
-    }
-    #endregion
-
     #region Entity
-    [Owned]
+    [ComplexType]
     [BsonIgnoreExtraElements]
     [BsonKnownTypes(typeof(BankTransaction))]
     [BsonDiscriminator(Required = true, RootClass = true)]
     public class Transaction : Document
     {
         #region Properties
-        public decimal Amount { get; set; }
-
         public DateTime AddedAt => AddedAtUtc.ToLocalTime();
+        public decimal Amount { get; set; }
+        public bool Completed { get; set; }
 
         [BsonIgnoreIfDefault]
         public Guid PaymentChannelId { get; set; }
