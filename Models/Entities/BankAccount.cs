@@ -37,6 +37,8 @@ namespace Chop9ja.API.Models.Entities
         public string AccountNumber { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        public bool IsDefault { get; set; }
     }
 }
 
@@ -71,6 +73,22 @@ namespace Chop9ja.API.Models.ViewModels
         public string AccountNumber { get; set; }
     }
 
+    public class UserDefaultBankAccountViewModel
+    {
+        /// <summary>
+        /// Identity for the bank account. It should be stored for easy 
+        /// account referencing.
+        /// </summary>
+        [Required]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Indicates that the current bank account is most preffered by the user.
+        /// </summary>
+        [Required]
+        public bool IsDefault { get; set; }
+    }
+
     public class UserBankAccountViewModel : BankAccountViewModel
     { 
         /// <summary>
@@ -79,5 +97,11 @@ namespace Chop9ja.API.Models.ViewModels
         /// </summary>
         [Required]
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Indicates that the current bank account is most preffered by the user.
+        /// </summary>
+        [Required]
+        public bool IsDefault { get; set; }
     }
 }

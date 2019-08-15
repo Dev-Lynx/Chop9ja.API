@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Chop9ja.API.Data;
 using Chop9ja.API.Extensions;
+using Chop9ja.API.Extensions.Attributes;
 using Chop9ja.API.Extensions.UnityExtensions;
 using Chop9ja.API.Models;
 using Chop9ja.API.Models.Entities;
@@ -62,6 +63,7 @@ namespace Chop9ja.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AuthorizeRoles(UserRoles.Regular)]
         [SwaggerResponse(HttpStatusCode.OK, typeof(WalletViewModel), Description = "User wallet balance.")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "Invalid User Credentials.")]
         public async Task<IActionResult> GetWallet()
@@ -82,6 +84,7 @@ namespace Chop9ja.API.Controllers
         /// <param name="dateRange">Date Range to where transactions occured. Leave empty to get all time transactions</param>
         /// <returns></returns>
         [HttpGet("transactions")]
+        [AuthorizeRoles(UserRoles.Regular)]
         [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<TransactionViewModel>), Description = "User transactions.")]
         public async Task<IActionResult> GetTransactions([FromQuery]DateRange dateRange = null)
         {
@@ -123,6 +126,7 @@ namespace Chop9ja.API.Controllers
         /// Get list of deposit requests and their statuses
         /// </summary>
         [HttpGet("deposit/requests")]
+        [AuthorizeRoles(UserRoles.Regular)]
         public async Task<IActionResult> GetDepositPaymentRequests()
         {
             string id = User.FindFirst("id").Value;
@@ -140,6 +144,7 @@ namespace Chop9ja.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("deposit")]
+        [AuthorizeRoles(UserRoles.Regular)]
         [SwaggerResponse(HttpStatusCode.OK, typeof(OkResult), Description = "Deposit was automatic and successful")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, typeof(UnauthorizedResult), Description = "Invalid User Credentials.")]
         [SwaggerResponse(HttpStatusCode.Accepted, typeof(AcceptedResult), Description = "Transaction has been created. User should be redirected to the returned url.")]
@@ -196,6 +201,7 @@ namespace Chop9ja.API.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("withdraw")]
+        [AuthorizeRoles(UserRoles.Regular)]
         public async Task<IActionResult> WithdrawFunds([FromBody]WithdrawalViewModel model)
         {
             string id = User.FindFirst("id").Value;
@@ -220,6 +226,7 @@ namespace Chop9ja.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("withdraw/requests")]
+        [AuthorizeRoles(UserRoles.Regular)]
         public async Task<IActionResult> GetWithdrawalPaymentRequests()
         {
             string id = User.FindFirst("id").Value;

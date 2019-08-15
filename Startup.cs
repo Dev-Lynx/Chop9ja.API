@@ -91,6 +91,7 @@ namespace Chop9ja.API
             services.AddMvc(mvc =>
             {
                 mvc.Conventions.Add(new ControllerNameAttributeConvention());
+                //mvc.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).SetCompatibilityVersion(
                 CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
@@ -321,7 +322,7 @@ namespace Chop9ja.API
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(configureOptions =>
             {
                 var options = Configuration.GetSection(JwtIssuerOptions.ConfigKey).Get<JwtIssuerOptions>();
@@ -348,10 +349,12 @@ namespace Chop9ja.API
                 configureOptions.SaveToken = true;
             });
 
+
             services.AddAuthorization(options =>
             {
+                /*
                 options.AddPolicy("ApiUser", config => config.RequireRole(Enum.GetValues(typeof(UserRoles)).
-                    OfType<UserRoles>().Select(u => u.ToString()).ToArray()));
+                    OfType<UserRoles>().Select(u => u.ToString()).ToArray()));*/
                 //options.AddPolicy("ApiUser", policy => policy.RequireClaim(Core.JWT_CLAIM_ROL, UserRole.RegularUser.ToString()));
             });
 

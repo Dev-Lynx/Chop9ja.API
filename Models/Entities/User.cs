@@ -33,7 +33,7 @@ namespace Chop9ja.API.Models.Entities
     public class User : MongoIdentityUser, IDocument
     {
         #region Properties
-        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime Created => CreatedOn;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }

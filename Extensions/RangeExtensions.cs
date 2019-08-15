@@ -1,4 +1,5 @@
 ﻿using Chop9ja.API.Models;
+using Chop9ja.API.Models.Entities;
 using MongoDbGenericRepository.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,15 @@ namespace Chop9ja.API.Extensions
             DateTime endUtc = range.End.ToUniversalTime();
 
             return d => startUtc <= d.AddedAtUtc && endUtc >= d.AddedAtUtc;
+        }
+
+        public static Expression<Func<User, bool>> IncludesUser(this DateRange range)
+        {
+            DateTime startUtc = range.Start.ToUniversalTime();
+            DateTime endUtc = range.End.ToUniversalTime();
+
+            return d => startUtc <= d.CreatedOn && endUtc >= d.CreatedOn;
+            //return d => startUtc <= d.CreatedOn.ToUniversalTime() && endUtc >= d.CreatedOn.ToUniversalTime();
         }
     }
 }

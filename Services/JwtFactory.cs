@@ -33,16 +33,21 @@ namespace Chop9ja.API.Services
         #region IJwtFactory Implementation
         public async Task<string> GenerateToken(User user)
         {
-            string role = (await UserManager.GetRolesAsync(user)).FirstOrDefault();
-
+            IList<string> roles = await UserManager.GetRolesAsync(user);
+            string role = roles.FirstOrDefault();
+            
             var identity = new ClaimsIdentity(new GenericIdentity(user.Id.ToString(), "Token"), new[]
             {
                 new Claim(Core.JWT_CLAIM_ID, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, await Options.JtiGenerator()),
                 new Claim(Core.JWT_CLAIM_ROL, role),
+                new Claim(Core.JWT_CLAIM_ROLES, string.Join(",", roles)),
                 new Claim(Core.JWT_CLAIM_VERIFIED, (user.EmailConfirmed && user.PhoneNumberConfirmed).ToString())
             });
+
+            if (role == UserRoles.Administrator.ToString())
+                Options.ValidFor = TimeSpan.FromHours(1);
 
             return new JwtSecurityTokenHandler().CreateEncodedJwt(
                 Options.Issuer, Options.Audience, identity,

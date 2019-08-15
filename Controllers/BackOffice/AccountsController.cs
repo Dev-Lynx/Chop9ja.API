@@ -6,6 +6,7 @@ using Chop9ja.API.Extensions.UnityExtensions;
 using Chop9ja.API.Models;
 using Chop9ja.API.Models.Entities;
 using Chop9ja.API.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,8 +21,7 @@ namespace Chop9ja.API.Controllers.BackOffice
     [AutoBuild]
     [ApiController]
     [Route("api/backOffice/[controller]")]
-    //[AuthorizeRoles(UserRoles.Agent, UserRoles.Administrator)]
-    [Authorize]
+    [AuthorizeRoles(UserRoles.Administrator)]
     public class AccountsController : ControllerBase
     {
         #region Properties
@@ -49,29 +49,50 @@ namespace Chop9ja.API.Controllers.BackOffice
 
         #region RESTful API Calls
         [HttpGet]
-        public async Task<IActionResult> GetAccounts()
+        public async Task<IActionResult> GetAccounts([FromQuery]DateSearchViewModel model)
         {
-            string id = User.FindFirst("id").Value;
-            User user = await UserManager.FindByIdAsync(id);
+            bool search = !string.IsNullOrWhiteSpace(model.SearchQuery);
 
-            if (user == null || !(await UserManager.IsInRoleAsync(user, UserRoles.Administrator.ToString()))) return Unauthorized();
 
-            IEnumerable<User> accounts = await UserManager.GetUsersInRoleAsync(UserRoles.Regular.ToString());
+            DateRange range = new DateRange(model.Start, model.End);
+            var filter = range.IncludesUser();
+
+            if (search)
+            {
+                string query = model.SearchQuery.ToLower();
+                filter = filter.CombineWithAndAlso(u => 
+                    u.FirstName.ToLower().Contains(query) ||
+                    u.LastName.ToLower().Contains(query) ||
+                    u.UserName.ToLower().Contains(query));
+            }
+
+            IEnumerable<User> accounts = await DataContext.Store.GetAllAsync(filter);
+                
+            List<User> regularAccounts = new List<User>();
+
+            foreach (var account in accounts)
+                if (await UserManager.IsInRoleAsync(account, UserRoles.Regular.ToString()))
+                    regularAccounts.Add(account);
             
-            return Ok(Mapper.Map<IEnumerable<AccountViewModel>>(accounts));
+            return Ok(Mapper.Map<IEnumerable<AccountViewModel>>(regularAccounts));
         }
 
         [HttpGet("claims")]
-        public async Task<IActionResult> GetClaims([FromQuery]SearchViewModel model)
+        public async Task<IActionResult> GetClaims([FromQuery]DateSearchViewModel model)
         {
-            string id = User.FindFirst("id").Value;
-            User user = await UserManager.FindByIdAsync(id);
+            bool search = !string.IsNullOrWhiteSpace(model.SearchQuery);
 
-            if (user == null || !(await UserManager.IsInRoleAsync(user, UserRoles.Administrator.ToString()))) return Unauthorized();
+            DateRange range = new DateRange(model.Start, model.End);
+            var filter = range.Includes<Bet>().CombineWithAndAlso(b => b.CashOutRequested);
 
-            IEnumerable<Bet> claims = await DataContext.Store
-                .GetAllAsync(model.DateRange.Includes<Bet>()
-                .CombineWithAndAlso(b => b.CashOutRequested));
+            if (search)
+            {
+                string query = model.SearchQuery.ToLower();
+                filter = filter.CombineWithAndAlso(c =>
+                    c.SlipNumber.ToLower().Contains(query));
+            }
+
+            IEnumerable<Bet> claims = await DataContext.Store.GetAllAsync(filter);
 
             return Ok(Mapper.Map<IEnumerable<BackOfficeClaimViewModel>>(claims));
         }
@@ -79,11 +100,6 @@ namespace Chop9ja.API.Controllers.BackOffice
         [HttpPost("claims/update")]
         public async Task<IActionResult> UpdateClaim(BackOfficeClaimUpdateViewModel model)
         {
-            string id = User.FindFirst("id").Value;
-            User user = await UserManager.FindByIdAsync(id);
-
-            if (user == null || !(await UserManager.IsInRoleAsync(user, UserRoles.Administrator.ToString()))) return Unauthorized();
-
             if (!Guid.TryParse(model.Id, out Guid claimId)) return NotFound();
 
             Bet bet = await DataContext.Store.GetByIdAsync<Bet>(claimId);

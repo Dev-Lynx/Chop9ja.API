@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace Chop9ja.API.Models.ViewModels
 {
-    public class SearchViewModel
+    public class DateSearchViewModel
     {
         public string SearchQuery { get; set; }
-        public DateRange DateRange { get; set; } = DateRange.AllTime;
+        public DateTime Start { get; set; } = DateRange.AllTime.Start;
+        public DateTime End { get; set; } = DateRange.AllTime.End;
+        //public DateRange DateRange { get; set; } = DateRange.AllTime;
     }
 }

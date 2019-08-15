@@ -24,10 +24,10 @@ namespace Chop9ja.API.Controllers
     /// <summary>
     /// Manages User Bets
     /// </summary>
-    [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     [AutoBuild]
+    [ApiController]
+    [Route("api/[controller]")]
+    [AuthorizeRoles(UserRoles.Regular)]
     public class BetController : ControllerBase
     {
         #region Properties
@@ -122,11 +122,21 @@ namespace Chop9ja.API.Controllers
 
             if (user == null) return Unauthorized();
 
+            /*
             bool exists = await DataContext.Store.AnyAsync<Bet>(b => 
                 b.SlipNumber == model.SlipNumber
                 && b.PlatformId == model.PlatformId);
 
             if (exists) return BadRequest($"The bet slip {model.SlipNumber} has already been registered on this platform.");
+            */
+
+            bool alreadyRegistered = await DataContext.Store.AnyAsync<Bet>(b =>
+                b.SlipNumber == model.SlipNumber
+                && b.UserId == user.Id
+                && b.PlatformId == model.PlatformId
+            );
+
+            if (alreadyRegistered) return BadRequest($"The bet slip {model.SlipNumber} has already been registered by the current user");
 
             if (user.Wallet.AvailableBalance < model.Stake)
                 return BadRequest("Insufficient insurance funds");

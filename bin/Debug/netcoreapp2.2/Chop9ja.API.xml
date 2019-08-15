@@ -29,6 +29,13 @@
             </param>
             <returns>An OK Response</returns>
         </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.SetBankAccountAsDefault(Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel)">
+            <summary>
+            Set a bank account as default
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:Chop9ja.API.Controllers.AccountController.RemoveBankAccount(Chop9ja.API.Models.ViewModels.BankAccountIdViewModel)">
             <summary>
             Delete a bank account
@@ -392,10 +399,26 @@
             Bank Account Number
             </summary>
         </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel.Id">
+            <summary>
+            Identity for the bank account. It should be stored for easy 
+            account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel.IsDefault">
+            <summary>
+            Indicates that the current bank account is most preffered by the user.
+            </summary>
+        </member>
         <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.Id">
             <summary>
             Identity for the bank account. It should be stored for easy 
             account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.IsDefault">
+            <summary>
+            Indicates that the current bank account is most preffered by the user.
             </summary>
         </member>
         <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Name">

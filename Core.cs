@@ -81,6 +81,7 @@ namespace Chop9ja.API
         #region JWT Claim Identifiers
         public const string JWT_CLAIM_ID = "id";
         public const string JWT_CLAIM_ROL = "rol";
+        public const string JWT_CLAIM_ROLES = "roles";
         public const string JWT_CLAIM_VERIFIED = "ver";
         #endregion
 

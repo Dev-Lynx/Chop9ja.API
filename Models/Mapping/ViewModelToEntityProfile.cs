@@ -18,9 +18,11 @@ namespace Chop9ja.API.Models.Mapping
                 ForMember(ov => ov.Expires, opt => opt.MapFrom(o => o.Created.Add(o.LifeSpan)));
 
             CreateMap<User, UserViewModel>().ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName));
+            CreateMap<User, AccountViewModel>().ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName));
             CreateMap<User, UserTokenViewModel>().ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName));
             CreateMap<User, UserOneTimePasswordModel>().ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName));
             CreateMap<UserViewModel, User>().ForMember(u => u.UserName, opt => opt.MapFrom(o => o.Username));
+
 
 
             CreateMap<PaymentChannel, PaymentChannelViewModel>().

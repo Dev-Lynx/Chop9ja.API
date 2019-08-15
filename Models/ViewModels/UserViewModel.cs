@@ -53,6 +53,8 @@ namespace Chop9ja.API.Models.ViewModels
     {
         [Required]
         public Guid Id { get; set; }
+
+        public DateTime Created { get; set; }
     }
 
     public class UserExistsModel
