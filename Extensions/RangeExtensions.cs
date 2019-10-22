@@ -25,7 +25,14 @@ namespace Chop9ja.API.Extensions
             DateTime endUtc = range.End.ToUniversalTime();
 
             return d => startUtc <= d.CreatedOn && endUtc >= d.CreatedOn;
-            //return d => startUtc <= d.CreatedOn.ToUniversalTime() && endUtc >= d.CreatedOn.ToUniversalTime();
+        }
+
+        public static Expression<Func<PaymentRequest, bool>> IncludesRequest(this DateRange range)
+        {
+            DateTime startUtc = range.Start.ToUniversalTime();
+            DateTime endUtc = range.End.ToUniversalTime();
+
+            return d => startUtc <= d.TransactionDate && endUtc >= d.TransactionDate;
         }
     }
 }

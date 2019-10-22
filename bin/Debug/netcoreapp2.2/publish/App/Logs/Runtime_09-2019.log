@@ -1,0 +1,787 @@
+2019-09-25 22:52:13.4129|INFO| 
+
+ 
+2019-09-25 22:52:13.5790|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-09-25 22:54:36.8375|INFO| 
+
+ 
+2019-09-25 22:54:36.9519|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-09-25 22:58:34.0908|INFO| 
+
+ 
+2019-09-25 22:58:34.1986|INFO| *** Application Started ***
+Welcome to the Chop9ja API
+Built by Prince Owen
+Under the supervision of Dev-Lynx Technologies
+Copyright 2019.
+All rights reserved.
+
+ 
+2019-09-25 22:58:37.2918|DEBUG| Successfully registered the service provider 
+2019-09-25 22:58:38.4958|INFO| User profile is available. Using 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2019-09-25 22:58:55.4391|DEBUG| Chop9ja API has successfully been initialized. 
+2019-09-25 22:58:55.4673|DEBUG| Hosting starting 
+2019-09-25 22:58:55.6128|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-18916efd-b695-4d36-b241-b546bb59b759.xml'. 
+2019-09-25 22:58:55.6896|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-26184869-4bd5-4412-8f9e-5a00a9bed5d6.xml'. 
+2019-09-25 22:58:55.7463|DEBUG| Reading data from file 'C:\Users\princ\AppData\Local\ASP.NET\DataProtection-Keys\key-ec536e28-5a6b-4ee9-8860-1b42ae36e240.xml'. 
+2019-09-25 22:58:55.8831|DEBUG| Found key {18916efd-b695-4d36-b241-b546bb59b759}. 
+2019-09-25 22:58:55.9048|DEBUG| Found key {26184869-4bd5-4412-8f9e-5a00a9bed5d6}. 
+2019-09-25 22:58:55.9141|DEBUG| Found key {ec536e28-5a6b-4ee9-8860-1b42ae36e240}. 
+2019-09-25 22:58:55.9451|DEBUG| Considering key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} with expiration date 2019-10-07 09:32:03Z as default key. 
+2019-09-25 22:58:55.9718|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-09-25 22:58:55.9718|DEBUG| Decrypting secret element using Windows DPAPI. 
+2019-09-25 22:58:55.9896|DEBUG| Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2019-09-25 22:58:56.0124|DEBUG| Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2019-09-25 22:58:56.0250|DEBUG| Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2019-09-25 22:58:56.0402|DEBUG| Using key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} as the default key. 
+2019-09-25 22:58:56.0487|DEBUG| Key ring with default key {ec536e28-5a6b-4ee9-8860-1b42ae36e240} was loaded during application startup. 
+2019-09-25 22:58:56.3798|DEBUG| Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.4775|DEBUG| Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.4847|DEBUG| Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.4847|DEBUG| Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.4847|DEBUG| Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value MalformedInputExceptions for version Version_2_2 
+2019-09-25 22:58:56.5336|DEBUG| Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.5336|DEBUG| Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.5468|DEBUG| Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version Version_2_2 
+2019-09-25 22:58:56.5468|DEBUG| Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.5852|DEBUG| Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value False 
+2019-09-25 22:58:56.5852|DEBUG| Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value False 
+2019-09-25 22:58:56.6006|DEBUG| Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value False 
+2019-09-25 22:58:56.6757|DEBUG| Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.6757|DEBUG| Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.6924|DEBUG| Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:56.7717|DEBUG| Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using default value False 
+2019-09-25 22:58:56.9926|DEBUG| Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:57.0249|DEBUG| Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value True for version Version_2_2 
+2019-09-25 22:58:57.0897|DEBUG| Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider 
+2019-09-25 22:58:57.8204|DEBUG| Failed to locate the development https certificate at '(null)'. 
+2019-09-25 22:58:57.9295|DEBUG| Hosting started 
+2019-09-25 22:58:57.9295|DEBUG| Loaded hosting startup assembly Chop9ja.API 
+2019-09-25 22:59:21.7515|DEBUG| Connection id "0HLQ20EFGGPOJ" started. 
+2019-09-25 22:59:23.5447|DEBUG| Connection id "0HLQ20EFGGPOK" started. 
+2019-09-25 22:59:23.7622|INFO| Request starting HTTP/1.1 GET http://localhost:7000/   
+2019-09-25 22:59:23.7733|DEBUG| Wildcard detected, all requests with hosts will be allowed. 
+2019-09-25 22:59:23.7733|TRACE| All hosts are allowed. 
+2019-09-25 22:59:23.8704|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:24.2334|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:24.4930|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:24.5042|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:24.9587|DEBUG| No candidates found for the request path '/' 
+2019-09-25 22:59:24.9587|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:24.9774|DEBUG| The request path / does not match a supported file type 
+2019-09-25 22:59:24.9859|DEBUG| The request path / does not match a supported file type 
+2019-09-25 22:59:25.0749|TRACE| Range header's value is empty. 
+2019-09-25 22:59:25.1398|INFO| Sending file. Request path: '/index.html'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\index.html' 
+2019-09-25 22:59:25.1693|DEBUG| Connection id "0HLQ20EFGGPOJ" completed keep alive response. 
+2019-09-25 22:59:25.3547|DEBUG| Connection id "0HLQ20EFGGPOL" started. 
+2019-09-25 22:59:25.3595|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/css/main.1c475728.chunk.css   
+2019-09-25 22:59:25.4748|TRACE| All hosts are allowed. 
+2019-09-25 22:59:25.4748|DEBUG| Connection id "0HLQ20EFGGPOM" started. 
+2019-09-25 22:59:25.4748|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/9.91403b25.chunk.js   
+2019-09-25 22:59:25.4843|TRACE| All hosts are allowed. 
+2019-09-25 22:59:25.4748|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:25.4843|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/main.aced94e3.chunk.js   
+2019-09-25 22:59:25.5054|TRACE| All hosts are allowed. 
+2019-09-25 22:59:25.4843|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:25.4843|INFO| Request finished in 1739.7509ms 200 text/html 
+2019-09-25 22:59:25.5054|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:25.5054|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:25.5208|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:25.5208|INFO| Request starting HTTP/1.1 GET http://localhost:7000/assets/fonts/zwicon.css   
+2019-09-25 22:59:25.5336|TRACE| All hosts are allowed. 
+2019-09-25 22:59:25.5208|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5336|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:25.5336|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5336|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:25.5497|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5497|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5497|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5672|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:25.5672|DEBUG| No candidates found for the request path '/static/css/main.1c475728.chunk.css' 
+2019-09-25 22:59:25.5776|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5776|DEBUG| No candidates found for the request path '/static/js/9.91403b25.chunk.js' 
+2019-09-25 22:59:25.5776|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.5973|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:25.6152|TRACE| Range header's value is empty. 
+2019-09-25 22:59:25.5973|DEBUG| No candidates found for the request path '/static/js/main.aced94e3.chunk.js' 
+2019-09-25 22:59:25.5973|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:25.6261|TRACE| Range header's value is empty. 
+2019-09-25 22:59:25.6152|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:25.6261|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:25.6481|TRACE| Range header's value is empty. 
+2019-09-25 22:59:25.6261|DEBUG| No candidates found for the request path '/assets/fonts/zwicon.css' 
+2019-09-25 22:59:25.6557|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:25.6557|TRACE| Range header's value is empty. 
+2019-09-25 22:59:25.7362|INFO| Sending file. Request path: '/assets/fonts/zwicon.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\assets\fonts\zwicon.css' 
+2019-09-25 22:59:25.7893|DEBUG| Connection id "0HLQ20EFGGPOJ" completed keep alive response. 
+2019-09-25 22:59:25.7990|INFO| Request finished in 272.9343ms 200 text/css 
+2019-09-25 22:59:25.7990|INFO| Sending file. Request path: '/static/js/main.aced94e3.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\main.aced94e3.chunk.js' 
+2019-09-25 22:59:25.9459|DEBUG| Connection id "0HLQ20EFGGPOM" completed keep alive response. 
+2019-09-25 22:59:25.9459|INFO| Request finished in 467.7436ms 200 application/javascript 
+2019-09-25 22:59:25.9642|INFO| Sending file. Request path: '/static/css/main.1c475728.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\css\main.1c475728.chunk.css' 
+2019-09-25 22:59:25.9747|DEBUG| Connection id "0HLQ20EFGGPOK" completed keep alive response. 
+2019-09-25 22:59:25.9747|INFO| Request finished in 621.2327ms 200 text/css 
+2019-09-25 22:59:26.2526|INFO| Sending file. Request path: '/static/js/9.91403b25.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\9.91403b25.chunk.js' 
+2019-09-25 22:59:26.2526|DEBUG| Connection id "0HLQ20EFGGPOL" completed keep alive response. 
+2019-09-25 22:59:26.2657|INFO| Request finished in 790.0273ms 200 application/javascript 
+2019-09-25 22:59:26.9976|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/0.3ec40b15.chunk.js   
+2019-09-25 22:59:26.9976|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/2.ae7f4383.chunk.js   
+2019-09-25 22:59:26.9997|TRACE| All hosts are allowed. 
+2019-09-25 22:59:27.0157|TRACE| All hosts are allowed. 
+2019-09-25 22:59:26.9976|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/1.70b90404.chunk.js   
+2019-09-25 22:59:27.0157|TRACE| All hosts are allowed. 
+2019-09-25 22:59:26.9997|DEBUG| Connection id "0HLQ20EFGGPON" started. 
+2019-09-25 22:59:26.9997|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/3.64fc9f79.chunk.js   
+2019-09-25 22:59:27.0373|TRACE| All hosts are allowed. 
+2019-09-25 22:59:27.0157|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.0157|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.0157|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.0157|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/css/13.0c7a227c.chunk.css   
+2019-09-25 22:59:27.0644|TRACE| All hosts are allowed. 
+2019-09-25 22:59:27.0157|DEBUG| Connection id "0HLQ20EFGGPOO" started. 
+2019-09-25 22:59:27.0373|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.0373|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.0500|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.0500|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.0644|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.0644|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.0800|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.1273|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3357|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3357|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3357|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.3357|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3357|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3490|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3490|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3490|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.3631|DEBUG| No candidates found for the request path '/static/js/2.ae7f4383.chunk.js' 
+2019-09-25 22:59:27.3631|DEBUG| No candidates found for the request path '/static/js/0.3ec40b15.chunk.js' 
+2019-09-25 22:59:27.3792|DEBUG| No candidates found for the request path '/static/js/1.70b90404.chunk.js' 
+2019-09-25 22:59:27.3792|DEBUG| No candidates found for the request path '/static/js/3.64fc9f79.chunk.js' 
+2019-09-25 22:59:27.3954|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.4177|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.4386|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.4215|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.4583|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.4215|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.4583|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.4386|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.4746|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.4386|DEBUG| No candidates found for the request path '/static/css/13.0c7a227c.chunk.css' 
+2019-09-25 22:59:27.4386|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/13.0422822a.chunk.js   
+2019-09-25 22:59:27.4746|TRACE| All hosts are allowed. 
+2019-09-25 22:59:27.4746|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.4850|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.4850|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:27.4850|INFO| Sending file. Request path: '/static/js/0.3ec40b15.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\0.3ec40b15.chunk.js' 
+2019-09-25 22:59:27.5016|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:27.5016|INFO| Sending file. Request path: '/static/css/13.0c7a227c.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\css\13.0c7a227c.chunk.css' 
+2019-09-25 22:59:27.5016|INFO| Sending file. Request path: '/static/js/1.70b90404.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\1.70b90404.chunk.js' 
+2019-09-25 22:59:27.5016|DEBUG| Connection id "0HLQ20EFGGPOL" completed keep alive response. 
+2019-09-25 22:59:27.5169|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.5169|INFO| Sending file. Request path: '/static/js/2.ae7f4383.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\2.ae7f4383.chunk.js' 
+2019-09-25 22:59:27.5169|DEBUG| Connection id "0HLQ20EFGGPON" completed keep alive response. 
+2019-09-25 22:59:27.5336|DEBUG| Connection id "0HLQ20EFGGPOK" completed keep alive response. 
+2019-09-25 22:59:27.5336|INFO| Request finished in 545.0473ms 200 application/javascript 
+2019-09-25 22:59:27.5786|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:27.5786|DEBUG| Connection id "0HLQ20EFGGPOM" completed keep alive response. 
+2019-09-25 22:59:27.5786|INFO| Request finished in 561.2578ms 200 text/css 
+2019-09-25 22:59:27.6008|INFO| Request finished in 602.1258ms 200 application/javascript 
+2019-09-25 22:59:27.6101|INFO| Sending file. Request path: '/static/js/3.64fc9f79.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\3.64fc9f79.chunk.js' 
+2019-09-25 22:59:27.6101|DEBUG| No candidates found for the request path '/static/js/13.0422822a.chunk.js' 
+2019-09-25 22:59:27.6101|INFO| Request finished in 622.5833ms 200 application/javascript 
+2019-09-25 22:59:27.6765|DEBUG| Connection id "0HLQ20EFGGPOJ" completed keep alive response. 
+2019-09-25 22:59:27.6765|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:27.7052|TRACE| Range header's value is empty. 
+2019-09-25 22:59:27.6996|INFO| Request finished in 697.4831ms 200 application/javascript 
+2019-09-25 22:59:27.9243|INFO| Sending file. Request path: '/static/js/13.0422822a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\13.0422822a.chunk.js' 
+2019-09-25 22:59:27.9540|DEBUG| Connection id "0HLQ20EFGGPOO" completed keep alive response. 
+2019-09-25 22:59:27.9540|INFO| Request finished in 510.0424ms 200 application/javascript 
+2019-09-25 22:59:28.6171|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/LiveMatch.dd65ede3.jpg   
+2019-09-25 22:59:28.6414|TRACE| All hosts are allowed. 
+2019-09-25 22:59:28.6576|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:28.6768|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:28.6768|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:28.6968|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:28.7050|DEBUG| No candidates found for the request path '/static/media/LiveMatch.dd65ede3.jpg' 
+2019-09-25 22:59:28.7050|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:28.7211|TRACE| Range header's value is empty. 
+2019-09-25 22:59:29.0984|INFO| Sending file. Request path: '/static/media/LiveMatch.dd65ede3.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\LiveMatch.dd65ede3.jpg' 
+2019-09-25 22:59:29.2290|DEBUG| Connection id "0HLQ20EFGGPOO" completed keep alive response. 
+2019-09-25 22:59:29.2653|INFO| Request finished in 648.7759ms 200 image/jpeg 
+2019-09-25 22:59:31.3898|DEBUG| Connection id "0HLQ20EFGGPOP" started. 
+2019-09-25 22:59:31.3898|INFO| Request starting HTTP/1.1 GET http://localhost:7000/manifest.json   
+2019-09-25 22:59:31.4107|TRACE| All hosts are allowed. 
+2019-09-25 22:59:31.4107|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:31.4226|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:31.4226|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:31.4414|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:31.4414|DEBUG| No candidates found for the request path '/manifest.json' 
+2019-09-25 22:59:31.4625|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:31.4694|TRACE| Range header's value is empty. 
+2019-09-25 22:59:31.4694|INFO| Sending file. Request path: '/manifest.json'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\manifest.json' 
+2019-09-25 22:59:31.4842|DEBUG| Connection id "0HLQ20EFGGPOP" completed keep alive response. 
+2019-09-25 22:59:31.4842|INFO| Request finished in 91.6135ms 200 application/json 
+2019-09-25 22:59:31.5959|DEBUG| Connection id "0HLQ20EFGGPOL" received FIN. 
+2019-09-25 22:59:31.5959|DEBUG| Connection id "0HLQ20EFGGPOK" received FIN. 
+2019-09-25 22:59:31.5959|DEBUG| Connection id "0HLQ20EFGGPON" received FIN. 
+2019-09-25 22:59:31.5959|DEBUG| Connection id "0HLQ20EFGGPOM" received FIN. 
+2019-09-25 22:59:31.6242|DEBUG| Connection id "0HLQ20EFGGPOP" received FIN. 
+2019-09-25 22:59:31.6242|DEBUG| Connection id "0HLQ20EFGGPOO" received FIN. 
+2019-09-25 22:59:31.6242|DEBUG| Connection id "0HLQ20EFGGPOQ" started. 
+2019-09-25 22:59:31.6528|DEBUG| Connection id "0HLQ20EFGGPOJ" received FIN. 
+2019-09-25 22:59:31.6528|DEBUG| Connection id "0HLQ20EFGGPOL" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.6668|DEBUG| Connection id "0HLQ20EFGGPOK" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.7386|DEBUG| Connection id "0HLQ20EFGGPOL" disconnecting. 
+2019-09-25 22:59:31.7386|DEBUG| Connection id "0HLQ20EFGGPOK" disconnecting. 
+2019-09-25 22:59:31.7605|DEBUG| Connection id "0HLQ20EFGGPOM" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.7605|DEBUG| Connection id "0HLQ20EFGGPON" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.7700|DEBUG| Connection id "0HLQ20EFGGPOM" disconnecting. 
+2019-09-25 22:59:31.7700|DEBUG| Connection id "0HLQ20EFGGPON" disconnecting. 
+2019-09-25 22:59:31.7839|DEBUG| Connection id "0HLQ20EFGGPOP" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.7839|DEBUG| Connection id "0HLQ20EFGGPOO" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.7839|DEBUG| Connection id "0HLQ20EFGGPOP" disconnecting. 
+2019-09-25 22:59:31.8004|DEBUG| Connection id "0HLQ20EFGGPOO" disconnecting. 
+2019-09-25 22:59:31.8004|DEBUG| Connection id "0HLQ20EFGGPOJ" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:31.8004|INFO| Request starting HTTP/1.1 GET http://localhost:7000/favicon.ico   
+2019-09-25 22:59:31.8271|TRACE| All hosts are allowed. 
+2019-09-25 22:59:31.8252|DEBUG| Connection id "0HLQ20EFGGPOJ" disconnecting. 
+2019-09-25 22:59:31.8271|DEBUG| Connection id "0HLQ20EFGGPOL" stopped. 
+2019-09-25 22:59:31.8271|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:31.8271|DEBUG| Connection id "0HLQ20EFGGPOP" stopped. 
+2019-09-25 22:59:31.8271|DEBUG| Connection id "0HLQ20EFGGPOK" stopped. 
+2019-09-25 22:59:31.8517|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:31.8517|DEBUG| Connection id "0HLQ20EFGGPOM" stopped. 
+2019-09-25 22:59:31.8517|DEBUG| Connection id "0HLQ20EFGGPOO" stopped. 
+2019-09-25 22:59:31.8517|DEBUG| Connection id "0HLQ20EFGGPON" stopped. 
+2019-09-25 22:59:31.8517|DEBUG| Connection id "0HLQ20EFGGPOJ" stopped. 
+2019-09-25 22:59:31.8711|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:31.9023|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:31.9170|DEBUG| No candidates found for the request path '/favicon.ico' 
+2019-09-25 22:59:31.9254|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:31.9445|TRACE| Range header's value is empty. 
+2019-09-25 22:59:32.0159|INFO| Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\favicon.ico' 
+2019-09-25 22:59:32.0320|DEBUG| Connection id "0HLQ20EFGGPOQ" completed keep alive response. 
+2019-09-25 22:59:32.0320|INFO| Request finished in 230.3459ms 200 image/x-icon 
+2019-09-25 22:59:38.5203|INFO| Request starting HTTP/1.1 POST http://localhost:7000/api/auth/login application/json;charset=UTF-8 46 
+2019-09-25 22:59:38.5495|TRACE| All hosts are allowed. 
+2019-09-25 22:59:38.5495|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:38.5623|DEBUG| The request has an origin header: 'http://localhost:7000'. 
+2019-09-25 22:59:38.5623|INFO| CORS policy execution successful. 
+2019-09-25 22:59:38.5834|INFO| Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token: null 
+2019-09-25 22:59:38.5834|DEBUG| POST requests are not supported 
+2019-09-25 22:59:38.5990|DEBUG| POST requests are not supported 
+2019-09-25 22:59:38.6169|DEBUG| 1 candidate(s) found for the request path '/api/auth/login' 
+2019-09-25 22:59:38.6276|DEBUG| Endpoint 'Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API)' with route pattern 'api/Auth/login' is valid for the request path '/api/auth/login' 
+2019-09-25 22:59:38.6413|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API)' 
+2019-09-25 22:59:38.6413|INFO| Executing endpoint 'Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API)' 
+2019-09-25 22:59:40.4878|INFO| Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Chop9ja.API.Models.ViewModels.UserLoginViewModel) on controller Chop9ja.API.Controllers.AuthController (Chop9ja.API). 
+2019-09-25 22:59:40.4878|DEBUG| Execution plan of authorization filters (in the following order): None 
+2019-09-25 22:59:40.5081|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-09-25 22:59:41.0132|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-09-25 22:59:41.0274|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-09-25 22:59:41.0368|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-09-25 22:59:41.0503|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:41.0503|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:45.7521|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel' ... 
+2019-09-25 22:59:45.9666|DEBUG| Attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel' using the name '' in request data ... 
+2019-09-25 22:59:45.9768|DEBUG| Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonPatchInputFormatter' for content type 'application/json;charset=UTF-8'. 
+2019-09-25 22:59:45.9847|DEBUG| Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter' for content type 'application/json;charset=UTF-8'. 
+2019-09-25 22:59:46.1572|DEBUG| Connection id "0HLQ20EFGGPOQ", Request id "0HLQ20EFGGPOQ:00000002": started reading request body. 
+2019-09-25 22:59:46.1841|DEBUG| Connection id "0HLQ20EFGGPOQ", Request id "0HLQ20EFGGPOQ:00000002": done reading request body. 
+2019-09-25 22:59:46.1987|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel'. 
+2019-09-25 22:59:46.2085|DEBUG| Done attempting to bind parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel'. 
+2019-09-25 22:59:46.2085|DEBUG| Attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel' ... 
+2019-09-25 22:59:46.2387|DEBUG| Done attempting to validate the bound parameter 'model' of type 'Chop9ja.API.Models.ViewModels.UserLoginViewModel'. 
+2019-09-25 22:59:46.2387|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:46.2387|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:46.2558|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:46.2558|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:46.2646|INFO| Executing action method Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API) - Validation state: Valid 
+2019-09-25 22:59:46.2646|TRACE| Executing action method Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API) with arguments (Chop9ja.API.Models.ViewModels.UserLoginViewModel) 
+2019-09-25 22:59:49.2782|INFO| Executed action method Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3000.2159ms. 
+2019-09-25 22:59:49.2922|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:49.2922|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:49.2972|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:49.2972|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:49.2972|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.2972|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.3192|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:49.3192|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:49.3297|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 22:59:49.3297|DEBUG| List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter 
+2019-09-25 22:59:49.3562|DEBUG| No information found on request to perform content negotiation. 
+2019-09-25 22:59:49.3629|DEBUG| Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2019-09-25 22:59:49.3629|DEBUG| Attempting to select the first formatter in the output formatters list which can write the result. 
+2019-09-25 22:59:49.3813|DEBUG| Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response. 
+2019-09-25 22:59:49.3941|INFO| Executing ObjectResult, writing value of type 'Chop9ja.API.Models.ViewModels.AccessTokenModel'. 
+2019-09-25 22:59:49.6200|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 22:59:49.6200|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:49.6249|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:49.6249|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.6249|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.6249|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.6249|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:49.6468|INFO| Executed action Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API) in 8593.1571ms 
+2019-09-25 22:59:49.6570|INFO| Executed endpoint 'Chop9ja.API.Controllers.AuthController.Login (Chop9ja.API)' 
+2019-09-25 22:59:49.6730|DEBUG| Connection id "0HLQ20EFGGPOQ" completed keep alive response. 
+2019-09-25 22:59:49.6901|INFO| Request finished in 11169.8589ms 200 application/json; charset=utf-8 
+2019-09-25 22:59:49.9467|DEBUG| Connection id "0HLQ20EFGGPOR" started. 
+2019-09-25 22:59:49.9467|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/css/10.a0663a15.chunk.css   
+2019-09-25 22:59:49.9619|TRACE| All hosts are allowed. 
+2019-09-25 22:59:49.9619|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/10.9f029631.chunk.js   
+2019-09-25 22:59:49.9887|TRACE| All hosts are allowed. 
+2019-09-25 22:59:49.9689|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:49.9887|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:49.9887|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:50.0020|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:50.0020|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:50.0020|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:50.0224|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:50.0224|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:50.0224|DEBUG| No candidates found for the request path '/static/css/10.a0663a15.chunk.css' 
+2019-09-25 22:59:50.0385|DEBUG| No candidates found for the request path '/static/js/10.9f029631.chunk.js' 
+2019-09-25 22:59:50.0385|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:50.0467|TRACE| Range header's value is empty. 
+2019-09-25 22:59:50.0467|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:50.0467|TRACE| Range header's value is empty. 
+2019-09-25 22:59:50.2462|INFO| Sending file. Request path: '/static/css/10.a0663a15.chunk.css'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\css\10.a0663a15.chunk.css' 
+2019-09-25 22:59:50.2547|INFO| Sending file. Request path: '/static/js/10.9f029631.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\10.9f029631.chunk.js' 
+2019-09-25 22:59:50.2547|DEBUG| Connection id "0HLQ20EFGGPOQ" completed keep alive response. 
+2019-09-25 22:59:50.2879|DEBUG| Connection id "0HLQ20EFGGPOR" completed keep alive response. 
+2019-09-25 22:59:50.2879|INFO| Request finished in 342.2438ms 200 text/css 
+2019-09-25 22:59:50.2879|INFO| Request finished in 333.5508ms 200 application/javascript 
+2019-09-25 22:59:52.3411|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/25.67f55a3a.chunk.js   
+2019-09-25 22:59:52.3565|TRACE| All hosts are allowed. 
+2019-09-25 22:59:52.3600|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:52.3830|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:52.3931|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:52.9780|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:52.9857|DEBUG| No candidates found for the request path '/static/js/25.67f55a3a.chunk.js' 
+2019-09-25 22:59:52.9857|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:53.0019|TRACE| Range header's value is empty. 
+2019-09-25 22:59:53.3209|INFO| Sending file. Request path: '/static/js/25.67f55a3a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\25.67f55a3a.chunk.js' 
+2019-09-25 22:59:53.3471|DEBUG| Connection id "0HLQ20EFGGPOR" completed keep alive response. 
+2019-09-25 22:59:53.3471|INFO| Request finished in 1013.209ms 200 application/javascript 
+2019-09-25 22:59:53.5159|DEBUG| Connection id "0HLQ20EFGGPOS" started. 
+2019-09-25 22:59:53.5391|INFO| Request starting HTTP/1.1 GET http://localhost:7000/assets/fonts/fonts/zwicon.ttf?k483k8   
+2019-09-25 22:59:53.5690|TRACE| All hosts are allowed. 
+2019-09-25 22:59:53.5690|DEBUG| Connection id "0HLQ20EFGGPOT" started. 
+2019-09-25 22:59:53.5690|INFO| Request starting HTTP/1.1 GET http://localhost:7000/api/Account/user   
+2019-09-25 22:59:53.6063|TRACE| All hosts are allowed. 
+2019-09-25 22:59:53.5782|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:53.5782|INFO| Request starting HTTP/1.1 GET http://localhost:7000/api/account/wallet   
+2019-09-25 22:59:53.6087|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:53.6087|DEBUG| The request has an origin header: 'http://localhost:7000'. 
+2019-09-25 22:59:53.6536|TRACE| All hosts are allowed. 
+2019-09-25 22:59:53.6536|INFO| CORS policy execution successful. 
+2019-09-25 22:59:53.6704|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:53.6704|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:53.7414|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:53.7502|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:53.7502|DEBUG| No candidates found for the request path '/assets/fonts/fonts/zwicon.ttf' 
+2019-09-25 22:59:53.7752|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:53.7852|TRACE| Range header's value is empty. 
+2019-09-25 22:59:53.9732|INFO| Sending file. Request path: '/assets/fonts/fonts/zwicon.ttf'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\assets\fonts\fonts\zwicon.ttf' 
+2019-09-25 22:59:53.9732|INFO| Successfully validated the token. 
+2019-09-25 22:59:53.9732|INFO| Successfully validated the token. 
+2019-09-25 22:59:53.9970|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/dice-control.44a0d078.jpg   
+2019-09-25 22:59:54.0461|TRACE| All hosts are allowed. 
+2019-09-25 22:59:53.9970|DEBUG| Connection id "0HLQ20EFGGPOU" started. 
+2019-09-25 22:59:54.0429|DEBUG| Connection id "0HLQ20EFGGPOQ" completed keep alive response. 
+2019-09-25 22:59:54.0461|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-09-25 22:59:54.0461|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-09-25 22:59:54.0461|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:54.0461|DEBUG| Connection id "0HLQ20EFGGPOV" started. 
+2019-09-25 22:59:54.0461|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/hand-credit-card.fb07233c.jpg   
+2019-09-25 22:59:54.1033|TRACE| All hosts are allowed. 
+2019-09-25 22:59:54.0461|INFO| Request finished in 520.0994ms 200 application/x-font-ttf 
+2019-09-25 22:59:54.0666|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.0666|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.0802|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:54.1033|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/pocket-credit-cards.5135b0fb.jpg   
+2019-09-25 22:59:54.1293|TRACE| All hosts are allowed. 
+2019-09-25 22:59:54.1033|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:54.1158|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1158|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1293|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1293|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:54.1549|DEBUG| 1 candidate(s) found for the request path '/api/Account/user' 
+2019-09-25 22:59:54.1549|DEBUG| 1 candidate(s) found for the request path '/api/account/wallet' 
+2019-09-25 22:59:54.1549|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:54.1611|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1611|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:54.1611|DEBUG| Endpoint 'Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API)' with route pattern 'api/Account/user' is valid for the request path '/api/Account/user' 
+2019-09-25 22:59:54.1749|DEBUG| Endpoint 'Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API)' with route pattern 'api/account/Wallet' is valid for the request path '/api/account/wallet' 
+2019-09-25 22:59:54.1749|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1749|DEBUG| No candidates found for the request path '/static/media/dice-control.44a0d078.jpg' 
+2019-09-25 22:59:54.1927|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.1927|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API)' 
+2019-09-25 22:59:54.2027|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API)' 
+2019-09-25 22:59:54.2027|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.2027|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:54.2190|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.2694|TRACE| Range header's value is empty. 
+2019-09-25 22:59:54.2694|INFO| Executing endpoint 'Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API)' 
+2019-09-25 22:59:54.2694|INFO| Executing endpoint 'Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API)' 
+2019-09-25 22:59:54.2694|DEBUG| No candidates found for the request path '/static/media/hand-credit-card.fb07233c.jpg' 
+2019-09-25 22:59:54.2694|DEBUG| No candidates found for the request path '/static/media/pocket-credit-cards.5135b0fb.jpg' 
+2019-09-25 22:59:54.2993|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:54.3119|TRACE| Range header's value is empty. 
+2019-09-25 22:59:54.2993|INFO| Route matched with {action = "GetUser", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser() on controller Chop9ja.API.Controllers.AccountController (Chop9ja.API). 
+2019-09-25 22:59:54.2993|INFO| Route matched with {action = "GetWallet", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWallet() on controller Chop9ja.API.Controllers.WalletController (Chop9ja.API). 
+2019-09-25 22:59:54.2993|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:54.3322|TRACE| Range header's value is empty. 
+2019-09-25 22:59:54.3119|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-09-25 22:59:54.3322|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter, Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-09-25 22:59:54.3443|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-09-25 22:59:54.3443|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-09-25 22:59:54.3443|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-09-25 22:59:54.3613|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-09-25 22:59:54.3613|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/mac-hands-keyboard.a3c8db55.jpg   
+2019-09-25 22:59:54.3808|TRACE| All hosts are allowed. 
+2019-09-25 22:59:54.3613|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-09-25 22:59:54.3613|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-09-25 22:59:54.3808|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:54.3808|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-09-25 22:59:54.4179|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.3924|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-09-25 22:59:54.4299|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.4299|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.4299|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.4299|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:54.4452|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.4527|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:54.4527|INFO| Authorization was successful. 
+2019-09-25 22:59:54.4682|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.4682|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:54.4527|INFO| Authorization was successful. 
+2019-09-25 22:59:54.4682|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:54.4682|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:54.4682|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:54.4527|DEBUG| No candidates found for the request path '/static/media/mac-hands-keyboard.a3c8db55.jpg' 
+2019-09-25 22:59:54.4682|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:54.4682|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:54.4875|TRACE| Range header's value is empty. 
+2019-09-25 22:59:54.5153|INFO| Sending file. Request path: '/static/media/dice-control.44a0d078.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\dice-control.44a0d078.jpg' 
+2019-09-25 22:59:54.5153|INFO| Sending file. Request path: '/static/media/hand-credit-card.fb07233c.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\hand-credit-card.fb07233c.jpg' 
+2019-09-25 22:59:54.5557|INFO| Sending file. Request path: '/static/media/mac-hands-keyboard.a3c8db55.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\mac-hands-keyboard.a3c8db55.jpg' 
+2019-09-25 22:59:54.6361|DEBUG| Connection id "0HLQ20EFGGPOR" completed keep alive response. 
+2019-09-25 22:59:55.6090|DEBUG| Connection id "0HLQ20EFGGPOU" completed keep alive response. 
+2019-09-25 22:59:55.6090|INFO| Sending file. Request path: '/static/media/pocket-credit-cards.5135b0fb.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\pocket-credit-cards.5135b0fb.jpg' 
+2019-09-25 22:59:55.6653|DEBUG| Connection id "0HLQ20EFGGPOQ" completed keep alive response. 
+2019-09-25 22:59:55.6737|INFO| Request finished in 1676.6588ms 200 image/jpeg 
+2019-09-25 22:59:55.6737|INFO| Request finished in 1629.8751ms 200 image/jpeg 
+2019-09-25 22:59:55.6911|DEBUG| Connection id "0HLQ20EFGGPOV" completed keep alive response. 
+2019-09-25 22:59:55.6911|INFO| Request finished in 1336.2822ms 200 image/jpeg 
+2019-09-25 22:59:55.7162|INFO| Request finished in 1612.3233ms 200 image/jpeg 
+2019-09-25 22:59:57.5566|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:57.5566|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:57.5566|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:57.5618|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:57.5618|INFO| Executing action method Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API) - Validation state: Valid 
+2019-09-25 22:59:57.7323|DEBUG| Connection id "0HLQ20EFGGPOR" received FIN. 
+2019-09-25 22:59:57.7341|DEBUG| Connection id "0HLQ20EFGGPOU" received FIN. 
+2019-09-25 22:59:57.7701|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:57.7701|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:57.7701|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:57.7701|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:57.7701|DEBUG| Connection id "0HLQ20EFGGPOV" received FIN. 
+2019-09-25 22:59:57.7701|DEBUG| Connection id "0HLQ20EFGGPOR" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:57.7701|DEBUG| Connection id "0HLQ20EFGGPOQ" received FIN. 
+2019-09-25 22:59:57.7701|DEBUG| Connection id "0HLQ20EFGGPOU" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:57.7701|INFO| Executing action method Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API) - Validation state: Valid 
+2019-09-25 22:59:57.7812|DEBUG| Connection id "0HLQ20EFGGPOV" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:57.7812|DEBUG| Connection id "0HLQ20EFGGPOR" disconnecting. 
+2019-09-25 22:59:57.7812|DEBUG| Connection id "0HLQ20EFGGPOQ" sending FIN because: "The client closed the connection." 
+2019-09-25 22:59:57.7974|DEBUG| Connection id "0HLQ20EFGGPOU" disconnecting. 
+2019-09-25 22:59:57.7974|DEBUG| Connection id "0HLQ20EFGGPOV" disconnecting. 
+2019-09-25 22:59:57.8170|DEBUG| Connection id "0HLQ20EFGGPOR" stopped. 
+2019-09-25 22:59:57.8170|DEBUG| Connection id "0HLQ20EFGGPOQ" disconnecting. 
+2019-09-25 22:59:57.8170|DEBUG| Connection id "0HLQ20EFGGPOU" stopped. 
+2019-09-25 22:59:57.8370|DEBUG| Connection id "0HLQ20EFGGPOV" stopped. 
+2019-09-25 22:59:57.8541|DEBUG| Connection id "0HLQ20EFGGPOQ" stopped. 
+2019-09-25 22:59:57.9976|INFO| Executed action method Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 426.9811ms. 
+2019-09-25 22:59:58.0271|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:58.0271|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 22:59:58.0338|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:58.0338|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 22:59:58.0338|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.0338|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.0338|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:58.0338|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:58.0465|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 22:59:58.0465|DEBUG| List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter 
+2019-09-25 22:59:58.0618|DEBUG| No information found on request to perform content negotiation. 
+2019-09-25 22:59:58.0618|DEBUG| Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2019-09-25 22:59:58.0618|DEBUG| Attempting to select the first formatter in the output formatters list which can write the result. 
+2019-09-25 22:59:58.0822|DEBUG| Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response. 
+2019-09-25 22:59:58.0822|INFO| Executing ObjectResult, writing value of type 'Chop9ja.API.Models.ViewModels.UserViewModel'. 
+2019-09-25 22:59:58.1431|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 22:59:58.1431|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:58.1431|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 22:59:58.1431|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.1431|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.1431|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.1431|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:58.1583|INFO| Executed action Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API) in 3740.7129ms 
+2019-09-25 22:59:58.1583|INFO| Executed endpoint 'Chop9ja.API.Controllers.AccountController.GetUser (Chop9ja.API)' 
+2019-09-25 22:59:58.1720|DEBUG| Connection id "0HLQ20EFGGPOS" completed keep alive response. 
+2019-09-25 22:59:58.5868|INFO| Request finished in 5015.7942ms 200 application/json; charset=utf-8 
+2019-09-25 22:59:58.9165|DEBUG| Connection id "0HLQ20EFGGPP0" started. 
+2019-09-25 22:59:58.9165|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/4.674f7de2.chunk.js   
+2019-09-25 22:59:58.9485|TRACE| All hosts are allowed. 
+2019-09-25 22:59:58.9349|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/27.c8c8a69c.chunk.js   
+2019-09-25 22:59:58.9570|TRACE| All hosts are allowed. 
+2019-09-25 22:59:58.9485|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:58.9570|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:58.9741|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:58.9741|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:58.9847|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:58.9847|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.0091|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.0159|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.0649|DEBUG| No candidates found for the request path '/static/js/4.674f7de2.chunk.js' 
+2019-09-25 22:59:59.0649|DEBUG| No candidates found for the request path '/static/js/27.c8c8a69c.chunk.js' 
+2019-09-25 22:59:59.0649|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:59.0874|TRACE| Range header's value is empty. 
+2019-09-25 22:59:59.0874|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:59.1002|TRACE| Range header's value is empty. 
+2019-09-25 22:59:59.1257|INFO| Sending file. Request path: '/static/js/27.c8c8a69c.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\27.c8c8a69c.chunk.js' 
+2019-09-25 22:59:59.1417|DEBUG| Connection id "0HLQ20EFGGPP0" completed keep alive response. 
+2019-09-25 22:59:59.1417|INFO| Request finished in 218.5772ms 200 application/javascript 
+2019-09-25 22:59:59.1727|INFO| Sending file. Request path: '/static/js/4.674f7de2.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\4.674f7de2.chunk.js' 
+2019-09-25 22:59:59.1887|DEBUG| Connection id "0HLQ20EFGGPOS" completed keep alive response. 
+2019-09-25 22:59:59.1887|INFO| Request finished in 282.693ms 200 application/javascript 
+2019-09-25 22:59:59.6537|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/white-piggy-bank.0a985d59.jpg   
+2019-09-25 22:59:59.6661|TRACE| All hosts are allowed. 
+2019-09-25 22:59:59.6661|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:59.6757|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 22:59:59.6873|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.6873|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.7076|DEBUG| No candidates found for the request path '/static/media/white-piggy-bank.0a985d59.jpg' 
+2019-09-25 22:59:59.7422|INFO| Request starting HTTP/1.1 GET http://localhost:7000/api/Bet/all   
+2019-09-25 22:59:59.7597|TRACE| All hosts are allowed. 
+2019-09-25 22:59:59.7422|DEBUG| Request did not match any endpoints 
+2019-09-25 22:59:59.7652|TRACE| Range header's value is empty. 
+2019-09-25 22:59:59.7597|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 22:59:59.7652|INFO| Successfully validated the token. 
+2019-09-25 22:59:59.7832|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-09-25 22:59:59.7832|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.7983|DEBUG| The request path  does not match the path filter 
+2019-09-25 22:59:59.7983|DEBUG| 1 candidate(s) found for the request path '/api/Bet/all' 
+2019-09-25 22:59:59.8156|DEBUG| Endpoint 'Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API)' with route pattern 'api/Bet/all' is valid for the request path '/api/Bet/all' 
+2019-09-25 22:59:59.8156|INFO| Sending file. Request path: '/static/media/white-piggy-bank.0a985d59.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\white-piggy-bank.0a985d59.jpg' 
+2019-09-25 22:59:59.8156|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API)' 
+2019-09-25 22:59:59.8368|DEBUG| Connection id "0HLQ20EFGGPOS" completed keep alive response. 
+2019-09-25 22:59:59.8368|INFO| Executing endpoint 'Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API)' 
+2019-09-25 22:59:59.8492|INFO| Request finished in 195.4905ms 200 image/jpeg 
+2019-09-25 22:59:59.9181|INFO| Route matched with {action = "GetBets", controller = "Bet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBets(Chop9ja.API.Models.DateRange) on controller Chop9ja.API.Controllers.BetController (Chop9ja.API). 
+2019-09-25 22:59:59.9318|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-09-25 22:59:59.9408|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-09-25 22:59:59.9408|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-09-25 22:59:59.9627|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-09-25 22:59:59.9685|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-09-25 22:59:59.9685|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:59.9685|INFO| Authorization was successful. 
+2019-09-25 22:59:59.9865|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 22:59:59.9865|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 22:59:59.9865|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:00.9765|INFO| Executed action method Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3171.6761ms. 
+2019-09-25 23:00:00.9931|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:00.9931|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:00.9931|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:01.0003|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:01.0003|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.0003|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.0175|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:01.0175|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:01.0175|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:01.0319|DEBUG| List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter 
+2019-09-25 23:00:01.0319|DEBUG| No information found on request to perform content negotiation. 
+2019-09-25 23:00:01.0542|DEBUG| Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2019-09-25 23:00:01.0736|DEBUG| Attempting to select the first formatter in the output formatters list which can write the result. 
+2019-09-25 23:00:01.0954|DEBUG| Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response. 
+2019-09-25 23:00:01.0954|INFO| Executing ObjectResult, writing value of type 'Chop9ja.API.Models.ViewModels.WalletViewModel'. 
+2019-09-25 23:00:01.1172|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:01.1172|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:01.1172|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:01.1172|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.1245|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.1245|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.1245|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.1245|INFO| Executed action Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API) in 6703.9309ms 
+2019-09-25 23:00:01.1429|INFO| Executed endpoint 'Chop9ja.API.Controllers.WalletController.GetWallet (Chop9ja.API)' 
+2019-09-25 23:00:01.1429|DEBUG| Connection id "0HLQ20EFGGPOT" completed keep alive response. 
+2019-09-25 23:00:01.1657|INFO| Request finished in 7575.3123ms 200 application/json; charset=utf-8 
+2019-09-25 23:00:01.2616|INFO| Request starting HTTP/1.1 GET http://localhost:7000/api/account/wallet/transactions   
+2019-09-25 23:00:01.2704|TRACE| All hosts are allowed. 
+2019-09-25 23:00:01.2704|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 23:00:01.2808|INFO| Successfully validated the token. 
+2019-09-25 23:00:01.2808|DEBUG| AuthenticationScheme: Bearer was successfully authenticated. 
+2019-09-25 23:00:01.2808|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:01.3403|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:01.3530|DEBUG| 1 candidate(s) found for the request path '/api/account/wallet/transactions' 
+2019-09-25 23:00:01.3598|DEBUG| Endpoint 'Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API)' with route pattern 'api/account/Wallet/transactions' is valid for the request path '/api/account/wallet/transactions' 
+2019-09-25 23:00:01.3598|DEBUG| Request matched endpoint 'Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API)' 
+2019-09-25 23:00:01.3761|INFO| Executing endpoint 'Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API)' 
+2019-09-25 23:00:01.3950|INFO| Route matched with {action = "GetTransactions", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTransactions(Chop9ja.API.Models.DateRange) on controller Chop9ja.API.Controllers.WalletController (Chop9ja.API). 
+2019-09-25 23:00:01.3950|DEBUG| Execution plan of authorization filters (in the following order): Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter, Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter 
+2019-09-25 23:00:01.4188|DEBUG| Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter 
+2019-09-25 23:00:01.4303|DEBUG| Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2019-09-25 23:00:01.4431|DEBUG| Execution plan of exception filters (in the following order): None 
+2019-09-25 23:00:01.4431|DEBUG| Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter, Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2019-09-25 23:00:01.4602|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 23:00:01.4602|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 23:00:01.4602|TRACE| Authorization Filter: Before executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 23:00:01.4602|INFO| Authorization was successful. 
+2019-09-25 23:00:01.4741|TRACE| Authorization Filter: After executing OnAuthorizationAsync on filter Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter. 
+2019-09-25 23:00:01.4741|TRACE| Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.4741|TRACE| Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:01.8476|DEBUG| Attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' ... 
+2019-09-25 23:00:01.8476|DEBUG| Attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' using the name '' in request data ... 
+2019-09-25 23:00:01.8722|DEBUG| Could not find a value in the request with name 'AutoGenerated' for binding property 'Chop9ja.API.Models.DateRange.AutoGenerated' of type 'System.Boolean'. 
+2019-09-25 23:00:01.8829|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.AutoGenerated' of type 'System.Boolean'. 
+2019-09-25 23:00:01.8937|DEBUG| Could not find a value in the request with name 'Start' for binding property 'Chop9ja.API.Models.DateRange.Start' of type 'System.DateTime'. 
+2019-09-25 23:00:01.8937|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.Start' of type 'System.DateTime'. 
+2019-09-25 23:00:01.9188|DEBUG| Could not find a value in the request with name 'End' for binding property 'Chop9ja.API.Models.DateRange.End' of type 'System.DateTime'. 
+2019-09-25 23:00:01.9332|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.End' of type 'System.DateTime'. 
+2019-09-25 23:00:01.9450|DEBUG| Done attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:01.9450|DEBUG| Done attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:01.9615|DEBUG| Attempting to validate the bound parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' ... 
+2019-09-25 23:00:01.9691|DEBUG| Done attempting to validate the bound parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:01.9691|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:01.9691|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:01.9691|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:01.9691|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:01.9837|INFO| Executing action method Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API) - Validation state: Valid 
+2019-09-25 23:00:01.9837|TRACE| Executing action method Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API) with arguments (Chop9ja.API.Models.DateRange) 
+2019-09-25 23:00:02.5923|INFO| Executed action method Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 596.0485ms. 
+2019-09-25 23:00:02.6015|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:02.6015|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:02.6100|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:02.6100|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:02.6100|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.6100|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.6100|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:02.6100|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:02.6100|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:02.6100|DEBUG| List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter 
+2019-09-25 23:00:02.6468|DEBUG| No information found on request to perform content negotiation. 
+2019-09-25 23:00:02.6468|DEBUG| Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2019-09-25 23:00:02.6659|DEBUG| Attempting to select the first formatter in the output formatters list which can write the result. 
+2019-09-25 23:00:02.6743|DEBUG| Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response. 
+2019-09-25 23:00:02.6743|INFO| Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Chop9ja.API.Models.Entities.BetViewModel, Chop9ja.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2019-09-25 23:00:02.7142|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:02.7142|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:02.7193|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:02.7193|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.7193|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.7193|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.7193|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:02.7193|INFO| Executed action Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API) in 2752.3335ms 
+2019-09-25 23:00:02.7356|INFO| Executed endpoint 'Chop9ja.API.Controllers.BetController.GetBets (Chop9ja.API)' 
+2019-09-25 23:00:02.7513|DEBUG| Connection id "0HLQ20EFGGPP0" completed keep alive response. 
+2019-09-25 23:00:02.7718|INFO| Request finished in 3029.6131ms 200 application/json; charset=utf-8 
+2019-09-25 23:00:03.2053|DEBUG| Attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' ... 
+2019-09-25 23:00:03.2053|DEBUG| Attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' using the name '' in request data ... 
+2019-09-25 23:00:03.2294|DEBUG| Could not find a value in the request with name 'AutoGenerated' for binding property 'Chop9ja.API.Models.DateRange.AutoGenerated' of type 'System.Boolean'. 
+2019-09-25 23:00:03.2365|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.AutoGenerated' of type 'System.Boolean'. 
+2019-09-25 23:00:03.2365|DEBUG| Could not find a value in the request with name 'Start' for binding property 'Chop9ja.API.Models.DateRange.Start' of type 'System.DateTime'. 
+2019-09-25 23:00:03.2598|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.Start' of type 'System.DateTime'. 
+2019-09-25 23:00:03.2722|DEBUG| Could not find a value in the request with name 'End' for binding property 'Chop9ja.API.Models.DateRange.End' of type 'System.DateTime'. 
+2019-09-25 23:00:03.2886|DEBUG| Done attempting to bind property 'Chop9ja.API.Models.DateRange.End' of type 'System.DateTime'. 
+2019-09-25 23:00:03.2959|DEBUG| Done attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:03.2959|DEBUG| Done attempting to bind parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:03.3119|DEBUG| Attempting to validate the bound parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange' ... 
+2019-09-25 23:00:03.3119|DEBUG| Done attempting to validate the bound parameter 'dateRange' of type 'Chop9ja.API.Models.DateRange'. 
+2019-09-25 23:00:03.3468|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:03.3468|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:03.3468|TRACE| Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:03.3468|TRACE| Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:03.3468|INFO| Executing action method Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API) - Validation state: Valid 
+2019-09-25 23:00:03.3681|TRACE| Executing action method Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API) with arguments (Chop9ja.API.Models.DateRange) 
+2019-09-25 23:00:07.5162|DEBUG| Connection id "0HLQ20EFGGPOS" received FIN. 
+2019-09-25 23:00:07.5162|DEBUG| Connection id "0HLQ20EFGGPP0" received FIN. 
+2019-09-25 23:00:07.5162|DEBUG| Connection id "0HLQ20EFGGPOS" sending FIN because: "The client closed the connection." 
+2019-09-25 23:00:07.5361|DEBUG| Connection id "0HLQ20EFGGPP0" disconnecting. 
+2019-09-25 23:00:07.5361|DEBUG| Connection id "0HLQ20EFGGPOS" disconnecting. 
+2019-09-25 23:00:07.5488|DEBUG| Connection id "0HLQ20EFGGPP0" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2019-09-25 23:00:07.5488|DEBUG| Connection id "0HLQ20EFGGPOS" stopped. 
+2019-09-25 23:00:07.5632|DEBUG| Connection id "0HLQ20EFGGPP0" stopped. 
+2019-09-25 23:00:08.4719|DEBUG| Connection id "0HLQ20EFGGPP1" started. 
+2019-09-25 23:00:08.4719|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/js/26.fb27073a.chunk.js   
+2019-09-25 23:00:08.4982|TRACE| All hosts are allowed. 
+2019-09-25 23:00:08.4997|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 23:00:08.4997|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 23:00:08.5245|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:08.5530|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:08.5619|DEBUG| No candidates found for the request path '/static/js/26.fb27073a.chunk.js' 
+2019-09-25 23:00:08.5619|DEBUG| Request did not match any endpoints 
+2019-09-25 23:00:08.5778|TRACE| Range header's value is empty. 
+2019-09-25 23:00:08.6037|INFO| Sending file. Request path: '/static/js/26.fb27073a.chunk.js'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\js\26.fb27073a.chunk.js' 
+2019-09-25 23:00:08.6176|DEBUG| Connection id "0HLQ20EFGGPP1" completed keep alive response. 
+2019-09-25 23:00:08.6266|INFO| Request finished in 143.7773ms 200 application/javascript 
+2019-09-25 23:00:08.6736|INFO| Request starting HTTP/1.1 GET http://localhost:7000/static/media/wallet.4b027e3a.jpg   
+2019-09-25 23:00:08.6866|TRACE| All hosts are allowed. 
+2019-09-25 23:00:08.6866|DEBUG| The request is insecure. Skipping HSTS header. 
+2019-09-25 23:00:08.7153|DEBUG| AuthenticationScheme: Bearer was not authenticated. 
+2019-09-25 23:00:08.7256|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:08.7256|DEBUG| The request path  does not match the path filter 
+2019-09-25 23:00:08.7382|DEBUG| No candidates found for the request path '/static/media/wallet.4b027e3a.jpg' 
+2019-09-25 23:00:08.7382|DEBUG| Request did not match any endpoints 
+2019-09-25 23:00:08.7562|TRACE| Range header's value is empty. 
+2019-09-25 23:00:08.7800|INFO| Sending file. Request path: '/static/media/wallet.4b027e3a.jpg'. Physical path: 'C:\Users\princ\source\repos\Chop9ja\Chop9ja.API\bin\debug\netcoreapp2.2\publish\wwwroot\static\media\wallet.4b027e3a.jpg' 
+2019-09-25 23:00:08.7952|DEBUG| Connection id "0HLQ20EFGGPP1" completed keep alive response. 
+2019-09-25 23:00:08.8073|INFO| Request finished in 133.7425ms 200 image/jpeg 
+2019-09-25 23:00:13.8484|INFO| Executed action method Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 10475.4719ms. 
+2019-09-25 23:00:13.8484|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:13.8484|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2019-09-25 23:00:13.8588|TRACE| Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:13.8588|TRACE| Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2019-09-25 23:00:13.8588|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.8588|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.8588|TRACE| Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:13.8588|TRACE| Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:13.8588|TRACE| Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:13.8588|DEBUG| List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter 
+2019-09-25 23:00:13.8834|DEBUG| No information found on request to perform content negotiation. 
+2019-09-25 23:00:13.8910|DEBUG| Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2019-09-25 23:00:13.8910|DEBUG| Attempting to select the first formatter in the output formatters list which can write the result. 
+2019-09-25 23:00:13.9120|DEBUG| Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response. 
+2019-09-25 23:00:13.9214|INFO| Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Chop9ja.API.Models.ViewModels.TransactionViewModel, Chop9ja.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2019-09-25 23:00:13.9523|TRACE| After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2019-09-25 23:00:13.9523|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:13.9523|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2019-09-25 23:00:13.9523|TRACE| Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.9523|TRACE| Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.9523|TRACE| Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.9523|TRACE| Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter. 
+2019-09-25 23:00:13.9697|INFO| Executed action Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API) in 12509.5096ms 
+2019-09-25 23:00:13.9697|INFO| Executed endpoint 'Chop9ja.API.Controllers.WalletController.GetTransactions (Chop9ja.API)' 
+2019-09-25 23:00:13.9884|DEBUG| Connection id "0HLQ20EFGGPOT" completed keep alive response. 
+2019-09-25 23:00:14.0111|INFO| Request finished in 12749.4477ms 200 application/json; charset=utf-8 
+2019-09-25 23:00:17.5192|DEBUG| Connection id "0HLQ20EFGGPP1" received FIN. 
+2019-09-25 23:00:17.5192|DEBUG| Connection id "0HLQ20EFGGPOT" received FIN. 
+2019-09-25 23:00:17.5192|DEBUG| Connection id "0HLQ20EFGGPP1" sending FIN because: "The client closed the connection." 
+2019-09-25 23:00:17.5521|DEBUG| Connection id "0HLQ20EFGGPOT" sending FIN because: "The client closed the connection." 
+2019-09-25 23:00:17.5521|DEBUG| Connection id "0HLQ20EFGGPP1" disconnecting. 
+2019-09-25 23:00:17.5637|DEBUG| Connection id "0HLQ20EFGGPOT" disconnecting. 
+2019-09-25 23:00:17.5637|DEBUG| Connection id "0HLQ20EFGGPP1" stopped. 
+2019-09-25 23:00:17.5790|DEBUG| Connection id "0HLQ20EFGGPOT" stopped. 
+2019-09-25 23:01:16.9921|DEBUG| Hosting shutdown 

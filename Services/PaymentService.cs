@@ -177,25 +177,42 @@ namespace Chop9ja.API.Services
         #endregion
 
         #region Bank
-        public async Task<PaymentResult> UseBank(User user, decimal amount, BankAccount userAccount, BankAccount platformAccount)
+        public async Task<PaymentResult> UseBank(User user, decimal amount, DateTime date, BankAccount userAccount, BankAccount platformAccount, string description = "")
         {
             PaymentChannel channel = await DataContext.Store.GetOneAsync<PaymentChannel>(p => p.Type == ChannelType.Bank);
 
             DepositPaymentRequest request = new DepositPaymentRequest()
             {
                 AddedAtUtc = DateTime.UtcNow,
+                TransactionDate = date,
                 User = user,
                 Amount = amount,
                 PaymentChannel = channel,
                 Status = RequestStatus.Pending,
+                Description = description,
                 TransactionType = TransactionType.Deposit,
-                UserBankAccountId = userAccount.Id,
+                UserBankAccountId = userAccount != null ? userAccount.Id : Guid.Empty,
                 PlatformBankAccountId = platformAccount.Id
             };
 
             await user.AddPaymentRequestAsync(request);
 
             return new PaymentResult() { Status = PaymentStatus.Pending };
+        }
+
+        public async Task<bool> ConcludeTransaction(PaymentRequest request)
+        {
+            bool success = request.Status != RequestStatus.Pending;
+            if (success) return false;
+
+            success = await CreateTransaction(request.User.Wallet, request.Amount, request.TransactionType, request.PaymentChannel.Type);
+
+            if (!success) return false;
+
+            request.Status = RequestStatus.Approved;
+            await DataContext.Store.UpdateOneAsync(request);
+
+            return true;
         }
 
         public async Task BankWithdrawal(User user, decimal amount, BankAccount account)
@@ -230,13 +247,13 @@ namespace Chop9ja.API.Services
             {
                 AddedAtUtc = DateTime.UtcNow,
                 Amount = amount,
-                AuxilaryUser = platformAccount,
+                AuxilaryUser = wallet.User,
                 PaymentChannel = channel,
                 Type = type,
             };
 
             await wallet.AddTransactionAsync(transaction);
-            await platformAccount.Wallet.AddTransactionAsync(new Transaction(transaction) { AuxilaryUser = wallet.User });
+            //await platformAccount.Wallet.AddTransactionAsync(new Transaction(transaction) { AuxilaryUser = wallet.User });
 
             return true;
         }

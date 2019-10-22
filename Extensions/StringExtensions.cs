@@ -36,7 +36,7 @@ namespace Chop9ja.API.Extensions
                 }
                 catch (Exception ex)
                 {
-                    //TODO Logging here
+                    Core.Log.Error($"An error occured while binding a string\n{ex}");
                 }
 
                 // remove substring with pattern

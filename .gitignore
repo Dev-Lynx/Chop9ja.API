@@ -7,3 +7,6 @@
 /obj
 /ApplicationBase
 /bin/Staging/netcoreapp2.2
+/credentials.json
+/wwwroot
+/App

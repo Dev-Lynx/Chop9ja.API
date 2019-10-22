@@ -102,4 +102,15 @@ namespace Chop9ja.API.Models.ViewModels
 
         public ChannelType Type { get; set; }
     }
+
+    public class FullPaymentChannelViewModel : PaymentChannelViewModel
+    {
+        public bool IsActive { get; set; }
+    }
+
+    public class ChannelUpdateViewModel
+    {
+        public ChannelType Type { get; set; }
+        public bool IsActive { get; set; }
+    }
 }

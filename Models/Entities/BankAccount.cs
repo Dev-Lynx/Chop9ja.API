@@ -104,4 +104,6 @@ namespace Chop9ja.API.Models.ViewModels
         [Required]
         public bool IsDefault { get; set; }
     }
+
+
 }

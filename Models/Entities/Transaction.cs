@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDbGenericRepository.Attributes;
 using MongoDbGenericRepository.Models;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -108,17 +109,29 @@ namespace Chop9ja.API.Models.Entities
 }
 
 
+#region ViewModel
 namespace Chop9ja.API.Models.ViewModels
 {
-    #region ViewModel
+    #region BackOffice
+
+    public class BackOfficeTransactionViewModel : TransactionViewModel
+    {
+        public Guid Id { get; set; }
+        public UserViewModel AuxilaryUser { get; set; }
+    }
+
+    #endregion
+
+    
 
     public class TransactionViewModel
     {
         public DateTime AddedAt { get; set; }
         public decimal Amount { get; set; }
+        [Sieve(CanFilter = true)]
         public Entities.TransactionType Type { get; set; }
         public PaymentChannelViewModel PaymentChannel { get; set; }
     }
-
-    #endregion
 }
+
+#endregion

@@ -121,7 +121,7 @@ namespace Chop9ja.API.Services
 
             if (!Generator.VerifyHotp(code, user.OneTimePasswords.LongCount())) return false;
 
-            return password.Code == code;
+            return await Task.FromResult(password.Code == code);
         }
         #endregion
 

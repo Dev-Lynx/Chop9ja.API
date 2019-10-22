@@ -6,6 +6,7 @@ using Chop9ja.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json.Linq;
 using NSwag.Annotations;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,26 @@ namespace Chop9ja.API.Controllers
         [SwaggerResponse(HttpStatusCode.BadRequest, typeof(string), Description = "An unexpected error occured.")]
         public async Task<IActionResult> Paystack([FromBody]PaystackTransactionResponse response)
         {
+            if (response == null)
+            {
+                Core.Log.Error("An error occured while using paystack. The response seems to be null!");
+                Core.Log.Debug("Attempting to output request body.");
+
+                try
+                {
+                    Request.Body.Seek(0, SeekOrigin.Begin);
+
+                    using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+                        Core.Log.Debug(await reader.ReadToEndAsync());
+                }
+                catch (Exception ex)
+                {
+                    Core.Log.Error($"An error occured while attempting to output a Paystack Request Body\n{ex}");
+                }
+                
+                return BadRequest("Response was invalid");
+            }
+
             // Make sure the webhook is calling to report success
             if (response.Event.ToLower() != PaymentService.PaystackOptions.TransactionEvent)
                 return BadRequest("Unknown Paystack Event");

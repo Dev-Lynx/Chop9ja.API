@@ -105,7 +105,7 @@ namespace Chop9ja.API.Extensions.Encryption
                     plainTextBytes = new byte[cleanCipherBytes.Length];
                     var decryptedByteCount = crypto.Read(plainTextBytes, 0, plainTextBytes.Length);
                 }
-                return Encoding.UTF8.GetString(plainTextBytes, 0, plainTextBytes.Length);
+                return Encoding.UTF8.GetString(plainTextBytes, 0, plainTextBytes.Length).Trim('\0');
             }
             catch (Exception e)
             {

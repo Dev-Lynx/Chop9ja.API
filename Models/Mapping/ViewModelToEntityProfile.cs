@@ -23,16 +23,23 @@ namespace Chop9ja.API.Models.Mapping
             CreateMap<User, UserOneTimePasswordModel>().ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName));
             CreateMap<UserViewModel, User>().ForMember(u => u.UserName, opt => opt.MapFrom(o => o.Username));
 
-
+            CreateMap<User, FullUserViewModel>()
+                .ForMember(u => u.Username, opt => opt.MapFrom(o => o.UserName))
+                .ForMember(u => u.Balance, opt => opt.MapFrom(o => o.Wallet.Balance))
+                .ForMember(u => u.BankAccounts, opt => opt.MapFrom(o => o.BankAccounts.Where(b => b.IsActive)));
 
             CreateMap<PaymentChannel, PaymentChannelViewModel>().
                 ForMember(c => c.PaymentRange, opt => opt.MapFrom(o => o.PaymentRange.ToString()));
+            CreateMap<PaymentChannel, FullPaymentChannelViewModel>().
+                ForMember(c => c.PaymentRange, opt => opt.MapFrom(o => o.PaymentRange.ToString()));
 
             CreateMap<Transaction, TransactionViewModel>();
+            CreateMap<Transaction, BackOfficeTransactionViewModel>();
             CreateMap<Wallet, WalletViewModel>();
 
             CreateMap<BankAccountViewModel, BankAccount>();
             CreateMap<BankAccount, UserBankAccountViewModel>();
+            CreateMap<BankAccount, BankAccountViewModel>();
 
             CreateMap<BetViewModel, Bet>();
             CreateMap<Bet, BetViewModel>()
@@ -46,12 +53,16 @@ namespace Chop9ja.API.Models.Mapping
 
             CreateMap<Bet, BackOfficeClaimViewModel>()
                 .ForMember(s => s.Status, opt => opt.MapFrom(b => b.CashOutStatus))
-                .ForMember(s => s.Date, opt => opt.MapFrom(b => b.CashedOutOn))
+                .ForMember(s => s.Date, opt => opt.MapFrom(b => b.AddedAt))
                 .ForMember(s => s.CashedOut, opt => opt.MapFrom(b => b.CashOutRequested));
 
             CreateMap<DepositPaymentRequest, UserDepositPaymentRequestViewModel>();
             CreateMap<PaymentRequest, UserPaymentRequestViewModel>()
                 .ForMember(p => p.Created, opt => opt.MapFrom(r => r.AddedAtUtc.ToLongDateString()))
+                .ForMember(p => p.UserBankAccount, opt => {
+                    opt.AllowNull();
+                    //opt.MapFrom(b => b.UserBankAccount);
+                })
                 .Include<DepositPaymentRequest, UserDepositPaymentRequestViewModel>();
         }
     }

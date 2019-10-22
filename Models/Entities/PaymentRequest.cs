@@ -16,15 +16,21 @@ namespace Chop9ja.API.Models.Entities
     [BsonDiscriminator(RootClass = true, Required = true)]
     public class PaymentRequest : Document
     {
+        public DateTime TransactionDate { get; set; }
         public decimal Amount { get; set; }
 
         [BsonIgnoreIfDefault]
         public Guid UserId { get; set; }
+
+        [BsonIgnoreIfDefault]
+        public string Username { get; set; }
+
         [BsonIgnoreIfDefault]
         public Guid PaymentChannelId { get; set; }
 
         public Guid UserBankAccountId { get; set; }
 
+        public string Description { get; set; }
         public TransactionType TransactionType { get; set; }
         public RequestStatus Status { get; set; }
 
@@ -41,7 +47,10 @@ namespace Chop9ja.API.Models.Entities
             set
             {
                 if (value != null)
+                {
                     UserId = value.Id;
+                    Username = value.UserName;
+                }
                 _user = value;
             }
         }
@@ -89,7 +98,7 @@ namespace Chop9ja.API.Models.Entities
             get
             {
                 if (_platformBankAccount == null || _platformBankAccount.Id == Guid.Empty)
-                    _platformBankAccount = User.BankAccounts.FirstOrDefault(b => b.Id == PlatformBankAccountId);
+                    _platformBankAccount = Core.DataContext.PlatformAccount.BankAccounts.FirstOrDefault(b => b.Id == PlatformBankAccountId);
                 return _platformBankAccount;
             }
         }

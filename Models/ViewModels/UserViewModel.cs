@@ -39,6 +39,13 @@ namespace Chop9ja.API.Models.ViewModels
         public bool LockoutEnabled { get; set; }
     }
 
+    public class FullUserViewModel : UserViewModel
+    {
+        public DateTime Created { get; set; }
+        public decimal Balance { get; set; }
+        public List<UserBankAccountViewModel> BankAccounts { get; set; }
+    }
+
     public class UserTokenViewModel : UserViewModel
     {
         public string Token { get; set; }
@@ -63,5 +70,10 @@ namespace Chop9ja.API.Models.ViewModels
         public string UserName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
+    }
+
+    public class DocumentIdViewModel
+    {
+        public string Id { get; set; }
     }
 }

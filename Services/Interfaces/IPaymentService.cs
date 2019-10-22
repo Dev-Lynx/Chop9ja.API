@@ -18,9 +18,10 @@ namespace Chop9ja.API.Services.Interfaces
         Task<bool> ValidatePaystackSignature(string signature, string request);
         Task<bool> ConcludePaystack(PaystackTransactionData data);
 
-        Task<PaymentResult> UseBank(User user, decimal amount, BankAccount userAccount, BankAccount platformAccount);
+        Task<PaymentResult> UseBank(User user, decimal amount, DateTime date, BankAccount userAccount, BankAccount platformAccount, string description = "");
         Task BankWithdrawal(User user, decimal amount, BankAccount account);
 
         Task<bool> CreateTransaction(Wallet wallet, decimal amount, TransactionType type, ChannelType channelType);
+        Task<bool> ConcludeTransaction(PaymentRequest request);
     }
 }

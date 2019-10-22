@@ -29,6 +29,13 @@
             </param>
             <returns>An OK Response</returns>
         </member>
+        <member name="M:Chop9ja.API.Controllers.AccountController.SetBankAccountAsDefault(Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel)">
+            <summary>
+            Set a bank account as default
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:Chop9ja.API.Controllers.AccountController.RemoveBankAccount(Chop9ja.API.Models.ViewModels.BankAccountIdViewModel)">
             <summary>
             Delete a bank account
@@ -140,6 +147,34 @@
             </summary>
             <param name="model">User login details.</param>
             <returns>A JWT access token or a collection of the errors found.</returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.ManagementController.GetPaymentChannels">
+            <summary>
+            Get the list of payment channels in the platform
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.ManagementController.UpdatePaymentChannel(Chop9ja.API.Models.ViewModels.ChannelUpdateViewModel)">
+            <summary>
+            Activate or deactivate a payment channel
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.ManagementController.GetPlatformBankAccounts">
+            <summary>
+            Get list of the platform's bank accounts
+            </summary>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.ManagementController.AddPlatformBankAccount(Chop9ja.API.Models.ViewModels.BankAccountViewModel)">
+            <summary>
+            Add an account number to the platform
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chop9ja.API.Controllers.BackOffice.ManagementController.RemoveBankAccount(Chop9ja.API.Models.ViewModels.BankAccountIdViewModel)">
+            <summary>
+            Delete a bank account from the platform
+            </summary>
+            <returns>An OK Response</returns>
         </member>
         <member name="T:Chop9ja.API.Controllers.BetController">
             <summary>
@@ -392,10 +427,26 @@
             Bank Account Number
             </summary>
         </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel.Id">
+            <summary>
+            Identity for the bank account. It should be stored for easy 
+            account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserDefaultBankAccountViewModel.IsDefault">
+            <summary>
+            Indicates that the current bank account is most preffered by the user.
+            </summary>
+        </member>
         <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.Id">
             <summary>
             Identity for the bank account. It should be stored for easy 
             account referencing.
+            </summary>
+        </member>
+        <member name="P:Chop9ja.API.Models.ViewModels.UserBankAccountViewModel.IsDefault">
+            <summary>
+            Indicates that the current bank account is most preffered by the user.
             </summary>
         </member>
         <member name="P:Chop9ja.API.Models.ViewModels.PaymentChannelViewModel.Name">

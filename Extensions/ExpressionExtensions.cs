@@ -8,14 +8,46 @@ using System.Threading.Tasks;
 
 namespace Chop9ja.API.Extensions
 {
+    internal class SubstExpressionVisitor : System.Linq.Expressions.ExpressionVisitor
+    {
+        public Dictionary<Expression, Expression> subst = new Dictionary<Expression, Expression>();
+
+        protected override Expression VisitParameter(ParameterExpression node)
+        {
+            Expression newValue;
+            if (subst.TryGetValue(node, out newValue))
+            {
+                return newValue;
+            }
+            return node;
+        }
+    }
+
     public static class ExpressionExtensions
     {
-        /*
-        public static Expression<TDelegate> AndAlso<TDelegate>(this Expression<TDelegate> left, Expression<TDelegate> right)
+        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> a, Expression<Func<T, bool>> b)
         {
-            return Expression.Lambda<TDelegate>(Expression.AndAlso(left, right), left.Parameters);
+
+            ParameterExpression p = a.Parameters[0];
+
+            SubstExpressionVisitor visitor = new SubstExpressionVisitor();
+            visitor.subst[b.Parameters[0]] = p;
+
+            Expression body = Expression.AndAlso(a.Body, visitor.Visit(b.Body));
+            return Expression.Lambda<Func<T, bool>>(body, p);
         }
-        */
+
+        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> a, Expression<Func<T, bool>> b)
+        {
+
+            ParameterExpression p = a.Parameters[0];
+
+            SubstExpressionVisitor visitor = new SubstExpressionVisitor();
+            visitor.subst[b.Parameters[0]] = p;
+
+            Expression body = Expression.OrElse(a.Body, visitor.Visit(b.Body));
+            return Expression.Lambda<Func<T, bool>>(body, p);
+        }
 
         public static Expression<Func<TInput, bool>> CombineWithAndAlso<TInput>(this Expression<Func<TInput, bool>> func1, Expression<Func<TInput, bool>> func2)
         {
@@ -28,12 +60,12 @@ namespace Chop9ja.API.Extensions
         public static Expression<Func<TInput, bool>> CombineWithOrElse<TInput>(this Expression<Func<TInput, bool>> func1, Expression<Func<TInput, bool>> func2)
         {
             return Expression.Lambda<Func<TInput, bool>>(
-                Expression.AndAlso(
+                Expression.OrElse(
                     func1.Body, new ExpressionParameterReplacer(func2.Parameters, func1.Parameters).Visit(func2.Body)),
                 func1.Parameters);
         }
 
-        
+
 
         class ExpressionParameterReplacer : ExpressionVisitor
         {

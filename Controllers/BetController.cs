@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MongoDbGenericRepository.Models;
 using NSwag.Annotations;
+using Sieve.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,9 @@ namespace Chop9ja.API.Controllers
 
         [DeepDependency]
         ISmsService SmsService { get; }
+
+        [DeepDependency]
+        ISieveProcessor Sieve { get; }
         #endregion
 
         #endregion

@@ -1,10 +1,11 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "b0cfe45731a69779f9a2b64de58d92a916dd6026"
+    "signature": "f170f9857cd9f9420c429acee0774cf6be0c3dd2"
   },
   "compilationOptions": {
     "defines": [
+      "DEBUG",
       "TRACE",
       "DEBUG",
       "NETCOREAPP",
@@ -18,7 +19,7 @@
     "keyFile": "",
     "emitEntryPoint": true,
     "xmlDoc": true,
-    "debugType": "portable"
+    "debugType": "full"
   },
   "targets": {
     ".NETCoreApp,Version=v2.2": {
@@ -42,10 +43,12 @@
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.CookiePolicy": "2.2.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
           "Microsoft.AspNetCore.HttpsPolicy": "2.2.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.AspNetCore.StaticFiles": "2.2.0",
+          "Microsoft.AspNetCore.WebHooks.Receivers": "1.0.0-preview2-final",
           "Microsoft.Extensions.Logging": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.4.10",
@@ -54,9 +57,12 @@
           "NLog.Web.AspNetCore": "4.8.2",
           "NSwag.AspNetCore": "12.3.1",
           "Otp.NET": "1.2.1",
+          "Paystack.Net": "0.7.4",
           "Sendgrid": "9.11.0",
+          "Sieve": "2.3.2",
           "Unity.Microsoft.DependencyInjection": "5.10.2",
-          "libphonenumber-csharp": "8.10.13"
+          "WebMarkupMin.Core": "2.5.8",
+          "libphonenumber-csharp": "8.10.14"
         },
         "runtime": {
           "Chop9ja.API.dll": {}
@@ -567,11 +573,14 @@
           "lib/netstandard1.5/Grpc.Core.dll": {}
         }
       },
-      "libphonenumber-csharp/8.10.13": {
+      "libphonenumber-csharp/8.10.14": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.5.0"
+        },
         "runtime": {
           "lib/netstandard2.0/PhoneNumbers.dll": {
-            "assemblyVersion": "8.10.13.0",
-            "fileVersion": "8.10.13.0"
+            "assemblyVersion": "8.10.14.0",
+            "fileVersion": "8.10.14.0"
           }
         },
         "compile": {
@@ -608,6 +617,21 @@
         },
         "compile": {
           "lib/netstandard2.0/MailKit.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.WebHooks.Receivers/1.0.0-preview2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.WebHooks.Receivers.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.18096"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.WebHooks.Receivers.dll": {}
         }
       },
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.4.10": {},
@@ -893,6 +917,20 @@
           "lib/netstandard1.3/Otp.NET.dll": {}
         }
       },
+      "Paystack.Net/0.7.4": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/PayStack.Net.dll": {
+            "assemblyVersion": "0.7.4.0",
+            "fileVersion": "0.7.4.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/PayStack.Net.dll": {}
+        }
+      },
       "Portable.BouncyCastle/1.8.2": {
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
@@ -1016,6 +1054,22 @@
         },
         "compile": {
           "lib/netstandard2.0/SendGrid.dll": {}
+        }
+      },
+      "Sieve/2.3.2": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.Extensions.Options": "2.2.0",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Sieve.dll": {
+            "assemblyVersion": "2.3.2.0",
+            "fileVersion": "2.3.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Sieve.dll": {}
         }
       },
       "System.ComponentModel/4.0.1": {
@@ -1290,6 +1344,17 @@
         },
         "compile": {
           "lib/netcoreapp1.1/Unity.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "WebMarkupMin.Core/2.5.8": {
+        "runtime": {
+          "lib/netstandard2.0/WebMarkupMin.Core.dll": {
+            "assemblyVersion": "2.5.8.0",
+            "fileVersion": "2.5.8.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/WebMarkupMin.Core.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4644,12 +4709,12 @@
       "path": "grpc.core/1.18.0",
       "hashPath": "grpc.core.1.18.0.nupkg.sha512"
     },
-    "libphonenumber-csharp/8.10.13": {
+    "libphonenumber-csharp/8.10.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QH5b91D2Zz8TbEpppOOVWFAxBHOtGmPgAmOPgi0575DjashbYgk5miJod1tpyEegLPNWodHzDoDhti4Ugi4C4Q==",
-      "path": "libphonenumber-csharp/8.10.13",
-      "hashPath": "libphonenumber-csharp.8.10.13.nupkg.sha512"
+      "sha512": "sha512-9o3+LSndqtqLUidSA5kQ+5C0+3P4knfC1MUWQWZUW0EdJ2BAJnSMmSgNYKiWdN6+NWB+e3BrRKIGgQEgj+zuVA==",
+      "path": "libphonenumber-csharp/8.10.14",
+      "hashPath": "libphonenumber-csharp.8.10.14.nupkg.sha512"
     },
     "LiteDB/4.1.4": {
       "type": "package",
@@ -4664,6 +4729,13 @@
       "sha512": "sha512-/xOjchdUn0WTdQBNh/R0+w/u0IaZz7E4gRqEJH74I5Ldxy++5ycw9VqDlmNbNoI4ityWc7wb8JIFtbpeNK0+6w==",
       "path": "mailkit/2.1.5.1",
       "hashPath": "mailkit.2.1.5.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.WebHooks.Receivers/1.0.0-preview2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UbBJqabdrJnXxlg/q2OqGsoslfrmD9HC4jOT6xahU2K6Ufi9KF6yIpUW7IFteYLLJptoGR941FzzbemDlstgSA==",
+      "path": "microsoft.aspnetcore.webhooks.receivers/1.0.0-preview2-final",
+      "hashPath": "microsoft.aspnetcore.webhooks.receivers.1.0.0-preview2-final.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.4.10": {
       "type": "package",
@@ -4798,6 +4870,13 @@
       "path": "otp.net/1.2.1",
       "hashPath": "otp.net.1.2.1.nupkg.sha512"
     },
+    "Paystack.Net/0.7.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cyqfq5EFASGRQygGAWis8gvr696YYusMPqdzhmEmDWDzoWdTgxZgKvNgpp+44LvRngKpKbTFTFvtTB3K9G3o5A==",
+      "path": "paystack.net/0.7.4",
+      "hashPath": "paystack.net.0.7.4.nupkg.sha512"
+    },
     "Portable.BouncyCastle/1.8.2": {
       "type": "package",
       "serviceable": true,
@@ -4895,6 +4974,13 @@
       "sha512": "sha512-I3VdLmsDbqazS5k8OsMAuKvnZz3YruNQxOACfVMDdrM5jjlQE/jOoaNJXcZEG+49TbanCVvOldE56pbKxdiVGA==",
       "path": "sendgrid/9.11.0",
       "hashPath": "sendgrid.9.11.0.nupkg.sha512"
+    },
+    "Sieve/2.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZuTQpJD6pZ1XGllMHjLSj1d59kuG/HmMk8g8XXOsRjCGihxZFuwlPuXOa+h0qROdQufgfZ/fhNJFdxlYaH48/Q==",
+      "path": "sieve/2.3.2",
+      "hashPath": "sieve.2.3.2.nupkg.sha512"
     },
     "System.ComponentModel/4.0.1": {
       "type": "package",
@@ -5007,6 +5093,13 @@
       "sha512": "sha512-guxBhiik+ChCG5DaB7IiuZeqJ3d6TN2zHB40Kr9jfaN6MXZuVeQbnjmSIj39ynjKUzHnOmtyFHLRvD+Cv9dSZw==",
       "path": "unity.microsoft.dependencyinjection/5.10.2",
       "hashPath": "unity.microsoft.dependencyinjection.5.10.2.nupkg.sha512"
+    },
+    "WebMarkupMin.Core/2.5.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lwmYYS+z/OKAh+5zQ4tD6sjXYpLEBlmq45wA29LLzQOu+HU5bH/l/v3Yyut+l2EvR/Ws04UilMMjfVw4+62Lng==",
+      "path": "webmarkupmin.core/2.5.8",
+      "hashPath": "webmarkupmin.core.2.5.8.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

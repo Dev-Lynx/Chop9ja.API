@@ -108,7 +108,7 @@ namespace Chop9ja.API.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<PaymentChannelViewModel>), Description = "List of available payment methods")]
         public async Task<IActionResult> GetPaymentChannels()
         {
-            var channels = await DataContext.Store.GetAllAsync<PaymentChannel>(p => p.Type != ChannelType.Chop9ja && p.Type != ChannelType.Bank && p.IsActive);
+            var channels = await DataContext.Store.GetAllAsync<PaymentChannel>(p => p.Type != ChannelType.Chop9ja && p.IsActive);
             return Ok(Mapper.Map<IEnumerable<PaymentChannelViewModel>>(channels));
         }
 
@@ -119,7 +119,7 @@ namespace Chop9ja.API.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<UserBankAccountViewModel>), Description = "List of available bank accounts for deposit")]
         public IActionResult GetPlatformBankAccounts()
         {
-            return Ok(Mapper.Map<IEnumerable<UserBankAccountViewModel>>(DataContext.PlatformAccount.BankAccounts));
+            return Ok(Mapper.Map<IEnumerable<UserBankAccountViewModel>>(DataContext.PlatformAccount.BankAccounts.Where(p => p.IsActive)));
         }
 
         /// <summary>
@@ -135,7 +135,8 @@ namespace Chop9ja.API.Controllers
             if (user == null) return Unauthorized();
 
             var requests = Mapper.Map<IEnumerable<UserDepositPaymentRequestViewModel>>(
-                user.PaymentRequests.Where(r => r.TransactionType == TransactionType.Deposit));
+                user.PaymentRequests.Where(r => r.TransactionType == TransactionType.Deposit)
+                .Cast<DepositPaymentRequest>());
             return Ok(requests);
         }
 
@@ -172,13 +173,13 @@ namespace Chop9ja.API.Controllers
                 case ChannelType.Bank:
                     BankAccount account = user.BankAccounts.FirstOrDefault(b => b.IsActive && b.Id == model.UserBankAccountId);
 
-                    if (account == null) return NotFound("Invalid User Account Id");
+                    // if (account == null) return NotFound("Invalid User Account Id");
 
                     BankAccount platformAccount = DataContext.PlatformAccount.BankAccounts.FirstOrDefault(b => b.IsActive && b.Id == model.PlatformBankAccountId);
 
                     if (platformAccount == null) return NotFound("Invalid Platform Account Id");
 
-                    result = await PaymentService.UseBank(user, model.Amount, account, platformAccount);
+                    result = await PaymentService.UseBank(user, model.Amount, model.Date, account, platformAccount, model.Description);
                     break;
             }
 

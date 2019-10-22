@@ -51,6 +51,10 @@ using PayStack.Net;
 using Chop9ja.API.Extensions.Conventions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
+using Sieve.Services;
+using Microsoft.Extensions.FileProviders;
+using Chop9ja.API.Extensions.Configuration;
+
 
 // July 22nd, 1998
 namespace Chop9ja.API
@@ -63,8 +67,8 @@ namespace Chop9ja.API
         IConfiguration Configuration { get; }
         IHostingEnvironment CurrentEnvironment { get; }
         IServiceCollection ServiceCollection { get; set; }
-        string ConnectionString => Configuration.GetConnectionString("MongoDBAtlasConnection").Replace("|MongoDatabaseName|", DatabaseName);
-        string DatabaseName => Configuration.GetConnectionString("MongoDatabaseName");
+        string ConnectionString { get; set; }
+        string DatabaseName { get; set; }
         JwtIssuerOptions JwtIssuerOptions { get; set; }
 
         #endregion
@@ -80,6 +84,8 @@ namespace Chop9ja.API
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile("appsettings.overrides.json", optional: true, reloadOnChange: true)
+                .AddProtectedProvider("appsettings.secrets.json", optional: true, reloadOnChange: true,
+                    cipher: Environment.GetEnvironmentVariable(Core.CONFIG_PROTECTION_KEY))
                 .AddEnvironmentVariables().Build();
         }
         #endregion
@@ -103,8 +109,8 @@ namespace Chop9ja.API
                 options.MaxAge = TimeSpan.FromDays(60);
             });
 
+            /*
             bool isDevelopment = CurrentEnvironment.IsDevelopment();
-
             if (isDevelopment)
             {
                 services.AddHttpsRedirection(options =>
@@ -113,6 +119,7 @@ namespace Chop9ja.API
                     options.HttpsPort = isDevelopment ? 5001 : 443;
                 });
             }
+            */
             
 
             services.AddAutoMapper(config => config.AddProfile<ViewModelToEntityProfile>(), Assembly.GetCallingAssembly());
@@ -123,6 +130,7 @@ namespace Chop9ja.API
                 options.ForwardedHeaders =
                     ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
             });
+
 
             ConfigureOptions(services);
             ConfigureAuthentication(services);
@@ -163,7 +171,9 @@ namespace Chop9ja.API
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            
             app.UseForwardedHeaders();
+            /*
             app.Use(async (context, next) =>
             {
                 if (context.Request.IsHttps || context.Request.Headers["X-Forwarded-Proto"] == Uri.UriSchemeHttps)
@@ -178,6 +188,7 @@ namespace Chop9ja.API
                     context.Response.Redirect(https);
                 }
             });
+            */
 
             if (env.IsDevelopment())
             {
@@ -186,13 +197,11 @@ namespace Chop9ja.API
             else
             {
                 app.UseHsts();
-
-                
             }
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             
 
@@ -229,6 +238,7 @@ namespace Chop9ja.API
             //container.RegisterTransient<UserDataContext>();
 
             container.RegisterFactory<MongoDataContext>(s => new MongoDataContext(ConnectionString, DatabaseName));
+            container.RegisterScoped<ISieveProcessor, SieveProcessor>();
 
             container.RegisterControllers();
 
@@ -294,6 +304,12 @@ namespace Chop9ja.API
                 opt.SigningCredentials = JwtIssuerOptions.SigningCredentials;
                 opt.Subject = opt.Subject;
             });
+
+            var mongoDbOptions = Configuration.GetSection(MongoDBOptions.CONFIG_KEY).Get<MongoDBOptions>();
+            ConnectionString = Configuration.GetConnectionString("MongoDBAtlasConnection");
+            ConnectionString = ConnectionString.BindTo(mongoDbOptions);
+            DatabaseName = mongoDbOptions.DatabaseName;
+            services.Configure<MongoDBOptions>((opt) => opt = mongoDbOptions);
 
             return services;
         }

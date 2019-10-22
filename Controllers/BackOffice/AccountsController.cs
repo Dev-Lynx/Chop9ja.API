@@ -11,8 +11,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Sieve.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,6 +44,9 @@ namespace Chop9ja.API.Controllers.BackOffice
 
         [DeepDependency]
         IMapper Mapper { get; }
+
+        [DeepDependency]
+        ISieveProcessor Sieve { get; }
         #endregion
 
         #endregion
@@ -60,10 +66,12 @@ namespace Chop9ja.API.Controllers.BackOffice
             if (search)
             {
                 string query = model.SearchQuery.ToLower();
+
                 filter = filter.CombineWithAndAlso(u => 
                     u.FirstName.ToLower().Contains(query) ||
                     u.LastName.ToLower().Contains(query) ||
-                    u.UserName.ToLower().Contains(query));
+                    u.UserName.ToLower().Contains(query) || 
+                    u.Email.ToLower().Contains(query));
             }
 
             IEnumerable<User> accounts = await DataContext.Store.GetAllAsync(filter);
@@ -75,6 +83,60 @@ namespace Chop9ja.API.Controllers.BackOffice
                     regularAccounts.Add(account);
             
             return Ok(Mapper.Map<IEnumerable<AccountViewModel>>(regularAccounts));
+        }
+
+        [HttpGet("single")]
+        public async Task<IActionResult> GetAccount([FromQuery]DocumentIdViewModel model)
+        {
+            User user = await UserManager.FindByIdAsync(model.Id);
+
+            if (user == null) return NotFound();
+
+            return Ok(Mapper.Map<FullUserViewModel>(user));
+        }
+
+        [HttpGet("single/transactions")]
+        public async Task<IActionResult> GetTransactions([FromQuery]DocumentIdViewModel model)
+        {
+            User user = await UserManager.FindByIdAsync(model.Id);
+
+            if (user == null) return NotFound();
+
+            var transactions = await user.Wallet.GetTransactions();
+
+            return Ok(Mapper.Map<IEnumerable<TransactionViewModel>>(transactions));
+        }
+
+        [HttpGet("bets")]
+        public async Task<IActionResult> GetBets([FromQuery]DateRangeSieveModel model)
+        {
+            bool search = !string.IsNullOrWhiteSpace(model.SearchQuery);
+
+            DateRange range = new DateRange(model.Start, model.End);
+            var filter = range.Includes<Bet>();
+
+            if (search)
+            {
+                string query = model.SearchQuery.ToLower();
+
+                // Also search using platform
+                string platformPath = Path.Combine(Core.DATA_DIR, "betPlatforms.json");
+                string json = await System.IO.File.ReadAllTextAsync(platformPath);
+                var platforms = JsonConvert.DeserializeObject<List<BetPlatform>>(json)
+                    .Where(p => p.Name.ToLower().Contains(query));
+
+                filter = filter.And(c =>
+                    c.SlipNumber.ToLower().Contains(query));
+
+                foreach (var platform in platforms)
+                    filter = filter.Or(c => c.PlatformId == platform.Id);
+            }
+
+            IEnumerable<Bet> claims = await DataContext.Store.GetAllAsync(filter);
+
+            var data = Sieve.Apply(model, Mapper.Map<IEnumerable<BackOfficeClaimViewModel>>(claims).AsQueryable());
+
+            return Ok(data);
         }
 
         [HttpGet("claims")]
@@ -98,7 +160,7 @@ namespace Chop9ja.API.Controllers.BackOffice
         }
 
         [HttpPost("claims/update")]
-        public async Task<IActionResult> UpdateClaim(BackOfficeClaimUpdateViewModel model)
+        public async Task<IActionResult> UpdateClaim(StatusUpdateViewModel model)
         {
             if (!Guid.TryParse(model.Id, out Guid claimId)) return NotFound();
 

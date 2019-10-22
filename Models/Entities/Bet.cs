@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDbGenericRepository.Attributes;
 using MongoDbGenericRepository.Models;
+using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -40,6 +41,7 @@ namespace Chop9ja.API.Models.Entities
         }
 
         public Guid UserId { get; set; }
+        public string Username { get; set; }
 
         User _user;
         [BsonIgnore]
@@ -54,7 +56,10 @@ namespace Chop9ja.API.Models.Entities
             set
             {
                 if (value != null)
+                {
                     UserId = value.Id;
+                    Username = value.UserName;
+                }
                 _user = value;
             }
         }
@@ -74,6 +79,7 @@ namespace Chop9ja.API.Models.Entities
     public class BetViewModel
     {
         [Required]
+        [Sieve(CanSort = true)]
         public DateTime Date { get; set; }
         [Required]
         public int PlatformId { get; set; }
@@ -88,6 +94,7 @@ namespace Chop9ja.API.Models.Entities
         [Required]
         public decimal PotentialWinnings { get; set; }
         [Required]
+        [Sieve(CanFilter = true)]
         public bool CashedOut { get; set; }
     }
 
@@ -105,7 +112,7 @@ namespace Chop9ja.API.Models.Entities
         public Guid UserId { get; set; }
     }
 
-    public class BackOfficeClaimUpdateViewModel
+    public class StatusUpdateViewModel
     {
         [Required]
         public string Id { get; set; }

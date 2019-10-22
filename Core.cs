@@ -1,12 +1,14 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Infrastructure;
 using AspNetCore.Identity.MongoDbCore.Models;
 using Chop9ja.API.Data;
+using Chop9ja.API.Extensions.Configuration;
 using Chop9ja.API.Models.Entities;
 using FluentScheduler;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using Newtonsoft.Json;
 using NLog;
 using NLog.Conditions;
@@ -16,9 +18,11 @@ using NLog.Targets;
 using PhoneNumbers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity;
 
@@ -51,6 +55,7 @@ namespace Chop9ja.API
         public static readonly string RUNTIME_LOG_NAME = $"Runtime_{DateTime.Now.ToString("MM-yyyy")}";
         public const string REGION = "NG";
         public const string SQL_SERVER_CONNECTION_STRING = "Server=(localdb)\\MSSQLLocalDB;Integrated Security=true;AttachDbFilename=|DataDirectory|\\Identity.mdf;Initial Catalog=Chop9ja";
+        public const string CONFIG_PROTECTION_KEY = "CHOP9JA_CONFIG_KEY";
         #endregion
 
         #region Directories
@@ -242,8 +247,13 @@ namespace Chop9ja.API
             InitializeData().Wait();
 
             if (StartupArguments.Length > 0)
-                if (StartupArguments[0] == "--seed")
+            {
+                if (StartupArguments.Contains("--seed"))
                     SeedUsers().Wait();
+                else if (StartupArguments.Contains("--transactionFix"))
+                    FixTransactionBugs().Wait();
+            }
+                
 
             Core.Log.Debug($"{PRODUCT_NAME} has successfully been initialized.");
             return Task.CompletedTask;
@@ -348,6 +358,42 @@ namespace Chop9ja.API
             }
         }
 
+        static async Task<bool> FixTransactionBugs()
+        {
+            var watch = Stopwatch.StartNew();
+            List<Wallet> wallets = new List<Wallet>();
+            try
+            {
+                wallets = await DataContext.Store.GetAllAsync<Wallet>(t => true);
+
+                // Backup Wallets
+                //string path = Path.Combine(Core.DATA_DIR, "Wallets " + DateTime.Now.ToFileTime() + ".json");
+                //string json = JsonConvert.SerializeObject(wallets);
+                //await File.WriteAllTextAsync(path, json);
+
+
+                foreach (var wallet in wallets)
+                    foreach (var transaction in await wallet.GetTransactions())
+                    {
+                        transaction.AuxilaryUserId = wallet.UserId;
+                        if (await DataContext.Store.UpdateOneAsync(transaction))
+                            Core.Log.Debug($"Successfully updated, {transaction.Id}");
+                        else Core.Log.Debug($"Something went wrong, transaction ({transaction.Id}) update failed");
+                    }
+
+                watch.Stop();
+                Core.Log.Debug($"Successfully completed in " + watch.Elapsed);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Core.Log.Debug($"An error occured while backing up transactions\n{ex.Message}");
+                return false;
+            }
+
+        }
+
         static async Task ConfigureBanks()
         {
             string bankData = Path.Combine(DATA_DIR, "banks.json");
@@ -366,6 +412,37 @@ namespace Chop9ja.API
             return Task.CompletedTask;
         }
 
+        public static void DeploySecrets()
+        {
+            var attribute = Assembly.GetEntryAssembly().GetCustomAttribute<UserSecretsIdAttribute>();
+
+            if (attribute == null)
+            {
+                Core.Log.Debug("Failed to get UserSecretsIdAttribute");
+                return;
+            }
+
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                $@"Microsoft\UserSecrets\{attribute.UserSecretsId}\secrets.json");
+
+            try
+            {
+                using (Stream stream = new FileStream(path, FileMode.Open))
+                {
+                    string key = Environment.GetEnvironmentVariable(Core.CONFIG_PROTECTION_KEY);
+                    Core.Log.Debug($"Encrypting user secrets using environmental variable '{key}'");
+
+                    string protectedSecrets = ProtectedConfigurationProvider.Protect(stream, key);
+                    File.WriteAllText(Path.Combine(BASE_DIR, "appsettings.secrets.json"), protectedSecrets);
+
+                    Core.Log.Debug("User-Secrets have successfully been protected");
+                }
+            }
+            catch (Exception ex)
+            {
+                Core.Log.Error($"An error occured while exporting protecting user secrets\n{ex}");
+            }
+        }
         #endregion
     }
 }

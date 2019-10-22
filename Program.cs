@@ -19,14 +19,25 @@ namespace Chop9ja.API
         public static void Main(string[] args)
         {
             Core.StartupArguments = args;
+
+            if (Core.StartupArguments.Contains("--deploy-secrets"))
+            {
+                Core.DeploySecrets();
+                Environment.Exit(0);
+            }
+
+
             IWebHost host = CreateWebHostBuilder(args).Build();
+				
             Core.Initialize(host);
             host.Run();
-                //.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel().UseUrls("http://0.0.0.0:5000")
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();

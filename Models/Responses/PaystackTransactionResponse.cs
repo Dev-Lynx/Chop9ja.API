@@ -15,16 +15,16 @@ namespace Chop9ja.API.Models.Responses
     public class PaystackTransactionData
     {
         public string Id { get; set; }
-        public string Domain { get; set; }
+        // public string Domain { get; set; }
         public string Reference { get; set; }
         public string Amount { get; set; }
-        public string Message { get; set; }
+        // public string Message { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        public DateTime PaidAt { get; set; }
+        // public DateTime CreatedAt { get; set; }
+        // public DateTime PaidAt { get; set; }
 
-        public string GateWayResponse { get; set; }
-        public decimal Fees { get; set; }
+        // public string GateWayResponse { get; set; }
+        // public decimal Fees { get; set; }
         public Dictionary<string, object> Metadata { get; set; }
 
         public PaystackPaymentAuthorization Authorization { get; set; }
